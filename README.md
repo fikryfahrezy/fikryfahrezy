@@ -1,6 +1,6 @@
+<!--
 ### Hi there 👋
 
-<!--
 **fikryfahrezy/fikryfahrezy** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
@@ -14,3 +14,31 @@ Here are some ideas to get you started:
 - 😄 Pronouns: ...
 - ⚡ Fun fact: ...
 -->
+
+# Hello :wave:
+![lizheming's Github stats](https://github-readme-stats.vercel.app/api?username=fikryfahrezy&show_icons=true)
+[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=fikryfahrezy&layout=compact)](https://github.com/anuraghazra/github-readme-stats)
+
+## What I Use :star:
+<p>
+<img alt="HTML" src="https://img.shields.io/badge/-HTML-dd4b25?style=flat-square&logo=html5&logoColor=white" />
+<img alt="CSS" src="https://img.shields.io/badge/-CSS-254bdd?style=flat-square&logo=css3&logoColor=white" />
+<img alt="JavaScript" src="https://img.shields.io/badge/-JavaScript-efd81d?style=flat-square&logo=javascript&logoColor=white" />
+<img alt="React" src="https://img.shields.io/badge/-React-61dafb?style=flat-square&logo=react&logoColor=white" />
+<img alt="NextJS" src="https://img.shields.io/badge/-Next-111?style=flat-square&logo=next.js&logoColor=white" />
+<img alt="redux" src="https://img.shields.io/badge/-Redux-764ABC?style=flat-square&logo=redux&logoColor=white" />
+<img alt="GraphQL" src="https://img.shields.io/badge/-GraphQL-E10098?style=flat-square&logo=graphql&logoColor=white" />
+<img alt="npm" src="https://img.shields.io/badge/-NPM-CB3837?style=flat-square&logo=npm&logoColor=white" />
+<img alt="Nodejs" src="https://img.shields.io/badge/-Nodejs-43853d?style=flat-square&logo=Node.js&logoColor=white" />
+<img alt="ExpressJS" src="https://img.shields.io/badge/-Express.js-111?style=flat-square" />
+<img alt="Prisma" src="https://img.shields.io/badge/-Prisma-1a202c?style=flat-square" />
+<img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white" />
+<img alt="MySQL" src="https://img.shields.io/badge/-MySQL-de8900?style=flat-square&logo=mysql&logoColor=white" />
+<img alt="Redis" src="https://img.shields.io/badge/-Redis-d82b21?style=flat-square&logo=redis&logoColor=white" />
+<img alt="PostgreSQL" src="https://img.shields.io/badge/-PostgeSQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
+<img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
+<img alt="Docker" src="https://img.shields.io/badge/-Docker-2391e6?style=flat-square&logo=docker&logoColor=white" />
+<img alt="Prisma" src="https://img.shields.io/badge/-NGINX-099639?style=flat-square&logo=nginx&logoColor=white" />
+<img alt="Linux" src="https://img.shields.io/badge/-Linux-111?style=flat-square&logo=linux&logoColor=white" />
+<img alt="Windows" src="https://img.shields.io/badge/-Windows-0742bb?style=flat-square&logo=windows&logoColor=white" />
+</p>
