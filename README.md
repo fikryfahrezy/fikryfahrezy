@@ -36,11 +36,6 @@ Here are some ideas to get you started:
 <img alt="Prisma" src="https://img.shields.io/badge/-Prisma-1a202c?style=flat-square" />
 <img alt="MongoDB" src="https://img.shields.io/badge/-MongoDB-13aa52?style=flat-square&logo=mongodb&logoColor=white" />
 <img alt="MySQL" src="https://img.shields.io/badge/-MySQL-de8900?style=flat-square&logo=mysql&logoColor=white" />
-<img alt="Redis" src="https://img.shields.io/badge/-Redis-d82b21?style=flat-square&logo=redis&logoColor=white" />
-<img alt="PostgreSQL" src="https://img.shields.io/badge/-PostgeSQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
 <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
-<img alt="Docker" src="https://img.shields.io/badge/-Docker-2391e6?style=flat-square&logo=docker&logoColor=white" />
-<img alt="Prisma" src="https://img.shields.io/badge/-NGINX-099639?style=flat-square&logo=nginx&logoColor=white" />
-<img alt="Linux" src="https://img.shields.io/badge/-Linux-111?style=flat-square&logo=linux&logoColor=white" />
 <img alt="Windows" src="https://img.shields.io/badge/-Windows-0742bb?style=flat-square&logo=windows&logoColor=white" />
 </p>
