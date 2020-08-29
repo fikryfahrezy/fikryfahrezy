@@ -1,3 +1,4 @@
+<!-- DEFAULT -->
 <!--
 ### Hi there 👋
 
@@ -15,6 +16,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
+<!-- v1 -->
 # Hello :wave:
 ![fikryfahrezy's Github stats](https://github-readme-stats.vercel.app/api?username=fikryfahrezy&show_icons=true)
 
