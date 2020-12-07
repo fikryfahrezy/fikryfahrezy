@@ -1,7 +1,7 @@
 <!-- DEFAULT -->
-<!--
 ### Hi there 👋
 
+<!--
 **fikryfahrezy/fikryfahrezy** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
 Here are some ideas to get you started:
@@ -17,7 +17,7 @@ Here are some ideas to get you started:
 -->
 
 <!-- v1 -->
-# Hello :wave:
+<!-- # Hello :wave:
 ![fikryfahrezy's Github stats](https://github-readme-stats.vercel.app/api?username=fikryfahrezy&show_icons=true)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=fikryfahrezy&layout=compact)
@@ -40,3 +40,4 @@ Here are some ideas to get you started:
 <img alt="MySQL" src="https://img.shields.io/badge/-MySQL-de8900?style=flat-square&logo=mysql&logoColor=white" />
 <img alt="git" src="https://img.shields.io/badge/-Git-F05032?style=flat-square&logo=git&logoColor=white" />
 </p>
+-->
