@@ -1,0 +1,6 @@
+services:
+  web:
+    build:
+      dockerfile: ./Dockerfile
+      args:
+        - PORT=3000
