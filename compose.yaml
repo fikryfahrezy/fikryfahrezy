@@ -4,3 +4,8 @@ services:
       dockerfile: ./Dockerfile
       args:
         - PORT=3000
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
