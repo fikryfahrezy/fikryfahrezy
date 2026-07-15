@@ -1,0 +1,59 @@
+html {
+  height: 100%;
+  background-color: #04060f;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  background-color: #04060f;
+  background-image: radial-gradient(
+    120% 90% at 70% 10%,
+    #101b3f 0%,
+    #04060f 62%
+  );
+  color: #dbe7ff;
+  font-family: "Outfit", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior: none;
+}
+
+#__nuxt {
+  height: 100%;
+}
+
+::selection {
+  background: rgba(124, 213, 255, 0.28);
+}
+
+:focus-visible {
+  outline: 2px solid rgba(124, 213, 255, 0.8);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes hint-drift {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+}
+
+.hint-arrow {
+  display: inline-block;
+  animation: hint-drift 1.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
