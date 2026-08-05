@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { education, profile } from "~/data/resume";
+const { data: profile } = await useProfile();
+const { data: contact } = await useContact();
+const { data: sections } = await useSections();
 </script>
 
 <template>
@@ -7,12 +9,12 @@ import { education, profile } from "~/data/resume";
     data-section="contact"
     class="relative flex h-full w-screen shrink-0 flex-col justify-center gap-7 px-[9vw] pb-28 pt-20"
   >
-    <p class="hud-eyebrow">Send a signal</p>
+    <p class="hud-eyebrow">{{ sections?.contact.eyebrow }}</p>
     <a
-      :href="`mailto:${profile.email}`"
+      :href="`mailto:${profile?.email}`"
       class="group w-fit break-all font-display text-[clamp(1.4rem,4.6vw,3.6rem)] font-600 leading-tight tracking-[-0.015em] text-star"
     >
-      {{ profile.email }}
+      {{ profile?.email }}
       <span
         class="block h-[2px] max-w-0 bg-gradient-to-r from-comet-cyan to-comet-gold transition-[max-width] duration-500 group-hover:max-w-full"
         aria-hidden="true"
@@ -21,7 +23,7 @@ import { education, profile } from "~/data/resume";
     <div class="flex flex-wrap gap-3">
       <a
         class="contact-link"
-        :href="profile.github"
+        :href="profile?.github"
         target="_blank"
         rel="noreferrer"
       >
@@ -29,7 +31,7 @@ import { education, profile } from "~/data/resume";
       </a>
       <a
         class="contact-link"
-        :href="profile.linkedin"
+        :href="profile?.linkedin"
         target="_blank"
         rel="noreferrer"
       >
@@ -40,13 +42,13 @@ import { education, profile } from "~/data/resume";
       <p class="font-display text-[11px] uppercase tracking-[0.2em] text-comet-cyan/70">
         Education
       </p>
-      <p class="mt-2 text-star">{{ education.school }}</p>
-      <p class="text-sm text-star-dim">{{ education.degree }}</p>
-      <p class="mt-1 text-sm text-comet-gold/80">{{ education.period }}</p>
+      <p class="mt-2 text-star">{{ contact?.school }}</p>
+      <p class="text-sm text-star-dim">{{ contact?.degree }}</p>
+      <p class="mt-1 text-sm text-comet-gold/80">{{ contact?.period }}</p>
     </div>
-    <p class="text-sm text-star-dim/90">
-      End of this orbit — keep scrolling and it begins again
+    <div class="flex items-baseline gap-1.5 text-sm text-star-dim/90">
+      <ContentRenderer v-if="contact" :value="contact" class="prose-copy" />
       <span class="text-comet-gold">∞</span>
-    </p>
+    </div>
   </section>
 </template>

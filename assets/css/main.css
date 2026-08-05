@@ -33,6 +33,66 @@ body {
   border-radius: 4px;
 }
 
+/* Markdown bodies from content/ render as real <p>/<ul>/<li> elements. These
+   two classes strip browser defaults and restore the site's own styling, so
+   editors can write plain prose (and **bold**, links, etc.) without knowing
+   anything about the layout. */
+
+.prose-copy > :first-child {
+  margin-top: 0;
+}
+
+.prose-copy > :last-child {
+  margin-bottom: 0;
+}
+
+.prose-copy p {
+  margin: 0.75em 0;
+}
+
+.prose-copy a {
+  color: #7cd5ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-copy strong {
+  color: #dbe7ff;
+  font-weight: 600;
+}
+
+.prose-points ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.prose-points li {
+  position: relative;
+  padding-left: 1.5rem;
+  text-wrap: pretty;
+}
+
+.prose-points li + li {
+  margin-top: 0.75rem;
+}
+
+/* The cyan dot that used to be a <span> in the template. */
+.prose-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  height: 0.25rem;
+  width: 0.25rem;
+  border-radius: 9999px;
+  background-color: #7cd5ff;
+}
+
+.prose-points p {
+  margin: 0;
+}
+
 @keyframes hint-drift {
   0%,
   100% {

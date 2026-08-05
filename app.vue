@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from "vue";
-import { profile } from "~/data/resume";
 
 const rootEl = ref<HTMLElement | null>(null);
 const trackEl = ref<HTMLElement | null>(null);
@@ -9,13 +8,22 @@ const progressEl = ref<HTMLElement | null>(null);
 
 const { state, scrollToOffset } = useLoopScroll(rootEl, copyEl);
 
-const SECTION_LABELS: Record<string, string> = {
-  hero: "Intro",
-  now: "Now",
-  journey: "Journey",
-  skills: "Skills",
-  contact: "Contact",
-};
+const { data: profile } = await useProfile();
+const { data: sectionChrome } = await useSections();
+
+// Keyed by the `data-section` attribute on each section element.
+const sectionLabels = computed(() => {
+  const chrome = sectionChrome.value;
+  const labels: Record<string, string> = {};
+  if (chrome) {
+    labels.hero = chrome.hero.label;
+    labels.now = chrome.now.label;
+    labels.journey = chrome.journey.label;
+    labels.skills = chrome.skills.label;
+    labels.contact = chrome.contact.label;
+  }
+  return labels;
+});
 
 type SectionInfo = { id: string; label: string; left: number; width: number };
 const sections = ref<SectionInfo[]>([]);
@@ -27,7 +35,7 @@ function measureSections() {
     copy.querySelectorAll<HTMLElement>("[data-section]"),
   ).map((el) => ({
     id: el.dataset.section ?? "",
-    label: SECTION_LABELS[el.dataset.section ?? ""] ?? "",
+    label: sectionLabels.value[el.dataset.section ?? ""] ?? "",
     left: el.offsetLeft,
     width: el.offsetWidth,
   }));
@@ -77,18 +85,22 @@ onBeforeUnmount(() => {
   window.removeEventListener("resize", measureSections);
 });
 
+// Multi-line YAML values arrive with a trailing newline, which unhead rejects
+// as meta content — collapse each to a single line.
+function oneLine(value: string | undefined) {
+  return value?.replace(/\s+/g, " ").trim();
+}
+
 useHead({
   htmlAttrs: { lang: "en" },
-  title: "Fikry Fahrezy Ramadhan — Software Developer",
+  title: () => oneLine(profile.value?.seoTitle),
   meta: [{ name: "theme-color", content: "#04060f" }],
 });
 
 useSeoMeta({
-  description:
-    "Personal site of Fikry Fahrezy Ramadhan — a full-stack developer working across React, Vue, Go, and more. An endless scroll through five years of remote orbits.",
-  ogTitle: "Fikry Fahrezy Ramadhan — Software Developer",
-  ogDescription:
-    "Full-stack developer drifting between frontends that feel alive and backends that hold steady.",
+  description: () => oneLine(profile.value?.seoDescription),
+  ogTitle: () => oneLine(profile.value?.seoTitle),
+  ogDescription: () => oneLine(profile.value?.ogDescription),
 });
 </script>
 
@@ -137,13 +149,13 @@ useSeoMeta({
         FF<span class="text-comet-gold">✦</span>
       </button>
       <nav class="flex items-center" aria-label="Profiles">
-        <a class="hud-link" :href="profile.github" target="_blank" rel="noreferrer">
+        <a class="hud-link" :href="profile?.github" target="_blank" rel="noreferrer">
           GitHub
         </a>
-        <a class="hud-link" :href="profile.linkedin" target="_blank" rel="noreferrer">
+        <a class="hud-link" :href="profile?.linkedin" target="_blank" rel="noreferrer">
           LinkedIn
         </a>
-        <a class="hud-link" :href="`mailto:${profile.email}`">Email</a>
+        <a class="hud-link" :href="`mailto:${profile?.email}`">Email</a>
       </nav>
     </header>
 

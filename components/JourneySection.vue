@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { journey } from "~/data/resume";
+const { data: journey } = await useJourney();
+const { data: sections } = await useSections();
 </script>
 
 <template>
@@ -8,7 +9,7 @@ import { journey } from "~/data/resume";
     class="relative flex h-full w-max shrink-0 items-center px-[12vw] pb-28 pt-20"
   >
     <div>
-      <p class="hud-eyebrow mb-8">The journey so far</p>
+      <p class="hud-eyebrow mb-8">{{ sections?.journey.eyebrow }}</p>
       <div class="relative flex items-start gap-8 md:gap-12">
         <div
           class="absolute -inset-x-16 top-[5px] h-px bg-gradient-to-r from-transparent via-comet-cyan/35 to-transparent"
@@ -38,7 +39,10 @@ import { journey } from "~/data/resume";
               {{ stop.company }}
             </h3>
             <p class="text-sm text-star-dim">{{ stop.role }} · {{ stop.location }}</p>
-            <p class="mt-3 text-sm text-star-dim text-pretty">{{ stop.summary }}</p>
+            <ContentRenderer
+              :value="stop"
+              class="prose-copy mt-3 text-sm text-star-dim text-pretty"
+            />
             <p v-if="stop.clients" class="mt-3 text-xs leading-relaxed text-comet-gold/90">
               {{ stop.clients.join(" · ") }}
             </p>
