@@ -1,4 +1,5 @@
 ---
+locale: en
 # `order` controls left-to-right position on the timeline. Gaps are fine —
 # numbering 10, 20, 30 leaves room to slot a role in later.
 order: 1

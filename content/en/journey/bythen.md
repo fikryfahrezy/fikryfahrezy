@@ -1,4 +1,5 @@
 ---
+locale: en
 order: 3
 company: bythen.ai
 role: Full-stack Developer

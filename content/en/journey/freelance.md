@@ -1,4 +1,5 @@
 ---
+locale: en
 order: 4
 company: Freelance
 role: Software Developer

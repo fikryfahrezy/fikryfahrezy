@@ -96,16 +96,20 @@ onBeforeUnmount(() => {
   window.removeEventListener("resize", measureSections);
 });
 
+function oneLine(value: string | undefined) {
+  return value?.replace(/\s+/g, " ").trim();
+}
+
 useHead({
   htmlAttrs: { lang: () => locale.value },
-  title: () => t("seo.title", { name: profile.value?.nameLead ?? "" }),
+  title: () => oneLine(profile.value?.seoTitle),
   meta: [{ name: "theme-color", content: "#04060f" }],
 });
 
 useSeoMeta({
-  description: () => t("seo.description"),
-  ogTitle: () => t("seo.title", { name: profile.value?.nameLead ?? "" }),
-  ogDescription: () => t("seo.ogDescription"),
+  description: () => oneLine(profile.value?.seoDescription),
+  ogTitle: () => oneLine(profile.value?.seoTitle),
+  ogDescription: () => oneLine(profile.value?.ogDescription),
 });
 </script>
 

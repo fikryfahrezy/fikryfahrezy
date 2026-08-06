@@ -1,4 +1,5 @@
 ---
+locale: en
 # The big hero headline is split in two: the first part is plain white,
 # the second part gets the cyan-to-gold gradient.
 nameLead: Fikry Fahrezy

@@ -1,4 +1,5 @@
 ---
+locale: en
 order: 2
 group: Frontend
 items:

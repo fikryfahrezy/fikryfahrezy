@@ -1,4 +1,5 @@
 ---
+locale: en
 order: 2
 company: eFishery
 role: Frontend Developer

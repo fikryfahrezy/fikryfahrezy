@@ -1,31 +1,35 @@
 # Editing the site content
 
-Everything the site says lives in this folder. No other file needs to change to
-update text. You can edit these files straight on GitHub: open the file, click
-the pencil icon, make the change, and click **Commit changes**.
+Everything the site says lives in this folder. Content is organized by locale:
+`content/en/` for English and `content/id/` for Bahasa Indonesia. Keep a
+matching file in both folders when adding or changing an entry.
+
+If a localized file is absent, the site uses its English equivalent. This lets
+you translate incrementally; remove a locale file only when its English content
+is suitable for that audience.
 
 ## Interface translations
 
 The interface has English and Bahasa Indonesia versions. Shared interface copy
-(navigation, buttons, section labels, and SEO text) lives in
-`i18n/locales/en.json` and `i18n/locales/id.json`. English is available at `/`; Bahasa
+(navigation, buttons, and section labels) lives in `i18n/locales/en.json` and
+`i18n/locales/id.json`. English is available at `/`; Bahasa
 Indonesia is available at `/id`. Keep the same keys in both files when adding
 or changing interface text.
 
-The portfolio entries in this folder are currently shared between both locales.
-They remain in English so company names, technology names, and career details
-stay consistent.
+Each portfolio entry has an English and Indonesian version. Company and
+technology names can remain unchanged while roles, locations, dates, and prose
+are translated.
 
 ## Where things are
 
 | File                | What it controls                                        |
 | ------------------- | ------------------------------------------------------- |
-| `profile.md`        | Name, role, location, email, links, and the SEO blurbs   |
+| `en/profile.md`, `id/profile.md` | Name, role, location, email, links, and SEO copy |
 | `../i18n/locales/*.json` | Nav labels and the small uppercase line above a section |
-| `now.md`            | The "Current orbit" panel — present role and its bullets |
-| `journey/*.md`      | One file per past role on the timeline                   |
-| `skills/*.md`       | One file per skill group card                            |
-| `contact.md`        | Education panel and the closing line                     |
+| `en/now.md`, `id/now.md` | The current-role panel and its bullets |
+| `en/journey/*.md`, `id/journey/*.md` | One file per past role on the timeline |
+| `en/skills/*.md`, `id/skills/*.md` | One file per skill-group card |
+| `en/contact.md`, `id/contact.md` | Education panel and closing line |
 
 ## How a file is built
 
@@ -33,6 +37,7 @@ Every file has two parts:
 
 ```md
 ---
+locale: en              ← must match the enclosing folder (`en` or `id`)
 company: eFishery          ← the fields, between the two --- lines
 period: Jul 2022 — Feb 2025
 tags:
@@ -52,10 +57,14 @@ You can use **bold** and [links](https://example.com) here.
 
 ## Common edits
 
-**Add a past role.** Copy any file in `journey/`, give it a new filename, and
-change the fields. Set `order` to place it on the timeline — higher numbers sit
-further right. Gaps are fine, so numbering by tens leaves room to slot roles in
-later. `clients` is optional; delete the whole block if there isn't one.
+**Add a past role.** Copy any file in both `en/journey/` and `id/journey/`,
+give the copies the same filename, and translate the fields. Set `order` to
+place it on the timeline — higher numbers sit further right. Gaps are fine, so
+numbering by tens leaves room to slot roles in later. `clients` is optional;
+delete the whole block if there isn't one.
+
+**Reuse English content.** Do not add the locale file. The matching English
+entry is displayed automatically until a localized version is created.
 
 **Reorder the timeline or skill cards.** Change the `order` numbers. Filenames
 don't affect order.
@@ -64,8 +73,8 @@ don't affect order.
 `skills/` file, or copy a file to make a new group. `wide: true` makes a card
 span both columns.
 
-**Change what Google and Slack show.** Edit the matching `seo` values in
-`../i18n/locales/en.json` or `../i18n/locales/id.json`.
+**Change what Google and Slack show.** Edit `seoTitle`, `seoDescription`, and
+`ogDescription` in the matching locale's `profile.md` file.
 
 ## If you get something wrong
 

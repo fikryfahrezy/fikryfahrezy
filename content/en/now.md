@@ -1,4 +1,5 @@
 ---
+locale: en
 company: Taiwan Mobile
 role: Software Developer · Contract
 period: Mar 2026 — Present

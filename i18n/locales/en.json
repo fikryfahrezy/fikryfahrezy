@@ -21,10 +21,5 @@
   },
   "contact": {
     "education": "Education"
-  },
-  "seo": {
-    "title": "{name} Ramadhan — Software Developer",
-    "description": "Personal site of Fikry Fahrezy Ramadhan — a full-stack developer working across React, Vue, Go, and more. An endless scroll through five years of remote orbits.",
-    "ogDescription": "Full-stack developer drifting between frontends that feel alive and backends that hold steady."
   }
 }

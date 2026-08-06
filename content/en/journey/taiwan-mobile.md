@@ -1,4 +1,5 @@
 ---
+locale: en
 order: 5
 company: Taiwan Mobile
 role: Software Developer

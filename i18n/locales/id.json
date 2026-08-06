@@ -21,10 +21,5 @@
   },
   "contact": {
     "education": "Pendidikan"
-  },
-  "seo": {
-    "title": "{name} Ramadhan — Pengembang Perangkat Lunak",
-    "description": "Situs pribadi Fikry Fahrezy Ramadhan — pengembang full-stack yang bekerja dengan React, Vue, Go, dan lainnya. Gulir tanpa akhir melalui lima tahun orbit kerja jarak jauh.",
-    "ogDescription": "Pengembang full-stack yang menjelajah frontend yang terasa hidup dan backend yang tetap andal."
   }
 }

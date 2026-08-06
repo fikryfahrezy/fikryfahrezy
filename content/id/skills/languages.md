@@ -1,7 +1,7 @@
 ---
+locale: id
 order: 1
-group: Languages
-# `wide: true` makes this card span both grid columns on desktop.
+group: Bahasa Pemrograman
 wide: true
 items:
   - TypeScript

@@ -1,6 +1,7 @@
 ---
+locale: id
 order: 4
-group: Testing & Tooling
+group: Pengujian & Perkakas
 items:
   - Vitest
   - React Testing Library

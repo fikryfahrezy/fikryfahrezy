@@ -10,35 +10,35 @@ export default defineContentConfig({
     // Body = the hero tagline.
     profile: defineCollection({
       type: "page",
-      source: "profile.md",
+      source: "{en,id}/profile.md",
       schema: contentSchemas.profile,
     }),
 
     // The current role. Body = the bullet list of what you're doing.
     now: defineCollection({
       type: "page",
-      source: "now.md",
+      source: "{en,id}/now.md",
       schema: contentSchemas.now,
     }),
 
     // One file per past role. Body = the summary paragraph.
     journey: defineCollection({
       type: "page",
-      source: "journey/*.md",
+      source: "{en,id}/journey/*.md",
       schema: contentSchemas.journey,
     }),
 
     // One file per skill group.
     skills: defineCollection({
       type: "page",
-      source: "skills/*.md",
+      source: "{en,id}/skills/*.md",
       schema: contentSchemas.skills,
     }),
 
     // Education panel. Body = the closing line at the end of the loop.
     contact: defineCollection({
       type: "page",
-      source: "contact.md",
+      source: "{en,id}/contact.md",
       schema: contentSchemas.contact,
     }),
   },

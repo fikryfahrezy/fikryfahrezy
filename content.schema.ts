@@ -8,8 +8,11 @@ import { z } from "@nuxt/content";
 // page renders with a blank hole. The check in nuxt.config.ts is what turns
 // that into a loud error instead.
 
+const locale = z.enum(["en", "id"]);
+
 export const contentSchemas = {
   profile: z.object({
+    locale,
     nameLead: z.string(),
     nameTrail: z.string(),
     role: z.string(),
@@ -23,6 +26,7 @@ export const contentSchemas = {
   }),
 
   now: z.object({
+    locale,
     company: z.string(),
     role: z.string(),
     period: z.string(),
@@ -31,6 +35,7 @@ export const contentSchemas = {
   }),
 
   journey: z.object({
+    locale,
     order: z.number(),
     company: z.string(),
     role: z.string(),
@@ -41,6 +46,7 @@ export const contentSchemas = {
   }),
 
   skills: z.object({
+    locale,
     order: z.number(),
     group: z.string(),
     items: z.array(z.string()),
@@ -48,6 +54,7 @@ export const contentSchemas = {
   }),
 
   contact: z.object({
+    locale,
     school: z.string(),
     degree: z.string(),
     period: z.string(),
