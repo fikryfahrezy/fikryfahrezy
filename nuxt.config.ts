@@ -54,17 +54,39 @@ export default defineNuxtConfig({
     // The site is one page of build-time content, so bake it into HTML. This
     // also keeps @nuxt/content's SQLite out of the runtime container.
     prerender: {
-      routes: ["/"],
+      routes: ["/", "/id"],
     },
   },
   modules: [
     "@nuxt/content",
     "@nuxt/fonts",
     "@nuxt/image",
+    "@nuxtjs/i18n",
     "@nuxt/scripts",
     "@nuxt/test-utils",
     "@unocss/nuxt",
   ],
+  i18n: {
+    // Keep English at the canonical root URL while making translated pages
+    // shareable at a stable, locale-prefixed URL (for example, `/id`).
+    strategy: "prefix_except_default",
+    defaultLocale: "en",
+    langDir: "locales",
+    locales: [
+      { code: "en", language: "en-US", file: "en.json", name: "English" },
+      {
+        code: "id",
+        language: "id-ID",
+        file: "id.json",
+        name: "Bahasa Indonesia",
+      },
+    ],
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "portfolio_locale",
+      redirectOn: "root",
+    },
+  },
   content: {
     // Content needs SQLite to index content/ at build time. Left to its own
     // detection it installs the native `better-sqlite3` package; "native"

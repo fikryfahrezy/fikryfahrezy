@@ -4,12 +4,24 @@ Everything the site says lives in this folder. No other file needs to change to
 update text. You can edit these files straight on GitHub: open the file, click
 the pencil icon, make the change, and click **Commit changes**.
 
+## Interface translations
+
+The interface has English and Bahasa Indonesia versions. Shared interface copy
+(navigation, buttons, section labels, and SEO text) lives in
+`i18n/locales/en.json` and `i18n/locales/id.json`. English is available at `/`; Bahasa
+Indonesia is available at `/id`. Keep the same keys in both files when adding
+or changing interface text.
+
+The portfolio entries in this folder are currently shared between both locales.
+They remain in English so company names, technology names, and career details
+stay consistent.
+
 ## Where things are
 
 | File                | What it controls                                        |
 | ------------------- | ------------------------------------------------------- |
 | `profile.md`        | Name, role, location, email, links, and the SEO blurbs   |
-| `sections.md`       | Nav labels and the small uppercase line above a section  |
+| `../i18n/locales/*.json` | Nav labels and the small uppercase line above a section |
 | `now.md`            | The "Current orbit" panel — present role and its bullets |
 | `journey/*.md`      | One file per past role on the timeline                   |
 | `skills/*.md`       | One file per skill group card                            |
@@ -52,8 +64,8 @@ don't affect order.
 `skills/` file, or copy a file to make a new group. `wide: true` makes a card
 span both columns.
 
-**Change what Google and Slack show.** Edit `seoTitle`, `seoDescription`, and
-`ogDescription` in `profile.md`.
+**Change what Google and Slack show.** Edit the matching `seo` values in
+`../i18n/locales/en.json` or `../i18n/locales/id.json`.
 
 ## If you get something wrong
 

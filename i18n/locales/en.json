@@ -1,0 +1,30 @@
+{
+  "language": {
+    "en": "EN",
+    "id": "ID"
+  },
+  "navigation": {
+    "backToStart": "Back to start",
+    "profiles": "Profiles",
+    "email": "Email",
+    "sections": "Sections",
+    "goToSection": "Go to {section}",
+    "changeLanguage": "Switch language to {language}",
+    "scrollHint": "scroll · drag · ← →"
+  },
+  "sections": {
+    "hero": { "label": "Intro" },
+    "now": { "label": "Now", "eyebrow": "Current orbit" },
+    "journey": { "label": "Journey", "eyebrow": "The journey so far" },
+    "skills": { "label": "Skills", "eyebrow": "Star chart · skills" },
+    "contact": { "label": "Contact", "eyebrow": "Send a signal" }
+  },
+  "contact": {
+    "education": "Education"
+  },
+  "seo": {
+    "title": "{name} Ramadhan — Software Developer",
+    "description": "Personal site of Fikry Fahrezy Ramadhan — a full-stack developer working across React, Vue, Go, and more. An endless scroll through five years of remote orbits.",
+    "ogDescription": "Full-stack developer drifting between frontends that feel alive and backends that hold steady."
+  }
+}

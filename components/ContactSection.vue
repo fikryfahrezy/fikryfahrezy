@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { data: profile } = await useProfile();
 const { data: contact } = await useContact();
-const { data: sections } = await useSections();
+const { t } = useI18n();
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const { data: sections } = await useSections();
     data-section="contact"
     class="relative flex h-full w-screen shrink-0 flex-col justify-center gap-7 px-[9vw] pb-28 pt-20"
   >
-    <p class="hud-eyebrow">{{ sections?.contact.eyebrow }}</p>
+    <p class="hud-eyebrow">{{ t("sections.contact.eyebrow") }}</p>
     <a
       :href="`mailto:${profile?.email}`"
       class="group w-fit break-all font-display text-[clamp(1.4rem,4.6vw,3.6rem)] font-600 leading-tight tracking-[-0.015em] text-star"
@@ -40,7 +40,7 @@ const { data: sections } = await useSections();
     </div>
     <div class="glass-panel w-fit max-w-md p-5">
       <p class="font-display text-[11px] uppercase tracking-[0.2em] text-comet-cyan/70">
-        Education
+        {{ t("contact.education") }}
       </p>
       <p class="mt-2 text-star">{{ contact?.school }}</p>
       <p class="text-sm text-star-dim">{{ contact?.degree }}</p>

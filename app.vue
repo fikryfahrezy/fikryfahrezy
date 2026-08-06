@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watchEffect } from "vue";
+import {
+  computed,
+  onBeforeUnmount,
+  onMounted,
+  ref,
+  watch,
+  watchEffect,
+} from "vue";
 
 const rootEl = ref<HTMLElement | null>(null);
 const trackEl = ref<HTMLElement | null>(null);
@@ -7,21 +14,23 @@ const copyEl = ref<HTMLElement | null>(null);
 const progressEl = ref<HTMLElement | null>(null);
 
 const { state, scrollToOffset } = useLoopScroll(rootEl, copyEl);
+const { locale, t } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
+const alternateLocale = computed(() => (locale.value === "en" ? "id" : "en"));
+const alternateLocalePath = computed(() =>
+  switchLocalePath(alternateLocale.value),
+);
 
 const { data: profile } = await useProfile();
-const { data: sectionChrome } = await useSections();
 
 // Keyed by the `data-section` attribute on each section element.
 const sectionLabels = computed(() => {
-  const chrome = sectionChrome.value;
   const labels: Record<string, string> = {};
-  if (chrome) {
-    labels.hero = chrome.hero.label;
-    labels.now = chrome.now.label;
-    labels.journey = chrome.journey.label;
-    labels.skills = chrome.skills.label;
-    labels.contact = chrome.contact.label;
-  }
+  labels.hero = t("sections.hero.label");
+  labels.now = t("sections.now.label");
+  labels.journey = t("sections.journey.label");
+  labels.skills = t("sections.skills.label");
+  labels.contact = t("sections.contact.label");
   return labels;
 });
 
@@ -60,6 +69,8 @@ watchEffect(() => {
   }
 });
 
+watch(sectionLabels, () => measureSections(), { flush: "post" });
+
 watchEffect(() => {
   const bar = progressEl.value;
   if (bar) {
@@ -85,22 +96,16 @@ onBeforeUnmount(() => {
   window.removeEventListener("resize", measureSections);
 });
 
-// Multi-line YAML values arrive with a trailing newline, which unhead rejects
-// as meta content — collapse each to a single line.
-function oneLine(value: string | undefined) {
-  return value?.replace(/\s+/g, " ").trim();
-}
-
 useHead({
-  htmlAttrs: { lang: "en" },
-  title: () => oneLine(profile.value?.seoTitle),
+  htmlAttrs: { lang: () => locale.value },
+  title: () => t("seo.title", { name: profile.value?.nameLead ?? "" }),
   meta: [{ name: "theme-color", content: "#04060f" }],
 });
 
 useSeoMeta({
-  description: () => oneLine(profile.value?.seoDescription),
-  ogTitle: () => oneLine(profile.value?.seoTitle),
-  ogDescription: () => oneLine(profile.value?.ogDescription),
+  description: () => t("seo.description"),
+  ogTitle: () => t("seo.title", { name: profile.value?.nameLead ?? "" }),
+  ogDescription: () => t("seo.ogDescription"),
 });
 </script>
 
@@ -143,25 +148,34 @@ useSeoMeta({
       <button
         type="button"
         class="inline-flex h-10 min-w-10 items-center px-2 font-display text-lg font-600 tracking-tight text-star"
-        aria-label="Back to start"
+        :aria-label="t('navigation.backToStart')"
         @click="scrollToOffset(0)"
       >
         FF<span class="text-comet-gold">✦</span>
       </button>
-      <nav class="flex items-center" aria-label="Profiles">
+      <nav class="flex items-center" :aria-label="t('navigation.profiles')">
         <a class="hud-link" :href="profile?.github" target="_blank" rel="noreferrer">
           GitHub
         </a>
         <a class="hud-link" :href="profile?.linkedin" target="_blank" rel="noreferrer">
           LinkedIn
         </a>
-        <a class="hud-link" :href="`mailto:${profile?.email}`">Email</a>
+        <a class="hud-link" :href="`mailto:${profile?.email}`">
+          {{ t("navigation.email") }}
+        </a>
+        <NuxtLink
+          class="hud-link font-600 text-comet-cyan"
+          :to="alternateLocalePath"
+          :aria-label="t('navigation.changeLanguage', { language: t(`language.${alternateLocale}`) })"
+        >
+          {{ t(`language.${alternateLocale}`) }}
+        </NuxtLink>
       </nav>
     </header>
 
     <nav
       class="fixed bottom-4 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-1 md:bottom-6"
-      aria-label="Sections"
+      :aria-label="t('navigation.sections')"
     >
       <p
         class="font-display text-[11px] uppercase tracking-[0.3em] text-star-dim"
@@ -175,7 +189,7 @@ useSeoMeta({
           :key="section.id"
           type="button"
           class="group grid h-10 w-10 place-items-center"
-          :aria-label="`Go to ${section.label}`"
+          :aria-label="t('navigation.goToSection', { section: section.label })"
           :aria-current="i === activeIndex ? 'true' : undefined"
           @click="scrollToOffset(section.left)"
         >
@@ -196,7 +210,8 @@ useSeoMeta({
       :class="state.interacted ? 'opacity-0' : 'opacity-100'"
       aria-hidden="true"
     >
-      scroll · drag · ← → <span class="hint-arrow text-comet-cyan">→</span>
+      {{ t("navigation.scrollHint") }}
+      <span class="hint-arrow text-comet-cyan">→</span>
     </p>
 
     <div class="fixed inset-x-0 bottom-0 z-20 h-0.5 bg-star/5">

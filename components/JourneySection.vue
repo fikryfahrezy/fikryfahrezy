@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: journey } = await useJourney();
-const { data: sections } = await useSections();
+const { t } = useI18n();
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const { data: sections } = await useSections();
     class="relative flex h-full w-max shrink-0 items-center px-[12vw] pb-28 pt-20"
   >
     <div>
-      <p class="hud-eyebrow mb-8">{{ sections?.journey.eyebrow }}</p>
+      <p class="hud-eyebrow mb-8">{{ t("sections.journey.eyebrow") }}</p>
       <div class="relative flex items-start gap-8 md:gap-12">
         <div
           class="absolute -inset-x-16 top-[5px] h-px bg-gradient-to-r from-transparent via-comet-cyan/35 to-transparent"

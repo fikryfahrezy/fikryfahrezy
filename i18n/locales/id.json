@@ -1,0 +1,30 @@
+{
+  "language": {
+    "en": "EN",
+    "id": "ID"
+  },
+  "navigation": {
+    "backToStart": "Kembali ke awal",
+    "profiles": "Profil",
+    "email": "Email",
+    "sections": "Bagian",
+    "goToSection": "Ke bagian {section}",
+    "changeLanguage": "Ganti bahasa ke {language}",
+    "scrollHint": "gulir · seret · ← →"
+  },
+  "sections": {
+    "hero": { "label": "Intro" },
+    "now": { "label": "Kini", "eyebrow": "Orbit saat ini" },
+    "journey": { "label": "Perjalanan", "eyebrow": "Perjalanan sejauh ini" },
+    "skills": { "label": "Keahlian", "eyebrow": "Peta bintang · keahlian" },
+    "contact": { "label": "Kontak", "eyebrow": "Kirim sinyal" }
+  },
+  "contact": {
+    "education": "Pendidikan"
+  },
+  "seo": {
+    "title": "{name} Ramadhan — Pengembang Perangkat Lunak",
+    "description": "Situs pribadi Fikry Fahrezy Ramadhan — pengembang full-stack yang bekerja dengan React, Vue, Go, dan lainnya. Gulir tanpa akhir melalui lima tahun orbit kerja jarak jauh.",
+    "ogDescription": "Pengembang full-stack yang menjelajah frontend yang terasa hidup dan backend yang tetap andal."
+  }
+}

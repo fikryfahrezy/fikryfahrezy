@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: now } = await useNow();
-const { data: sections } = await useSections();
+const { t } = useI18n();
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const { data: sections } = await useSections();
     class="relative flex h-full w-screen shrink-0 items-center px-[8vw] pb-28 pt-20"
   >
     <div class="w-full max-w-2xl">
-      <p class="hud-eyebrow mb-6">{{ sections?.now.eyebrow }}</p>
+      <p class="hud-eyebrow mb-6">{{ t("sections.now.eyebrow") }}</p>
       <div class="glass-panel p-6 md:p-9">
         <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
           <h2 class="font-display text-2xl font-600 text-star md:text-3xl">

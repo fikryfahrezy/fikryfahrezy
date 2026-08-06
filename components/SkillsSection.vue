@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { data: skills } = await useSkills();
-const { data: sections } = await useSections();
+const { t } = useI18n();
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const { data: sections } = await useSections();
     class="relative flex h-full w-max shrink-0 items-center px-[8vw] pb-28 pt-20 md:w-screen"
   >
     <div class="md:w-full md:max-w-4xl">
-      <p class="hud-eyebrow mb-8">{{ sections?.skills.eyebrow }}</p>
+      <p class="hud-eyebrow mb-8">{{ t("sections.skills.eyebrow") }}</p>
       <div class="flex gap-4 md:grid md:grid-cols-2">
         <div
           v-for="group in skills"

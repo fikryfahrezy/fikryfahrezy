@@ -8,12 +8,6 @@ export function useProfile() {
   );
 }
 
-export function useSections() {
-  return useAsyncData("resume-sections", () =>
-    queryCollection("sections").first(),
-  );
-}
-
 export function useNow() {
   return useAsyncData("resume-now", () => queryCollection("now").first());
 }

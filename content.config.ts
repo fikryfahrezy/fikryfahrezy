@@ -14,13 +14,6 @@ export default defineContentConfig({
       schema: contentSchemas.profile,
     }),
 
-    // Nav dot labels and the small uppercase eyebrow above each section.
-    sections: defineCollection({
-      type: "page",
-      source: "sections.md",
-      schema: contentSchemas.sections,
-    }),
-
     // The current role. Body = the bullet list of what you're doing.
     now: defineCollection({
       type: "page",

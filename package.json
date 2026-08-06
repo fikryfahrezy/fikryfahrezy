@@ -17,6 +17,7 @@
     "@nuxt/content": "3.15.2",
     "@nuxt/fonts": "0.11.4",
     "@nuxt/image": "1.10.0",
+    "@nuxtjs/i18n": "10.6.0",
     "@unhead/vue": "2.0.11",
     "nuxt": "3.21.10",
     "three": "^0.185.1",
