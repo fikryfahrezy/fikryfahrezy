@@ -5,9 +5,15 @@ const { locale, setLocale, t } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
 const alternateLocale = computed(() => (locale.value === "en" ? "id" : "en"));
 const alternateLocalePath = computed(() =>
-  switchLocalePath(alternateLocale.value),
+  // URL fragments are never sent to the server. Excluding the current hash
+  // keeps this SSR-rendered href identical during client hydration.
+  switchLocalePath(alternateLocale.value).replace(/#.*/, ""),
 );
-const isLightTheme = ref(false);
+const savedTheme = useCookie<"dark" | "light">("portfolio-theme", {
+  default: () => "dark",
+  sameSite: "lax",
+});
+const isLightTheme = ref(savedTheme.value === "light");
 const useFallbackScan = ref(false);
 
 const themeLabel = computed(() =>
@@ -20,6 +26,8 @@ async function switchLocale() {
 
 function updateTheme() {
   isLightTheme.value = !isLightTheme.value;
+  savedTheme.value = isLightTheme.value ? "light" : "dark";
+  document.documentElement.classList.toggle("theme-light", isLightTheme.value);
   localStorage.setItem(
     "portfolio-theme",
     isLightTheme.value ? "light" : "dark",
@@ -43,7 +51,15 @@ async function toggleTheme() {
 }
 
 onMounted(() => {
-  isLightTheme.value = localStorage.getItem("portfolio-theme") === "light";
+  const storedTheme = localStorage.getItem("portfolio-theme");
+  if (storedTheme === "light" || storedTheme === "dark") {
+    isLightTheme.value = storedTheme === "light";
+    savedTheme.value = storedTheme;
+    document.documentElement.classList.toggle(
+      "theme-light",
+      isLightTheme.value,
+    );
+  }
 });
 
 const { data: profile } = await useProfile();
@@ -59,6 +75,14 @@ useHead({
     {
       name: "theme-color",
       content: () => (isLightTheme.value ? "#f5f5f0" : "#070707"),
+    },
+  ],
+  script: [
+    {
+      key: "theme-preference",
+      tagPosition: "head",
+      innerHTML:
+        'try { document.documentElement.classList.toggle("theme-light", localStorage.getItem("portfolio-theme") === "light"); } catch {}',
     },
   ],
 });
