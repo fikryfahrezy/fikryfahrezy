@@ -12,6 +12,10 @@
     "changeLanguage": "Switch language to {language}",
     "scrollHint": "scroll · drag · ← →"
   },
+  "theme": {
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
   "sections": {
     "hero": { "label": "Intro" },
     "now": { "label": "Now", "eyebrow": "Current orbit" },

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted, ref } from "vue";
 
 const { locale, setLocale, t } = useI18n();
 const switchLocalePath = useSwitchLocalePath();
@@ -7,10 +7,44 @@ const alternateLocale = computed(() => (locale.value === "en" ? "id" : "en"));
 const alternateLocalePath = computed(() =>
   switchLocalePath(alternateLocale.value),
 );
+const isLightTheme = ref(false);
+const useFallbackScan = ref(false);
+
+const themeLabel = computed(() =>
+  isLightTheme.value ? t("theme.switchToDark") : t("theme.switchToLight"),
+);
 
 async function switchLocale() {
   await setLocale(alternateLocale.value);
 }
+
+function updateTheme() {
+  isLightTheme.value = !isLightTheme.value;
+  localStorage.setItem(
+    "portfolio-theme",
+    isLightTheme.value ? "light" : "dark",
+  );
+}
+
+async function toggleTheme() {
+  const viewTransitionDocument = document as Document & {
+    startViewTransition?: (callback: () => void) => { finished: Promise<void> };
+  };
+
+  if (viewTransitionDocument.startViewTransition) {
+    await viewTransitionDocument.startViewTransition(updateTheme).finished;
+    return;
+  }
+
+  useFallbackScan.value = true;
+  updateTheme();
+  await new Promise((resolve) => window.setTimeout(resolve, 620));
+  useFallbackScan.value = false;
+}
+
+onMounted(() => {
+  isLightTheme.value = localStorage.getItem("portfolio-theme") === "light";
+});
 
 const { data: profile } = await useProfile();
 
@@ -21,7 +55,12 @@ function oneLine(value: string | undefined) {
 useHead({
   htmlAttrs: { lang: () => locale.value },
   title: () => oneLine(profile.value?.seoTitle),
-  meta: [{ name: "theme-color", content: "#050505" }],
+  meta: [
+    {
+      name: "theme-color",
+      content: () => (isLightTheme.value ? "#f5f5f0" : "#070707"),
+    },
+  ],
 });
 
 useSeoMeta({
@@ -32,8 +71,13 @@ useSeoMeta({
 </script>
 
 <template>
-  <div class="site-shell">
+  <div class="site-shell" :class="{ 'theme-light': isLightTheme }">
     <NuxtRouteAnnouncer />
+    <div
+      v-if="useFallbackScan"
+      class="theme-scan-fallback"
+      aria-hidden="true"
+    />
     <GraphicBackground />
 
     <header class="site-header">
@@ -49,20 +93,33 @@ useSeoMeta({
         <a href="#contact">{{ t("sections.contact.label") }}</a>
       </nav>
 
-      <a
-        class="locale-switch"
-        :href="alternateLocalePath"
-        @click.prevent="switchLocale"
-        :aria-label="
-          t('navigation.changeLanguage', {
-            language: t(`language.${alternateLocale}`),
-          })
-        "
-      >
-        {{ locale.toUpperCase() }}
-        <span aria-hidden="true">→</span>
-        {{ alternateLocale.toUpperCase() }}
-      </a>
+      <div class="header-controls">
+        <button
+          class="theme-switch"
+          type="button"
+          :aria-label="themeLabel"
+          :title="themeLabel"
+          @click="toggleTheme"
+        >
+          <span aria-hidden="true">{{ isLightTheme ? "◐" : "◑" }}</span>
+          <span class="theme-switch-label">{{ isLightTheme ? "Light" : "Dark" }}</span>
+        </button>
+
+        <a
+          class="locale-switch"
+          :href="alternateLocalePath"
+          @click.prevent="switchLocale"
+          :aria-label="
+            t('navigation.changeLanguage', {
+              language: t(`language.${alternateLocale}`),
+            })
+          "
+        >
+          {{ locale.toUpperCase() }}
+          <span aria-hidden="true">→</span>
+          {{ alternateLocale.toUpperCase() }}
+        </a>
+      </div>
     </header>
 
     <main>

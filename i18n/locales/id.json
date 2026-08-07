@@ -12,6 +12,10 @@
     "changeLanguage": "Ganti bahasa ke {language}",
     "scrollHint": "gulir · seret · ← →"
   },
+  "theme": {
+    "switchToLight": "Ganti ke mode terang",
+    "switchToDark": "Ganti ke mode gelap"
+  },
   "sections": {
     "hero": { "label": "Intro" },
     "now": { "label": "Kini", "eyebrow": "Orbit saat ini" },
