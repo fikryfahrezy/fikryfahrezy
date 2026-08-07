@@ -1,6 +1,14 @@
 <script setup lang="ts">
 const { data: journey } = await useJourney();
+const { data: now } = await useNow();
 const { t } = useI18n();
+
+const pastJourney = computed(() =>
+  journey.value.filter(
+    (stop) =>
+      stop.company !== now.value?.company || stop.role !== now.value?.role,
+  ),
+);
 </script>
 
 <template>
@@ -11,7 +19,7 @@ const { t } = useI18n();
     </header>
 
     <div class="journey-list">
-      <article v-for="(stop, i) in journey" :key="stop.id" class="journey-row">
+      <article v-for="(stop, i) in pastJourney" :key="stop.id" class="journey-row">
         <p class="journey-number">{{ (i + 1).toString().padStart(2, "0") }}</p>
         <div class="journey-identity">
           <p class="meta-label">{{ stop.period }}</p>
