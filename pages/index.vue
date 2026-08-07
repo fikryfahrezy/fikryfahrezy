@@ -84,6 +84,13 @@ useHead({
       innerHTML:
         'try { document.documentElement.classList.toggle("theme-light", localStorage.getItem("portfolio-theme") === "light"); } catch {}',
     },
+    {
+      key: "umami-analytics",
+      tagPosition: "head",
+      src: "https://analytics.fahrezy.work/script.js",
+      defer: true,
+      "data-website-id": "3d1dde60-64ac-4f5d-a4d2-50065883aa33",
+    },
   ],
 });
 

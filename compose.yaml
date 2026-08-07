@@ -5,7 +5,7 @@ services:
       args:
         - PORT=3000
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
       interval: 5s
       timeout: 5s
       retries: 5
