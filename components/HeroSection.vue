@@ -1,27 +1,47 @@
 <script setup lang="ts">
 const { data: profile } = await useProfile();
+const { t } = useI18n();
 </script>
 
 <template>
-  <section
-    data-section="hero"
-    class="relative flex h-full w-screen shrink-0 flex-col justify-center gap-5 px-[9vw] pb-28 pt-20 md:gap-7"
-  >
-    <p class="hud-eyebrow">{{ profile?.role }} · {{ profile?.location }}</p>
-    <h1
-      class="max-w-5xl font-display text-[clamp(2.6rem,7.2vw,6.4rem)] font-600 leading-[1.04] tracking-[-0.02em] text-balance"
-    >
-      {{ profile?.nameLead }}
-      <span
-        class="block bg-gradient-to-r from-[#8fd8ff] via-[#7ba6ff] to-[#f6c66d] bg-clip-text text-transparent"
-      >
-        {{ profile?.nameTrail }} ✦
-      </span>
-    </h1>
-    <ContentRenderer
-      v-if="profile"
-      :value="profile"
-      class="prose-copy max-w-xl text-base text-star-dim text-pretty md:text-lg"
-    />
+  <section id="top" class="hero section-wrap">
+    <div class="hero-index" aria-hidden="true">01</div>
+    <div class="hero-copy">
+      <p class="section-kicker">
+        {{ profile?.role }} <span>/</span> {{ profile?.location }}
+      </p>
+      <h1>
+        <span class="hero-name-lead">{{ profile?.nameLead }}</span>
+        <span class="hero-name-trail">{{ profile?.nameTrail }}</span>
+      </h1>
+      <ContentRenderer v-if="profile" :value="profile" class="hero-intro" />
+      <div class="hero-actions">
+        <a :href="`mailto:${profile?.email}`">{{ t("hero.startConversation") }} ↗</a>
+        <a
+          href="/fikry-fahrezy-ramadhan-resume.pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          {{ t("hero.downloadResume") }} ↓
+        </a>
+        <a :href="profile?.github" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a :href="profile?.linkedin" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <aside class="hero-facts" :aria-label="t('hero.quickFacts')">
+      <div>
+        <strong>5+</strong>
+        <span>{{ t("hero.years") }}</span>
+      </div>
+      <div>
+        <strong>∞</strong>
+        <span>{{ t("hero.remote") }}</span>
+      </div>
+      <div>
+        <strong>ID</strong>
+        <span>{{ t("hero.based") }}</span>
+      </div>
+    </aside>
   </section>
 </template>

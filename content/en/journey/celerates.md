@@ -4,8 +4,8 @@ locale: en
 # numbering 10, 20, 30 leaves room to slot a role in later.
 order: 1
 company: Celerates
-role: Full-stack Developer
-period: May — Jul 2022
+role: Full-stack Developer · Contract
+period: May 2022 — Jul 2022
 location: Indonesia · Remote
 tags:
   - Next.js
@@ -14,5 +14,7 @@ tags:
   - Docker
 ---
 
-Internal management apps with Next.js, Hono, and PostgreSQL — RFC-documented
-APIs, CI/CD on GitHub Actions, deployments with Docker and Caddy.
+- Developed internal management web applications using **TypeScript**, **Next.js**, **Tailwind CSS**, **Hono**, and **PostgreSQL**.
+- Designed RESTful APIs and database ERDs in RFC documents to streamline implementation.
+- Set up CI/CD with **GitHub Actions** for frontend and backend projects.
+- Managed deployments for applications using **Docker** and **Caddy** on a VPS.

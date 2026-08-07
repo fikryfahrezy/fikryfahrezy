@@ -2,8 +2,8 @@
 locale: id
 order: 1
 company: Celerates
-role: Pengembang Full-stack
-period: Mei — Jul 2022
+role: Pengembang Full-stack · Kontrak
+period: Mei 2022 — Jul 2022
 location: Indonesia · Jarak jauh
 tags:
   - Next.js
@@ -12,6 +12,7 @@ tags:
   - Docker
 ---
 
-Aplikasi manajemen internal dengan Next.js, Hono, dan PostgreSQL — API yang
-didokumentasikan dengan RFC, CI/CD di GitHub Actions, serta deployment memakai
-Docker dan Caddy.
+- Mengembangkan aplikasi web manajemen internal menggunakan **TypeScript**, **Next.js**, **Tailwind CSS**, **Hono**, dan **PostgreSQL**.
+- Merancang RESTful API dan ERD basis data dalam dokumen RFC untuk memperlancar implementasi.
+- Menyiapkan CI/CD dengan **GitHub Actions** untuk proyek frontend dan backend.
+- Mengelola deployment aplikasi menggunakan **Docker** dan **Caddy** di VPS.

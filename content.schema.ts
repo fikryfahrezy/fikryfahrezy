@@ -18,6 +18,8 @@ export const contentSchemas = {
     role: z.string(),
     location: z.string(),
     email: z.string(),
+    phone: z.string(),
+    website: z.string(),
     github: z.string(),
     linkedin: z.string(),
     seoTitle: z.string(),
@@ -43,6 +45,15 @@ export const contentSchemas = {
     location: z.string(),
     tags: z.array(z.string()),
     clients: z.array(z.string()).optional(),
+    projects: z
+      .array(
+        z.object({
+          company: z.string(),
+          location: z.string(),
+          highlights: z.array(z.string()),
+        }),
+      )
+      .optional(),
   }),
 
   skills: z.object({
@@ -53,7 +64,7 @@ export const contentSchemas = {
     wide: z.boolean().optional(),
   }),
 
-  contact: z.object({
+  education: z.object({
     locale,
     school: z.string(),
     degree: z.string(),

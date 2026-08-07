@@ -17,9 +17,37 @@
     "now": { "label": "Now", "eyebrow": "Current orbit" },
     "journey": { "label": "Journey", "eyebrow": "The journey so far" },
     "skills": { "label": "Skills", "eyebrow": "Star chart · skills" },
+    "education": { "label": "Education", "eyebrow": "Foundation" },
     "contact": { "label": "Contact", "eyebrow": "Send a signal" }
   },
   "contact": {
-    "education": "Education"
+    "education": "Education",
+    "title": "Let's make something useful."
+  },
+  "hero": {
+    "startConversation": "Start a conversation",
+    "downloadResume": "Download resume",
+    "quickFacts": "Quick facts",
+    "years": "Years building products",
+    "remote": "Remote by default",
+    "based": "Based in Indonesia"
+  },
+  "now": {
+    "currentPosition": "Current position"
+  },
+  "skills": {
+    "technologies": "Technologies"
+  },
+  "resume": {
+    "workExperience": "Work Experience",
+    "skills": "Skills",
+    "languages": "Languages",
+    "programmingLanguages": "Programming Languages",
+    "frameworksTools": "Frameworks and Tools",
+    "education": "Education",
+    "at": "at"
+  },
+  "footer": {
+    "built": "Designed and built in Indonesia"
   }
 }

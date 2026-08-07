@@ -17,9 +17,37 @@
     "now": { "label": "Kini", "eyebrow": "Orbit saat ini" },
     "journey": { "label": "Perjalanan", "eyebrow": "Perjalanan sejauh ini" },
     "skills": { "label": "Keahlian", "eyebrow": "Peta bintang · keahlian" },
+    "education": { "label": "Pendidikan", "eyebrow": "Landasan" },
     "contact": { "label": "Kontak", "eyebrow": "Kirim sinyal" }
   },
   "contact": {
-    "education": "Pendidikan"
+    "education": "Pendidikan",
+    "title": "Mari membuat sesuatu yang berguna."
+  },
+  "hero": {
+    "startConversation": "Mulai percakapan",
+    "downloadResume": "Unduh resume",
+    "quickFacts": "Fakta singkat",
+    "years": "Tahun membangun produk",
+    "remote": "Terbiasa bekerja jarak jauh",
+    "based": "Berbasis di Indonesia"
+  },
+  "now": {
+    "currentPosition": "Posisi saat ini"
+  },
+  "skills": {
+    "technologies": "Teknologi"
+  },
+  "resume": {
+    "workExperience": "Pengalaman Kerja",
+    "skills": "Keahlian",
+    "languages": "Bahasa",
+    "programmingLanguages": "Bahasa Pemrograman",
+    "frameworksTools": "Framework dan Perkakas",
+    "education": "Pendidikan",
+    "at": "di"
+  },
+  "footer": {
+    "built": "Dirancang dan dibangun di Indonesia"
   }
 }

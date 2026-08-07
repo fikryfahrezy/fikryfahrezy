@@ -12,6 +12,7 @@ tags:
   - SonarQube
 ---
 
-Dashboard internal untuk data panen dan logistik dengan React — memprakarsai
-pengujian unit memakai Vitest hingga cakupan ~85% dan menjaga code smell
-SonarQube tetap rendah.
+- Mengembangkan dashboard internal untuk data panen dan logistik menggunakan **React** dan **TypeScript**, mengurangi alur kerja manual berbasis spreadsheet.
+- Memprakarsai unit testing dengan **React Testing Library** dan **Vitest**, serta mempertahankan cakupan sekitar 85%.
+- Menjaga kualitas kode dengan mengelola code smell menggunakan **SonarQube** agar tetap rendah.
+- Melakukan code review tepat waktu untuk memastikan umpan balik cepat dan menjaga kualitas kode.

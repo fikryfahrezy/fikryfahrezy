@@ -12,6 +12,7 @@ tags:
   - SonarQube
 ---
 
-Internal dashboards for harvest data and logistics in React — initiated unit
-testing with Vitest at ~85% coverage and kept SonarQube code smells
-consistently low.
+- Developed an internal dashboard for harvest data and logistics using **React** and **TypeScript**, reducing manual spreadsheet-based workflows.
+- Initiated unit testing with **React Testing Library** and **Vitest**, maintaining approximately 85% coverage.
+- Maintained high code quality by managing code smells using **SonarQube**, keeping them consistently low.
+- Conducted timely code reviews to ensure fast feedback and maintain code quality.

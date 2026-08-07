@@ -4,29 +4,25 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <section
-    data-section="skills"
-    class="relative flex h-full w-max shrink-0 items-center px-[8vw] pb-28 pt-20 md:w-screen"
-  >
-    <div class="md:w-full md:max-w-4xl">
-      <p class="hud-eyebrow mb-8">{{ t("sections.skills.eyebrow") }}</p>
-      <div class="flex gap-4 md:grid md:grid-cols-2">
-        <div
-          v-for="group in skills"
-          :key="group.id"
-          class="glass-panel w-64 shrink-0 p-5 md:w-auto md:p-6"
-          :class="group.wide ? 'md:col-span-2' : ''"
-        >
-          <h3
-            class="font-display text-xs uppercase tracking-[0.18em] text-comet-cyan/80"
-          >
-            {{ group.group }}
-          </h3>
-          <ul class="mt-3 flex flex-wrap gap-2">
-            <li v-for="item in group.items" :key="item" class="chip">{{ item }}</li>
-          </ul>
-        </div>
-      </div>
+  <section id="skills" class="section-wrap section-block">
+    <header class="section-heading">
+      <p class="section-kicker">04 / {{ t("sections.skills.eyebrow") }}</p>
+      <h2>{{ t("sections.skills.label") }}</h2>
+    </header>
+
+    <div class="skills-grid">
+      <article
+        v-for="(group, i) in skills"
+        :key="group.id"
+        class="skill-group"
+        :class="group.wide ? 'skill-group-wide' : ''"
+      >
+        <p class="skill-number">S/{{ (i + 1).toString().padStart(2, "0") }}</p>
+        <h3>{{ group.group }}</h3>
+        <ul>
+          <li v-for="item in group.items" :key="item">{{ item }}</li>
+        </ul>
+      </article>
     </div>
   </section>
 </template>

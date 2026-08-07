@@ -40,19 +40,19 @@ export function useJourney() {
     async () => {
       const localized = await queryCollection("journey")
         .where("locale", "=", locale.value)
-        .order("order", "ASC")
+        .order("order", "DESC")
         .all();
       if (locale.value === "en") return localized;
 
       const localizedOrders = new Set(localized.map((entry) => entry.order));
       const english = await queryCollection("journey")
         .where("locale", "=", "en")
-        .order("order", "ASC")
+        .order("order", "DESC")
         .all();
       return [
         ...localized,
         ...english.filter((entry) => !localizedOrders.has(entry.order)),
-      ].sort((a, b) => a.order - b.order);
+      ].sort((a, b) => b.order - a.order);
     },
     { default: () => [] },
   );
@@ -83,17 +83,17 @@ export function useSkills() {
   );
 }
 
-export function useContact() {
+export function useEducation() {
   const { locale } = useI18n();
   return useAsyncData(
-    () => `resume-contact:${locale.value}`,
+    () => `resume-education:${locale.value}`,
     async () => {
-      const localized = await queryCollection("contact")
+      const localized = await queryCollection("education")
         .where("locale", "=", locale.value)
         .first();
       return (
         localized ??
-        queryCollection("contact").where("locale", "=", "en").first()
+        queryCollection("education").where("locale", "=", "en").first()
       );
     },
   );

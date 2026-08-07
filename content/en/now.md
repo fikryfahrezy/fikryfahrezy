@@ -13,7 +13,7 @@ tags:
   - Tailwind CSS
 ---
 
-- Built a CLI tool for bidirectional PostgreSQL ↔ MSSQL database migrations in .NET.
-- Rewriting a core web app from legacy Java full-stack into React, TypeScript, Tailwind CSS, and Spring Boot.
-- Shipped an internal operations web app with Vue and Spring Boot.
-- Accelerating implementation, prototyping, and debugging with GitHub Copilot and Claude Code.
+- Developed a CLI-based database migration tool for bidirectional **PostgreSQL-to-MSSQL** migrations using **.NET**.
+- Contributed to the rewrite of a core web application from a legacy **Java** full-stack architecture to a modern stack using **React**, **TypeScript**, **Tailwind CSS**, and **Spring Boot**.
+- Developed an internal operations web application using **Vue** and **Spring Boot**.
+- Leveraged AI-assisted development tools, including **GitHub Copilot** and **Claude Code**, to accelerate implementation, prototyping, and debugging workflows.

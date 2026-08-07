@@ -4,29 +4,25 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <section
-    data-section="now"
-    class="relative flex h-full w-screen shrink-0 items-center px-[8vw] pb-28 pt-20"
-  >
-    <div class="w-full max-w-2xl">
-      <p class="hud-eyebrow mb-6">{{ t("sections.now.eyebrow") }}</p>
-      <div class="glass-panel p-6 md:p-9">
-        <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-          <h2 class="font-display text-2xl font-600 text-star md:text-3xl">
-            {{ now?.company }}
-          </h2>
-          <p class="text-sm text-comet-gold">{{ now?.period }}</p>
+  <section id="now" class="section-wrap section-block">
+    <header class="section-heading">
+      <p class="section-kicker">02 / {{ t("sections.now.eyebrow") }}</p>
+      <h2>{{ t("sections.now.label") }}</h2>
+    </header>
+
+    <article class="now-card">
+      <div class="now-card-head">
+        <div>
+          <p class="meta-label">{{ t("now.currentPosition") }}</p>
+          <h3>{{ now?.company }}</h3>
         </div>
-        <p class="mt-1 text-sm text-star-dim">{{ now?.role }} · {{ now?.location }}</p>
-        <ContentRenderer
-          v-if="now"
-          :value="now"
-          class="prose-points mt-6 text-sm text-star-dim md:text-base"
-        />
-        <ul class="mt-7 flex flex-wrap gap-2">
-          <li v-for="tag in now?.tags" :key="tag" class="chip">{{ tag }}</li>
-        </ul>
+        <p class="now-period">{{ now?.period }}</p>
       </div>
-    </div>
+      <p class="now-role">{{ now?.role }} / {{ now?.location }}</p>
+      <ContentRenderer v-if="now" :value="now" class="prose-points now-copy" />
+      <ul class="tag-list tag-list-dark" :aria-label="t('skills.technologies')">
+        <li v-for="tag in now?.tags" :key="tag">{{ tag }}</li>
+      </ul>
+    </article>
   </section>
 </template>

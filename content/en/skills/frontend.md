@@ -6,6 +6,7 @@ items:
   - React.js
   - Next.js
   - Vue.js
+  - React Native
   - Tailwind CSS
   - TanStack Query
   - Zustand

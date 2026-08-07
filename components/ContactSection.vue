@@ -1,54 +1,33 @@
 <script setup lang="ts">
 const { data: profile } = await useProfile();
-const { data: contact } = await useContact();
 const { t } = useI18n();
 </script>
 
 <template>
-  <section
-    data-section="contact"
-    class="relative flex h-full w-screen shrink-0 flex-col justify-center gap-7 px-[9vw] pb-28 pt-20"
-  >
-    <p class="hud-eyebrow">{{ t("sections.contact.eyebrow") }}</p>
-    <a
-      :href="`mailto:${profile?.email}`"
-      class="group w-fit break-all font-display text-[clamp(1.4rem,4.6vw,3.6rem)] font-600 leading-tight tracking-[-0.015em] text-star"
-    >
-      {{ profile?.email }}
-      <span
-        class="block h-[2px] max-w-0 bg-gradient-to-r from-comet-cyan to-comet-gold transition-[max-width] duration-500 group-hover:max-w-full"
-        aria-hidden="true"
-      />
-    </a>
-    <div class="flex flex-wrap gap-3">
-      <a
-        class="contact-link"
-        :href="profile?.github"
-        target="_blank"
-        rel="noreferrer"
-      >
-        GitHub <span aria-hidden="true">↗</span>
-      </a>
-      <a
-        class="contact-link"
-        :href="profile?.linkedin"
-        target="_blank"
-        rel="noreferrer"
-      >
-        LinkedIn <span aria-hidden="true">↗</span>
-      </a>
-    </div>
-    <div class="glass-panel w-fit max-w-md p-5">
-      <p class="font-display text-[11px] uppercase tracking-[0.2em] text-comet-cyan/70">
-        {{ t("contact.education") }}
-      </p>
-      <p class="mt-2 text-star">{{ contact?.school }}</p>
-      <p class="text-sm text-star-dim">{{ contact?.degree }}</p>
-      <p class="mt-1 text-sm text-comet-gold/80">{{ contact?.period }}</p>
-    </div>
-    <div class="flex items-baseline gap-1.5 text-sm text-star-dim/90">
-      <ContentRenderer v-if="contact" :value="contact" class="prose-copy" />
-      <span class="text-comet-gold">∞</span>
+  <section id="contact" class="contact-section section-wrap section-block">
+    <header class="section-heading contact-heading">
+      <p class="section-kicker">06 / {{ t("sections.contact.eyebrow") }}</p>
+      <h2>{{ t("contact.title") }}</h2>
+    </header>
+
+    <div class="contact-grid">
+      <div class="contact-primary">
+        <a class="contact-email" :href="`mailto:${profile?.email}`">{{ profile?.email }}&nbsp;↗</a>
+        <a :href="`tel:${profile?.phone?.replace(/\s/g, '')}`">
+          {{ profile?.phone }}
+        </a>
+      </div>
+
+      <div class="contact-secondary">
+        <a :href="profile?.website" target="_blank" rel="noreferrer">
+          fahrezy.work ↗
+        </a>
+        <a :href="profile?.github" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a :href="profile?.linkedin" target="_blank" rel="noreferrer">
+          LinkedIn ↗
+        </a>
+      </div>
+
     </div>
   </section>
 </template>

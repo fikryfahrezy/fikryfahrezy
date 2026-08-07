@@ -29,7 +29,7 @@ are translated.
 | `en/now.md`, `id/now.md` | The current-role panel and its bullets |
 | `en/journey/*.md`, `id/journey/*.md` | One file per past role on the timeline |
 | `en/skills/*.md`, `id/skills/*.md` | One file per skill-group card |
-| `en/contact.md`, `id/contact.md` | Education panel and closing line |
+| `en/education.md`, `id/education.md` | School, degree, and study period |
 
 ## How a file is built
 
