@@ -13,9 +13,6 @@ const { t } = useI18n();
     <div class="contact-grid">
       <div class="contact-primary">
         <a class="contact-email" :href="`mailto:${profile?.email}`">{{ profile?.email }}&nbsp;↗</a>
-        <a :href="`tel:${profile?.phone?.replace(/\s/g, '')}`">
-          {{ profile?.phone }}
-        </a>
       </div>
 
       <div class="contact-secondary">

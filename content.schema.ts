@@ -18,7 +18,6 @@ export const contentSchemas = {
     role: z.string(),
     location: z.string(),
     email: z.string(),
-    phone: z.string(),
     website: z.string(),
     github: z.string(),
     linkedin: z.string(),

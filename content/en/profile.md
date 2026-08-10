@@ -9,7 +9,6 @@ role: Software Developer
 location: Kuningan, Indonesia
 
 email: fahrezyfikry@gmail.com
-phone: +62 822 1912 6310
 website: https://fahrezy.work
 github: https://github.com/fikryfahrezy
 linkedin: https://linkedin.com/in/fikryfahrezy
