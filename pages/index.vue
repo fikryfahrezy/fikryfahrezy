@@ -24,6 +24,10 @@ async function switchLocale() {
   await setLocale(alternateLocale.value);
 }
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 function updateTheme() {
   isLightTheme.value = !isLightTheme.value;
   savedTheme.value = isLightTheme.value ? "light" : "dark";
@@ -104,6 +108,7 @@ useSeoMeta({
 <template>
   <div class="site-shell" :class="{ 'theme-light': isLightTheme }">
     <NuxtRouteAnnouncer />
+    <a class="skip-link" href="#now">{{ t("navigation.skipToMainContent") }}</a>
     <div
       v-if="useFallbackScan"
       class="theme-scan-fallback"
@@ -112,9 +117,14 @@ useSeoMeta({
     <GraphicBackground />
 
     <header class="site-header">
-      <a class="brand-mark" href="#top" :aria-label="t('navigation.backToStart')">
+      <button
+        class="brand-mark"
+        type="button"
+        :aria-label="t('navigation.backToStart')"
+        @click="scrollToTop"
+      >
         FF<span>/26</span>
-      </a>
+      </button>
 
       <nav class="site-nav" :aria-label="t('navigation.sections')">
         <a href="#now">{{ t("sections.now.label") }}</a>
@@ -165,7 +175,9 @@ useSeoMeta({
     <footer class="site-footer">
       <span>© {{ new Date().getFullYear() }} FFR</span>
       <span>{{ t("footer.built") }}</span>
-      <a href="#top">{{ t("navigation.backToStart") }} ↑</a>
+      <button type="button" @click="scrollToTop">
+        {{ t("navigation.backToStart") }} ↑
+      </button>
     </footer>
   </div>
 </template>

@@ -4,7 +4,7 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <section id="now" class="section-wrap section-block">
+  <section id="now" class="section-wrap section-block" tabindex="-1">
     <header class="section-heading">
       <p class="section-kicker">02 / {{ t("sections.now.eyebrow") }}</p>
       <h2>{{ t("sections.now.label") }}</h2>
