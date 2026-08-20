@@ -238,7 +238,7 @@ useSeoMeta({
     </header>
 
     <main id="main-content" tabindex="-1">
-      <NuxtPage />
+      <NuxtPage :transition="{ name: 'page', mode: 'out-in' }" />
     </main>
 
     <footer class="site-footer">

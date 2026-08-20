@@ -9,9 +9,6 @@ const invalidContent: string[] = [];
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
-  experimental: {
-    viewTransition: true,
-  },
   hooks: {
     // Nuxt Content drops unrecognised frontmatter keys without complaining, so
     // a typo like `compnay:` would otherwise ship a card with a blank company
