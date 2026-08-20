@@ -4,6 +4,9 @@ nameLead: Fikry Fahrezy
 nameTrail: Ramadhan
 role: Pengembang Perangkat Lunak
 location: Kuningan, Indonesia
+backgroundCoordinate: 06°58′S / 108°28′E
+backgroundTimezone: JARAK JAUH / UTC+07
+yearsExperience: 3+
 email: fahrezyfikry@gmail.com
 website: https://fahrezy.work
 github: https://github.com/fikryfahrezy

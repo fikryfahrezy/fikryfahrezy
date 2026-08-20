@@ -7,6 +7,9 @@ nameTrail: Ramadhan
 
 role: Software Developer
 location: Kuningan, Indonesia
+backgroundCoordinate: 06°58′S / 108°28′E
+backgroundTimezone: REMOTE / UTC+07
+yearsExperience: 3+
 
 email: fahrezyfikry@gmail.com
 website: https://fahrezy.work

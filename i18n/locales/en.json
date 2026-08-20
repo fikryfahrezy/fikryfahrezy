@@ -4,18 +4,21 @@
     "id": "ID"
   },
   "navigation": {
+    "home": "Home",
     "backToStart": "Back to start",
     "skipToMainContent": "Skip to main content",
     "profiles": "Profiles",
     "email": "Email",
     "sections": "Sections",
+    "pages": "Pages",
     "goToSection": "Go to {section}",
     "changeLanguage": "Switch language to {language}",
     "scrollHint": "scroll · drag · ← →"
   },
   "theme": {
     "switchToLight": "Switch to light mode",
-    "switchToDark": "Switch to dark mode"
+    "switchToDark": "Switch to dark mode",
+    "switchToSystem": "Use system theme"
   },
   "sections": {
     "hero": { "label": "Intro" },
@@ -23,7 +26,9 @@
     "journey": { "label": "Journey", "eyebrow": "The journey so far" },
     "skills": { "label": "Skills", "eyebrow": "Star chart · skills" },
     "education": { "label": "Education", "eyebrow": "Foundation" },
-    "contact": { "label": "Contact", "eyebrow": "Send a signal" }
+    "contact": { "label": "Contact", "eyebrow": "Send a signal" },
+    "projects": { "label": "Projects" },
+    "anime": { "label": "Anime" }
   },
   "contact": {
     "education": "Education",
@@ -42,6 +47,28 @@
   },
   "skills": {
     "technologies": "Technologies"
+  },
+  "projects": {
+    "seoTitle": "Projects — Fikry Fahrezy",
+    "eyebrow": "Selected work",
+    "status": "In progress",
+    "titleLead": "Selected",
+    "titleTrail": "Projects",
+    "description": "A home for the products, experiments, and ideas I bring to life.",
+    "placeholderLabel": "Projects loading",
+    "comingSoon": "Coming soon.",
+    "placeholderCopy": "Selected projects and experiments will land here shortly."
+  },
+  "anime": {
+    "seoTitle": "Anime Archive — Fikry Fahrezy",
+    "eyebrow": "Personal watchlist",
+    "status": "In progress",
+    "titleLead": "Anime",
+    "titleTrail": "Archive",
+    "description": "A personal archive of the anime, characters, and stories that stay with me.",
+    "placeholderLabel": "Watchlist loading",
+    "comingSoon": "Coming soon.",
+    "placeholderCopy": "Favorites, reviews, and watchlist notes will land here shortly."
   },
   "resume": {
     "workExperience": "Work Experience",

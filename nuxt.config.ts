@@ -9,6 +9,9 @@ const invalidContent: string[] = [];
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
+  experimental: {
+    viewTransition: true,
+  },
   hooks: {
     // Nuxt Content drops unrecognised frontmatter keys without complaining, so
     // a typo like `compnay:` would otherwise ship a card with a blank company
@@ -54,7 +57,7 @@ export default defineNuxtConfig({
     // The site is one page of build-time content, so bake it into HTML. This
     // also keeps @nuxt/content's SQLite out of the runtime container.
     prerender: {
-      routes: ["/", "/id"],
+      routes: ["/", "/id", "/projects", "/id/projects", "/anime", "/id/anime"],
     },
   },
   modules: [

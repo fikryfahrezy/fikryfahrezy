@@ -134,7 +134,8 @@ a {
 .brand-mark,
 .locale-switch,
 .theme-switch,
-.site-nav {
+.site-nav,
+.mobile-page-links {
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
@@ -165,6 +166,15 @@ a {
   display: flex;
   gap: 30px;
   color: var(--muted);
+}
+
+.mobile-page-links {
+  display: none;
+  color: var(--muted);
+}
+
+.mobile-page-links .router-link-active {
+  color: var(--ink);
 }
 
 .site-nav a,
@@ -341,6 +351,89 @@ a {
   text-transform: uppercase;
 }
 
+.showcase-page {
+  min-height: calc(100svh - var(--header-height));
+}
+
+.showcase-hero {
+  position: relative;
+  display: flex;
+  min-height: calc(72svh - var(--header-height));
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-block: clamp(120px, 16vh, 190px) 52px;
+  border-bottom: 1px solid var(--line);
+}
+
+.showcase-hero h1 {
+  margin: 26px 0 36px;
+  font-family: var(--display);
+  font-size: clamp(4.2rem, 10.5vw, 9.2rem);
+  font-weight: 600;
+  letter-spacing: -0.075em;
+  line-height: 0.78;
+}
+
+.showcase-hero h1 span {
+  display: block;
+}
+
+.showcase-hero h1 span:last-child {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink);
+}
+
+.showcase-intro {
+  max-width: 610px;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.5vw, 1.35rem);
+  line-height: 1.55;
+}
+
+.showcase-placeholder {
+  display: grid;
+  grid-template-columns: minmax(90px, 0.25fr) 1fr auto;
+  gap: clamp(30px, 6vw, 90px);
+  align-items: start;
+  min-height: 44svh;
+  padding-block: clamp(54px, 8vw, 100px);
+}
+
+.showcase-placeholder-index,
+.showcase-placeholder > div > p:last-child {
+  margin: 0;
+  color: var(--muted);
+}
+
+.showcase-placeholder-index {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+.showcase-placeholder h2 {
+  margin: 24px 0 28px;
+  font-family: var(--display);
+  font-size: clamp(2.8rem, 7vw, 6.4rem);
+  font-weight: 500;
+  letter-spacing: -0.065em;
+  line-height: 0.9;
+}
+
+.showcase-placeholder > div > p:last-child {
+  max-width: 520px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.showcase-placeholder-mark {
+  font-family: var(--display);
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.7;
+}
+
 .section-block {
   padding-block: clamp(100px, 14vw, 180px);
   scroll-margin-top: var(--header-height);
@@ -364,6 +457,7 @@ a {
 
 .now-card {
   position: relative;
+  isolation: isolate;
   padding: clamp(28px, 5vw, 64px);
   overflow: hidden;
   background: var(--ink);
@@ -372,17 +466,26 @@ a {
 
 .now-card::after {
   position: absolute;
-  right: -0.12em;
-  bottom: -0.35em;
-  content: "NOW";
-  color: transparent;
-  font-family: var(--display);
-  font-size: clamp(8rem, 25vw, 22rem);
-  font-weight: 700;
-  letter-spacing: -0.1em;
-  line-height: 1;
-  opacity: 0.12;
-  -webkit-text-stroke: 1px var(--paper);
+  right: clamp(-260px, -12vw, -80px);
+  bottom: clamp(-340px, -18vw, -150px);
+  width: clamp(360px, 55vw, 720px);
+  aspect-ratio: 1;
+  border: 1px solid var(--paper);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 50%, var(--paper) 0 4px, transparent 5px),
+    radial-gradient(circle at 75% 25%, var(--paper) 0 4px, transparent 5px),
+    linear-gradient(var(--paper), var(--paper)) center / 1px 100% no-repeat,
+    linear-gradient(90deg, var(--paper), var(--paper)) center / 100% 1px
+    no-repeat,
+    repeating-radial-gradient(
+      circle at center,
+      transparent 0 63px,
+      var(--paper) 64px 65px,
+      transparent 66px 88px
+    );
+  content: "";
+  opacity: 0.14;
   pointer-events: none;
 }
 
@@ -905,11 +1008,12 @@ a {
   }
 
   .site-header {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr auto;
+    column-gap: 14px;
   }
 
   .header-controls {
-    gap: 14px;
+    gap: 12px;
   }
 
   .theme-switch-label {
@@ -920,9 +1024,21 @@ a {
     display: none;
   }
 
+  .mobile-page-links {
+    display: flex;
+    justify-self: center;
+    gap: 12px;
+    font-size: 9px;
+  }
+
   .hero {
     display: block;
     min-height: auto;
+    padding-block: 110px 40px;
+  }
+
+  .showcase-hero {
+    min-height: calc(72svh - var(--header-height));
     padding-block: 110px 40px;
   }
 
@@ -931,6 +1047,21 @@ a {
     margin-top: 30px;
     font-size: clamp(3.35rem, 16vw, 6rem);
     line-height: 0.82;
+  }
+
+  .showcase-hero h1 {
+    margin-top: 30px;
+    font-size: clamp(3.35rem, 16vw, 6rem);
+    line-height: 0.82;
+  }
+
+  .showcase-placeholder {
+    grid-template-columns: 36px 1fr;
+    gap: 18px;
+  }
+
+  .showcase-placeholder-mark {
+    display: none;
   }
 
   .hero-name-lead {

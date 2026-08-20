@@ -31,7 +31,7 @@ const { t } = useI18n();
 
     <aside class="hero-facts" :aria-label="t('hero.quickFacts')">
       <div>
-        <strong>5+</strong>
+        <strong>{{ profile?.yearsExperience }}</strong>
         <span>{{ t("hero.years") }}</span>
       </div>
       <div>

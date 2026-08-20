@@ -4,18 +4,21 @@
     "id": "ID"
   },
   "navigation": {
+    "home": "Beranda",
     "backToStart": "Kembali ke awal",
     "skipToMainContent": "Lewati ke konten utama",
     "profiles": "Profil",
     "email": "Email",
     "sections": "Bagian",
+    "pages": "Halaman",
     "goToSection": "Ke bagian {section}",
     "changeLanguage": "Ganti bahasa ke {language}",
     "scrollHint": "gulir · seret · ← →"
   },
   "theme": {
     "switchToLight": "Ganti ke mode terang",
-    "switchToDark": "Ganti ke mode gelap"
+    "switchToDark": "Ganti ke mode gelap",
+    "switchToSystem": "Gunakan tema sistem"
   },
   "sections": {
     "hero": { "label": "Intro" },
@@ -23,7 +26,9 @@
     "journey": { "label": "Perjalanan", "eyebrow": "Perjalanan sejauh ini" },
     "skills": { "label": "Keahlian", "eyebrow": "Peta bintang · keahlian" },
     "education": { "label": "Pendidikan", "eyebrow": "Landasan" },
-    "contact": { "label": "Kontak", "eyebrow": "Kirim sinyal" }
+    "contact": { "label": "Kontak", "eyebrow": "Kirim sinyal" },
+    "projects": { "label": "Proyek" },
+    "anime": { "label": "Anime" }
   },
   "contact": {
     "education": "Pendidikan",
@@ -42,6 +47,28 @@
   },
   "skills": {
     "technologies": "Teknologi"
+  },
+  "projects": {
+    "seoTitle": "Proyek — Fikry Fahrezy",
+    "eyebrow": "Proyek pilihan",
+    "status": "Dalam proses",
+    "titleLead": "Proyek",
+    "titleTrail": "Pilihan",
+    "description": "Rumah untuk produk, eksperimen, dan ide yang saya wujudkan.",
+    "placeholderLabel": "Proyek sedang dimuat",
+    "comingSoon": "Segera hadir.",
+    "placeholderCopy": "Proyek dan eksperimen pilihan akan segera hadir di sini."
+  },
+  "anime": {
+    "seoTitle": "Arsip Anime — Fikry Fahrezy",
+    "eyebrow": "Daftar tontonan pribadi",
+    "status": "Dalam proses",
+    "titleLead": "Arsip",
+    "titleTrail": "Anime",
+    "description": "Arsip pribadi tentang anime, karakter, dan kisah yang terus membekas.",
+    "placeholderLabel": "Daftar tontonan sedang dimuat",
+    "comingSoon": "Segera hadir.",
+    "placeholderCopy": "Anime favorit, ulasan, dan catatan tontonan akan segera hadir di sini."
   },
   "resume": {
     "workExperience": "Pengalaman Kerja",
