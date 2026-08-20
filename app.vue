@@ -132,6 +132,10 @@ function oneLine(value: string | undefined) {
 useHead({
   htmlAttrs: { lang: () => locale.value },
   title: () => oneLine(profile.value?.seoTitle),
+  link: [
+    { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+    { rel: "icon", type: "image/svg+xml", href: "/favicon.svg", sizes: "any" },
+  ],
   meta: [
     {
       name: "theme-color",
