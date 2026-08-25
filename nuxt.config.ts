@@ -9,6 +9,11 @@ const invalidContent: string[] = [];
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: true },
+  runtimeConfig: {
+    // Set NUXT_GITHUB_TOKEN in production for a higher GitHub API rate limit.
+    githubToken: "",
+    githubUsername: "fikryfahrezy",
+  },
   hooks: {
     // Nuxt Content drops unrecognised frontmatter keys without complaining, so
     // a typo like `compnay:` would otherwise ship a card with a blank company
@@ -51,10 +56,10 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: "bun",
-    // The site is one page of build-time content, so bake it into HTML. This
-    // also keeps @nuxt/content's SQLite out of the runtime container.
+    // Bake content-only pages into HTML. Projects remain server-rendered so
+    // their cached GitHub data can refresh without rebuilding the site.
     prerender: {
-      routes: ["/", "/id", "/projects", "/id/projects", "/anime", "/id/anime"],
+      routes: ["/", "/id", "/anime", "/id/anime"],
     },
   },
   modules: [

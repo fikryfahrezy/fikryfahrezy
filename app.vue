@@ -23,6 +23,15 @@ const themePreference = ref<ThemePreference>(savedTheme.value);
 const systemPrefersLight = ref(false);
 const useFallbackScan = ref(false);
 
+// Fetch server-side when Projects is the requested page. On every other page,
+// warm the same shared state in the browser without delaying initial render.
+const isProjectsRoute = route.path.endsWith("/projects");
+const projectPreload = useProjects({
+  immediate: isProjectsRoute,
+  server: isProjectsRoute,
+});
+if (isProjectsRoute) await projectPreload;
+
 const isLightTheme = computed(
   () =>
     themePreference.value === "light" ||
@@ -104,6 +113,8 @@ function handleSystemThemeChange(event: MediaQueryListEvent) {
 }
 
 onMounted(() => {
+  if (projectPreload.data.value.length === 0) projectPreload.refresh();
+
   systemThemeQuery = window.matchMedia("(prefers-color-scheme: light)");
   systemPrefersLight.value = systemThemeQuery.matches;
   systemThemeQuery.addEventListener("change", handleSystemThemeChange);
