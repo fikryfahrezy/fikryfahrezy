@@ -28,7 +28,8 @@
     "education": { "label": "Education", "eyebrow": "Foundation" },
     "contact": { "label": "Contact", "eyebrow": "Send a signal" },
     "projects": { "label": "Projects" },
-    "anime": { "label": "Anime" }
+    "anime": { "label": "Anime" },
+    "music": { "label": "Music" }
   },
   "contact": {
     "education": "Education",
@@ -69,6 +70,17 @@
     "placeholderLabel": "Watchlist loading",
     "comingSoon": "Coming soon.",
     "placeholderCopy": "Favorites, reviews, and watchlist notes will land here shortly."
+  },
+  "music": {
+    "seoTitle": "Music — Fikry Fahrezy",
+    "eyebrow": "Listening notes",
+    "status": "In progress",
+    "titleLead": "Music",
+    "titleTrail": "Archive",
+    "description": "A home for the albums, artists, and songs that soundtrack my days.",
+    "placeholderLabel": "Music loading",
+    "comingSoon": "Coming soon.",
+    "placeholderCopy": "Favorites, playlists, and listening notes will land here shortly."
   },
   "resume": {
     "workExperience": "Work Experience",

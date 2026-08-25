@@ -53,6 +53,7 @@ const themeName = computed(
 const homePath = computed(() => localePath("/"));
 const projectsPath = computed(() => localePath("/projects"));
 const animePath = computed(() => localePath("/anime"));
+const musicPath = computed(() => localePath("/music"));
 
 async function switchLocale() {
   await setLocale(alternateLocale.value);
@@ -204,11 +205,13 @@ useSeoMeta({
         </NuxtLink>
         <NuxtLink :to="projectsPath">{{ t("sections.projects.label") }}</NuxtLink>
         <NuxtLink :to="animePath">{{ t("sections.anime.label") }}</NuxtLink>
+        <NuxtLink :to="musicPath">{{ t("sections.music.label") }}</NuxtLink>
       </nav>
 
       <nav class="mobile-page-links" :aria-label="t('navigation.pages')">
         <NuxtLink :to="projectsPath">{{ t("sections.projects.label") }}</NuxtLink>
         <NuxtLink :to="animePath">{{ t("sections.anime.label") }}</NuxtLink>
+        <NuxtLink :to="musicPath">{{ t("sections.music.label") }}</NuxtLink>
       </nav>
 
       <div class="header-controls">

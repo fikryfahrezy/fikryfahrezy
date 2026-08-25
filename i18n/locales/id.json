@@ -28,7 +28,8 @@
     "education": { "label": "Pendidikan", "eyebrow": "Landasan" },
     "contact": { "label": "Kontak", "eyebrow": "Kirim sinyal" },
     "projects": { "label": "Proyek" },
-    "anime": { "label": "Anime" }
+    "anime": { "label": "Anime" },
+    "music": { "label": "Musik" }
   },
   "contact": {
     "education": "Pendidikan",
@@ -69,6 +70,17 @@
     "placeholderLabel": "Daftar tontonan sedang dimuat",
     "comingSoon": "Segera hadir.",
     "placeholderCopy": "Anime favorit, ulasan, dan catatan tontonan akan segera hadir di sini."
+  },
+  "music": {
+    "seoTitle": "Musik — Fikry Fahrezy",
+    "eyebrow": "Catatan dengar",
+    "status": "Dalam proses",
+    "titleLead": "Arsip",
+    "titleTrail": "Musik",
+    "description": "Rumah untuk album, musisi, dan lagu yang menemani hari-hari saya.",
+    "placeholderLabel": "Musik sedang dimuat",
+    "comingSoon": "Segera hadir.",
+    "placeholderCopy": "Musik favorit, daftar putar, dan catatan dengar akan segera hadir di sini."
   },
   "resume": {
     "workExperience": "Pengalaman Kerja",
