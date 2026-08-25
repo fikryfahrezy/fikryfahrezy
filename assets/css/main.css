@@ -484,31 +484,6 @@ a {
   color: var(--paper);
 }
 
-.now-card::after {
-  position: absolute;
-  right: clamp(-260px, -12vw, -80px);
-  bottom: clamp(-340px, -18vw, -150px);
-  width: clamp(360px, 55vw, 720px);
-  aspect-ratio: 1;
-  border: 1px solid var(--paper);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 50% 50%, var(--paper) 0 4px, transparent 5px),
-    radial-gradient(circle at 75% 25%, var(--paper) 0 4px, transparent 5px),
-    linear-gradient(var(--paper), var(--paper)) center / 1px 100% no-repeat,
-    linear-gradient(90deg, var(--paper), var(--paper)) center / 100% 1px
-    no-repeat,
-    repeating-radial-gradient(
-      circle at center,
-      transparent 0 63px,
-      var(--paper) 64px 65px,
-      transparent 66px 88px
-    );
-  content: "";
-  opacity: 0.14;
-  pointer-events: none;
-}
-
 .now-card-head,
 .now-role,
 .now-copy,
@@ -1018,6 +993,52 @@ a {
 @keyframes orbit-spin {
   to {
     transform: rotate(1turn);
+  }
+}
+
+/* The particle field is contained by the Now card and occupies its
+   bottom-right three quarters. */
+.particle-field {
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  width: 75%;
+  height: 75%;
+  overflow: hidden;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  mask-image: linear-gradient(135deg, transparent 0%, black 28%, black 100%);
+}
+
+.particle {
+  position: absolute;
+  top: var(--particle-y);
+  left: var(--particle-x);
+  width: var(--particle-size);
+  height: var(--particle-size);
+  border-radius: 50%;
+  background: var(--particle-color);
+  box-shadow: 0 0 8px rgb(255 255 255 / 45%);
+  opacity: var(--particle-opacity);
+  animation: particle-drift var(--particle-duration) ease-in-out
+    var(--particle-delay) infinite alternate;
+  will-change: transform;
+}
+
+@keyframes particle-drift {
+  from {
+    transform: translate(
+      calc(var(--particle-dx) * -0.5),
+      calc(var(--particle-dy) * -0.5)
+    );
+  }
+
+  to {
+    transform: translate(
+      calc(var(--particle-dx) * 0.5),
+      calc(var(--particle-dy) * 0.5)
+    );
   }
 }
 

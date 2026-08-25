@@ -11,6 +11,7 @@ const { t } = useI18n();
     </header>
 
     <article class="now-card">
+      <ParticleBackground />
       <div class="now-card-head">
         <div>
           <p class="meta-label">{{ t("now.currentPosition") }}</p>
