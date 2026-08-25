@@ -81,9 +81,17 @@ const getGitHubProjects = defineCachedFunction(
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event);
-  const username = String(config.githubUsername || "fikryfahrezy");
+  const username = process.env.NUXT_GITHUB_USERNAME?.trim();
   const token =
     typeof config.githubToken === "string" ? config.githubToken : "";
+
+  if (!username) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: "GitHub username is not configured",
+      message: "Set the NUXT_GITHUB_USERNAME environment variable.",
+    });
+  }
 
   // The server function above owns freshness. Prevent browsers and CDNs from
   // retaining an older empty API response independently.

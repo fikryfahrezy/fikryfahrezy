@@ -12,7 +12,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Set NUXT_GITHUB_TOKEN in production for a higher GitHub API rate limit.
     githubToken: "",
-    githubUsername: "fikryfahrezy",
+    githubUsername: "",
   },
   hooks: {
     // Nuxt Content drops unrecognised frontmatter keys without complaining, so
