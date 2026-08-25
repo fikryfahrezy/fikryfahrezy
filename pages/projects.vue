@@ -45,7 +45,11 @@ const projectGroups = computed(() => {
         key === uncategorizedKey
           ? t("projects.uncategorized")
           : formatGroup(key),
-      projects: items,
+      projects: [...items].sort(
+        (a, b) =>
+          (Date.parse(b.pushedAt || "") || 0) -
+          (Date.parse(a.pushedAt || "") || 0),
+      ),
     }));
 });
 

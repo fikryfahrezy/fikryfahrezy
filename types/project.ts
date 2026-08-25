@@ -9,6 +9,6 @@ export interface Project {
   stars: number;
   forks: number;
   topics: string[];
-  updatedAt: string;
+  pushedAt: string | null;
   group: string | null;
 }

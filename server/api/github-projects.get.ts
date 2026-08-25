@@ -9,7 +9,7 @@ interface GitHubRepository {
   stargazers_count: number;
   forks_count: number;
   topics: string[];
-  updated_at: string;
+  pushed_at: string | null;
 }
 
 const REQUIRED_TOPIC = "personal-project";
@@ -65,7 +65,7 @@ const getGitHubProjects = defineCachedFunction(
           topics: repository.topics.filter(
             (topic) => topic !== REQUIRED_TOPIC && !GROUP_TOPIC.test(topic),
           ),
-          updatedAt: repository.updated_at,
+          pushedAt: repository.pushed_at,
           group: groupTopic?.match(GROUP_TOPIC)?.[1] || null,
         };
       });
@@ -73,7 +73,7 @@ const getGitHubProjects = defineCachedFunction(
   {
     // Cache only the GitHub request, not the HTTP response sent to browsers.
     maxAge: 5 * 60,
-    name: "github-personal-projects-v3",
+    name: "github-personal-projects-v4",
     getKey: (username) => username,
     shouldBypassCache: () => Boolean(import.meta.dev),
   },
