@@ -3,7 +3,7 @@ locale: id
 company: Taiwan Mobile
 role: Pengembang Perangkat Lunak · Kontrak
 period: Mar 2026 — Sekarang
-location: Taipei, Taiwan · Jarak jauh
+location: Taiwan · Jarak jauh
 tags:
   - .NET
   - React

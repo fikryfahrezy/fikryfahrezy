@@ -12,6 +12,4 @@ items:
   - Swift
   - Python
   - Java
-  - PHP
-  - C#
 ---

@@ -14,7 +14,7 @@ tags:
   - Docker
 ---
 
-- Developed internal management web applications using **TypeScript**, **Next.js**, **Tailwind CSS**, **Hono**, and **PostgreSQL**.
+- Developed internal management web applications using **TypeScript**, **Next.js**, **Tailwind CSS**, **Node.js (Hono)**, and **PostgreSQL**.
 - Designed RESTful APIs and database ERDs in RFC documents to streamline implementation.
 - Set up CI/CD with **GitHub Actions** for frontend and backend projects.
 - Managed deployments for applications using **Docker** and **Caddy** on a VPS.

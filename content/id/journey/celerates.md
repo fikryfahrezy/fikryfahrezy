@@ -12,7 +12,7 @@ tags:
   - Docker
 ---
 
-- Mengembangkan aplikasi web manajemen internal menggunakan **TypeScript**, **Next.js**, **Tailwind CSS**, **Hono**, dan **PostgreSQL**.
+- Mengembangkan aplikasi web manajemen internal menggunakan **TypeScript**, **Next.js**, **Tailwind CSS**, **Node.js (Hono)**, dan **PostgreSQL**.
 - Merancang RESTful API dan ERD basis data dalam dokumen RFC untuk memperlancar implementasi.
 - Menyiapkan CI/CD dengan **GitHub Actions** untuk proyek frontend dan backend.
 - Mengelola deployment aplikasi menggunakan **Docker** dan **Caddy** di VPS.

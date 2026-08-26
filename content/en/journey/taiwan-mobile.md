@@ -1,10 +1,10 @@
 ---
 locale: en
-order: 5
+order: 6
 company: Taiwan Mobile
 role: Software Developer · Contract
 period: Mar 2026 — Present
-location: Taipei · Remote
+location: Taiwan · Remote
 tags:
   - .NET
   - React
