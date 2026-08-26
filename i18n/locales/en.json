@@ -122,6 +122,7 @@
     "uniqueArtists": "Artists explored",
     "uniqueTracks": "Tracks discovered",
     "nowPlaying": "Scrobbling now",
+    "lastPlayed": "Last played",
     "latestSignal": "Latest signal",
     "recentTracks": "Recent tracks",
     "recentCount": "{count} listen | {count} listens",

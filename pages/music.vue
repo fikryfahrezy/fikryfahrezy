@@ -21,6 +21,9 @@ const recentTracks = computed(() =>
     .filter((track) => !track.nowPlaying)
     .slice(0, 8),
 );
+const featuredTrack = computed(
+  () => currentTrack.value || recentTracks.value[0] || null,
+);
 const hasMusic = computed(
   () =>
     musicResponse.value.recentTracks.length > 0 ||
@@ -139,30 +142,40 @@ useSeoMeta({
     </section>
 
     <div v-else class="music-dashboard">
-      <section v-if="currentTrack" class="music-now" aria-live="polite">
+      <section v-if="featuredTrack" class="music-now" aria-live="polite">
         <div class="music-now-copy">
-          <p class="meta-label">● {{ t("music.nowPlaying") }}</p>
+          <p class="meta-label">
+            <span aria-hidden="true">{{ currentTrack ? "●" : "↙" }}</span>
+            {{ t(currentTrack ? "music.nowPlaying" : "music.lastPlayed") }}
+          </p>
           <h2>
-            <a :href="currentTrack.url" target="_blank" rel="noreferrer">
-              {{ currentTrack.name }}
+            <a :href="featuredTrack.url" target="_blank" rel="noreferrer">
+              {{ featuredTrack.name }}
             </a>
           </h2>
-          <p class="music-now-artist">{{ currentTrack.artist }}</p>
-          <p v-if="currentTrack.album" class="music-now-album">
-            {{ currentTrack.album }}
+          <p class="music-now-artist">{{ featuredTrack.artist }}</p>
+          <p v-if="featuredTrack.album" class="music-now-album">
+            {{ featuredTrack.album }}
           </p>
+          <time
+            v-if="!currentTrack && featuredTrack.playedAt"
+            class="music-now-time"
+            :datetime="featuredTrack.playedAt"
+          >
+            {{ formatDate(featuredTrack.playedAt) }}
+          </time>
         </div>
         <a
           class="music-now-art"
-          :href="currentTrack.url"
+          :href="featuredTrack.url"
           target="_blank"
           rel="noreferrer"
-          :aria-label="`${currentTrack.name} — Last.fm`"
+          :aria-label="`${featuredTrack.name} — Last.fm`"
         >
           <img
-            v-if="currentTrack.image"
-            :src="currentTrack.image"
-            :alt="`${currentTrack.name} artwork`"
+            v-if="featuredTrack.image"
+            :src="featuredTrack.image"
+            :alt="`${featuredTrack.name} artwork`"
             width="300"
             height="300"
           />
