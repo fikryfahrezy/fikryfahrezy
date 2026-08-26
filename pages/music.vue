@@ -1,16 +1,7 @@
 <script setup lang="ts">
 const { locale, t } = useI18n();
 
-const {
-  data: musicResponse,
-  error,
-  refresh,
-  status,
-} = useMusic({ immediate: false });
-
-onMounted(async () => {
-  await refresh();
-});
+const { data: musicResponse, error, status } = await useMusic();
 
 const currentTrack = computed(
   () =>

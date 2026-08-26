@@ -4,19 +4,10 @@ import type { AnimeListEntry, AnimeListStatus } from "~/types/anime";
 
 const { t } = useI18n();
 
-const {
-  data: animeListResponse,
-  error,
-  refresh,
-  status,
-} = useAnimeList({ immediate: false });
+const { data: animeListResponse, error, status } = await useAnimeList();
 
 const animeList = computed(() => animeListResponse.value.entries);
 const profileUrl = computed(() => animeListResponse.value.profileUrl);
-
-onMounted(async () => {
-  await refresh();
-});
 
 const statusOrder: AnimeListStatus[] = [
   "watching",

@@ -62,10 +62,10 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: "bun",
-    // Dynamic showcase data is loaded after mount so these shells can still be
-    // prerendered and refreshed without rebuilding the site.
+    // Dynamic showcase routes use runtime SSR so their external data stays
+    // fresh. Only the content-backed landing pages are generated at build time.
     prerender: {
-      routes: ["/", "/id", "/anime", "/id/anime", "/music", "/id/music"],
+      routes: ["/", "/id"],
     },
   },
   modules: [

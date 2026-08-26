@@ -3,20 +3,10 @@ import type { Project } from "~/types/project";
 
 const { t } = useI18n();
 
-const {
-  data: projectListResponse,
-  error,
-  refresh,
-  status,
-} = useProjects({ immediate: false });
+const { data: projectListResponse, error, status } = await useProjects();
 
 const projects = computed(() => projectListResponse.value.entries);
 const githubProfileUrl = computed(() => projectListResponse.value.profileUrl);
-
-// Keep the preloaded list visible and quietly reconcile it with the server.
-onMounted(async () => {
-  await refresh();
-});
 
 const formatGroup = (group: string) =>
   group
