@@ -1,11 +1,14 @@
-import type { Project } from "~/types/project";
+import type { ProjectListResponse } from "~/types/project";
 
-const emptyProjects = (): Project[] => [];
+const emptyProjects = (): ProjectListResponse => ({
+  profileUrl: "",
+  entries: [],
+});
 
 export function useProjects(
   options: { immediate?: boolean; server?: boolean } = {},
 ) {
-  return useFetch<Project[]>("/api/github-projects", {
+  return useFetch<ProjectListResponse>("/api/github-projects", {
     key: "github-projects",
     default: emptyProjects,
     immediate: options.immediate ?? true,

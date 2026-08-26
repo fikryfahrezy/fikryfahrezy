@@ -12,3 +12,8 @@ export interface Project {
   pushedAt: string | null;
   group: string | null;
 }
+
+export interface ProjectListResponse {
+  profileUrl: string;
+  entries: Project[];
+}

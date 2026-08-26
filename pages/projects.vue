@@ -4,11 +4,14 @@ import type { Project } from "~/types/project";
 const { t } = useI18n();
 
 const {
-  data: projects,
+  data: projectListResponse,
   error,
   refresh,
   status,
 } = useProjects({ immediate: false });
+
+const projects = computed(() => projectListResponse.value.entries);
+const githubProfileUrl = computed(() => projectListResponse.value.profileUrl);
 
 // Keep the preloaded list visible and quietly reconcile it with the server.
 onMounted(async () => {
@@ -74,7 +77,17 @@ useSeoMeta({
       </div>
       <div class="project-page-summary">
         <p>{{ t("projects.description") }}</p>
-        <p>{{ t("projects.source") }} <span aria-hidden="true">↗</span></p>
+        <p>
+          <a
+            v-if="githubProfileUrl"
+            :href="githubProfileUrl"
+            target="_blank"
+            rel="noreferrer"
+          >
+            {{ t("projects.source") }} <span aria-hidden="true">↗</span>
+          </a>
+          <span v-else>{{ t("projects.source") }}</span>
+        </p>
       </div>
     </section>
 
