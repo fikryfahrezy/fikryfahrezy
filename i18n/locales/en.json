@@ -22,6 +22,7 @@
   },
   "sections": {
     "hero": { "label": "Intro" },
+    "me": { "label": "Me" },
     "now": { "label": "Now", "eyebrow": "Current orbit" },
     "journey": { "label": "Journey", "eyebrow": "The journey so far" },
     "skills": { "label": "Skills", "eyebrow": "Star chart · skills" },
@@ -78,10 +79,28 @@
     "status": "In progress",
     "titleLead": "Anime",
     "titleTrail": "Archive",
-    "description": "A personal archive of the anime, characters, and stories that stay with me.",
-    "placeholderLabel": "Watchlist loading",
-    "comingSoon": "Coming soon.",
-    "placeholderCopy": "Favorites, reviews, and watchlist notes will land here shortly."
+    "description": "A personal archive of the anime I've watched.",
+    "source": "Synced from MyAnimeList",
+    "loading": "Fetching MyAnimeList",
+    "loadingTitle": "Opening the archive.",
+    "errorLabel": "MyAnimeList unavailable",
+    "errorTitle": "The list is off air.",
+    "errorCopy": "The watchlist could not be loaded from MyAnimeList right now.",
+    "emptyLabel": "Watchlist empty",
+    "emptyTitle": "Nothing queued yet.",
+    "emptyCopy": "Anime added on MyAnimeList will appear here automatically.",
+    "listStatus": "List status",
+    "titleCount": "{count} title | {count} titles",
+    "anime": "Anime",
+    "episodes": "EP",
+    "notRated": "Not rated",
+    "statuses": {
+      "watching": "Watching",
+      "completed": "Completed",
+      "on_hold": "On hold",
+      "dropped": "Dropped",
+      "plan_to_watch": "Plan to watch"
+    }
   },
   "music": {
     "seoTitle": "Music — Fikry Fahrezy",

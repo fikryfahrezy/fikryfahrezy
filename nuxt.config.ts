@@ -13,6 +13,9 @@ export default defineNuxtConfig({
     // Set NUXT_GITHUB_TOKEN in production for a higher GitHub API rate limit.
     githubToken: "",
     githubUsername: "",
+    // Create an API client at myanimelist.net/apiconfig to populate /anime.
+    malClientId: "",
+    malUsername: "",
   },
   hooks: {
     // Nuxt Content drops unrecognised frontmatter keys without complaining, so
@@ -56,8 +59,8 @@ export default defineNuxtConfig({
   },
   nitro: {
     preset: "bun",
-    // Bake content-only pages into HTML. Projects remain server-rendered so
-    // their cached GitHub data can refresh without rebuilding the site.
+    // Dynamic showcase data is loaded after mount so these shells can still be
+    // prerendered and refreshed without rebuilding the site.
     prerender: {
       routes: ["/", "/id", "/anime", "/id/anime"],
     },

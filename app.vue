@@ -113,7 +113,7 @@ function handleSystemThemeChange(event: MediaQueryListEvent) {
 }
 
 onMounted(() => {
-  if (projectPreload.data.value.length === 0) projectPreload.refresh();
+  if (projectPreload.data.value.entries.length === 0) projectPreload.refresh();
 
   systemThemeQuery = window.matchMedia("(prefers-color-scheme: light)");
   systemPrefersLight.value = systemThemeQuery.matches;
@@ -202,17 +202,8 @@ useSeoMeta({
       </NuxtLink>
 
       <nav class="site-nav" :aria-label="t('navigation.sections')">
-        <NuxtLink :to="{ path: homePath, hash: '#now' }">
-          {{ t("sections.now.label") }}
-        </NuxtLink>
-        <NuxtLink :to="{ path: homePath, hash: '#journey' }">
-          {{ t("sections.journey.label") }}
-        </NuxtLink>
-        <NuxtLink :to="{ path: homePath, hash: '#skills' }">
-          {{ t("sections.skills.label") }}
-        </NuxtLink>
-        <NuxtLink :to="{ path: homePath, hash: '#contact' }">
-          {{ t("sections.contact.label") }}
+        <NuxtLink :to="{ path: homePath }">
+          {{ t("sections.me.label") }}
         </NuxtLink>
         <NuxtLink :to="projectsPath">{{ t("sections.projects.label") }}</NuxtLink>
         <NuxtLink :to="animePath">{{ t("sections.anime.label") }}</NuxtLink>

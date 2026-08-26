@@ -81,7 +81,10 @@ const getGitHubProjects = defineCachedFunction(
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event);
-  const username = process.env.NUXT_GITHUB_USERNAME?.trim();
+  const username =
+    typeof config.githubUsername === "string"
+      ? config.githubUsername.trim()
+      : "";
   const token =
     typeof config.githubToken === "string" ? config.githubToken : "";
 
@@ -97,5 +100,8 @@ export default defineEventHandler(async (event) => {
   // retaining an older empty API response independently.
   setResponseHeader(event, "Cache-Control", "private, no-store");
 
-  return getGitHubProjects(username, token);
+  return {
+    profileUrl: `https://github.com/${encodeURIComponent(username)}`,
+    entries: await getGitHubProjects(username, token),
+  };
 });

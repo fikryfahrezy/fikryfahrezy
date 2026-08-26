@@ -22,6 +22,7 @@
   },
   "sections": {
     "hero": { "label": "Intro" },
+    "me": { "label": "Saya" },
     "now": { "label": "Kini", "eyebrow": "Orbit saat ini" },
     "journey": { "label": "Perjalanan", "eyebrow": "Perjalanan sejauh ini" },
     "skills": { "label": "Keahlian", "eyebrow": "Peta bintang · keahlian" },
@@ -78,10 +79,28 @@
     "status": "Dalam proses",
     "titleLead": "Arsip",
     "titleTrail": "Anime",
-    "description": "Arsip pribadi tentang anime, karakter, dan kisah yang terus membekas.",
-    "placeholderLabel": "Daftar tontonan sedang dimuat",
-    "comingSoon": "Segera hadir.",
-    "placeholderCopy": "Anime favorit, ulasan, dan catatan tontonan akan segera hadir di sini."
+    "description": "Arsip pribadi tentang anime yang telah saya tonton.",
+    "source": "Disinkronkan dari MyAnimeList",
+    "loading": "Mengambil data MyAnimeList",
+    "loadingTitle": "Membuka arsip.",
+    "errorLabel": "MyAnimeList tidak tersedia",
+    "errorTitle": "Daftar sedang tidak tayang.",
+    "errorCopy": "Daftar tontonan dari MyAnimeList tidak dapat dimuat saat ini.",
+    "emptyLabel": "Daftar tontonan kosong",
+    "emptyTitle": "Belum ada yang mengantre.",
+    "emptyCopy": "Anime yang ditambahkan di MyAnimeList akan otomatis muncul di sini.",
+    "listStatus": "Status daftar",
+    "titleCount": "{count} judul",
+    "anime": "Anime",
+    "episodes": "EP",
+    "notRated": "Belum dinilai",
+    "statuses": {
+      "watching": "Sedang ditonton",
+      "completed": "Selesai",
+      "on_hold": "Ditunda",
+      "dropped": "Dihentikan",
+      "plan_to_watch": "Akan ditonton"
+    }
   },
   "music": {
     "seoTitle": "Musik — Fikry Fahrezy",
