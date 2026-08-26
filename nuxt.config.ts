@@ -16,6 +16,9 @@ export default defineNuxtConfig({
     // Create an API client at myanimelist.net/apiconfig to populate /anime.
     malClientId: "",
     malUsername: "",
+    // Register an application at last.fm/api/account/create to populate /music.
+    lastfmApiKey: "",
+    lastfmUsername: "",
   },
   hooks: {
     // Nuxt Content drops unrecognised frontmatter keys without complaining, so
@@ -62,7 +65,7 @@ export default defineNuxtConfig({
     // Dynamic showcase data is loaded after mount so these shells can still be
     // prerendered and refreshed without rebuilding the site.
     prerender: {
-      routes: ["/", "/id", "/anime", "/id/anime"],
+      routes: ["/", "/id", "/anime", "/id/anime", "/music", "/id/music"],
     },
   },
   modules: [
