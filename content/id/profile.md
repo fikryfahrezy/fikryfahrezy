@@ -21,5 +21,5 @@ ogDescription: >
 ---
 
 Pengembang full-stack yang menjelajah frontend yang terasa hidup dan backend
-yang tetap andal — lima tahun orbit kerja jarak jauh dengan React, Vue, Go,
+yang tetap andal — tiga tahun lebih orbit kerja jarak jauh dengan React, Vue, Go,
 dan kawan-kawannya.

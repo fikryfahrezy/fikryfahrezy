@@ -17,6 +17,8 @@ const { t } = useI18n();
       <ContentRenderer v-if="profile" :value="profile" class="hero-intro" />
       <div class="hero-actions">
         <a :href="`mailto:${profile?.email}`">{{ t("hero.startConversation") }} ↗</a>
+        <a :href="profile?.github" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a :href="profile?.linkedin" target="_blank" rel="noreferrer">LinkedIn ↗</a>
         <a
           href="/fikry-fahrezy-ramadhan-resume.pdf"
           target="_blank"
@@ -24,8 +26,6 @@ const { t } = useI18n();
         >
           {{ t("hero.downloadResume") }} ↓
         </a>
-        <a :href="profile?.github" target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a :href="profile?.linkedin" target="_blank" rel="noreferrer">LinkedIn ↗</a>
       </div>
     </div>
 

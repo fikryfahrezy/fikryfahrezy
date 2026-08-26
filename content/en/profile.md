@@ -22,7 +22,7 @@ seoTitle: Fikry Fahrezy Ramadhan — Software Developer
 # The blurb under the title in Google results. Aim for 150–160 characters.
 seoDescription: >
   Personal site of Fikry Fahrezy Ramadhan — a full-stack developer working
-  across React, Vue, Go, and more. An endless scroll through five years of
+  across React, Vue, Go, and more. An endless scroll through three plus years of
   remote orbits.
 
 # The shorter blurb used when the link is pasted into Slack, WhatsApp, X, etc.
@@ -32,5 +32,5 @@ ogDescription: >
 ---
 
 Full-stack developer drifting between frontends that feel alive and backends
-that hold steady — five years of remote orbits across React, Vue, Go, and
+that hold steady — three plus years of remote orbits across React, Vue, Go, and
 friends.
