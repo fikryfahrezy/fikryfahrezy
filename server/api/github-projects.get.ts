@@ -15,69 +15,60 @@ interface GitHubRepository {
 const REQUIRED_TOPIC = "personal-project";
 const GROUP_TOPIC = /^project-(.+)$/i;
 
-const getGitHubProjects = defineCachedFunction(
-  async (username: string, token: string) => {
-    const repositories: GitHubRepository[] = [];
-    const headers: Record<string, string> = {
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    };
+const getGitHubProjects = async (username: string, token: string) => {
+  const repositories: GitHubRepository[] = [];
+  const headers: Record<string, string> = {
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+  };
 
-    if (token) headers.Authorization = `Bearer ${token}`;
+  if (token) headers.Authorization = `Bearer ${token}`;
 
-    // GitHub caps this endpoint at 100 repositories per page. Keep paging so
-    // adding more public repositories never silently drops a project.
-    for (let page = 1; ; page += 1) {
-      const batch = await $fetch<GitHubRepository[]>(
-        `https://api.github.com/users/${encodeURIComponent(username)}/repos`,
-        {
-          headers,
-          query: {
-            page,
-            per_page: 100,
-            sort: "updated",
-            type: "public",
-          },
+  // GitHub caps this endpoint at 100 repositories per page. Keep paging so
+  // adding more public repositories never silently drops a project.
+  for (let page = 1; ; page += 1) {
+    const batch = await $fetch<GitHubRepository[]>(
+      `https://api.github.com/users/${encodeURIComponent(username)}/repos`,
+      {
+        headers,
+        query: {
+          page,
+          per_page: 100,
+          sort: "updated",
+          type: "public",
         },
+      },
+    );
+
+    repositories.push(...batch);
+    if (batch.length < 100) break;
+  }
+
+  return repositories
+    .filter((repository) => repository.topics.includes(REQUIRED_TOPIC))
+    .map((repository) => {
+      const groupTopic = repository.topics.find((topic) =>
+        GROUP_TOPIC.test(topic),
       );
 
-      repositories.push(...batch);
-      if (batch.length < 100) break;
-    }
-
-    return repositories
-      .filter((repository) => repository.topics.includes(REQUIRED_TOPIC))
-      .map((repository) => {
-        const groupTopic = repository.topics.find((topic) =>
-          GROUP_TOPIC.test(topic),
-        );
-
-        return {
-          id: repository.id,
-          name: repository.name,
-          fullName: repository.full_name,
-          description: repository.description,
-          url: repository.html_url,
-          homepage: repository.homepage || null,
-          language: repository.language,
-          stars: repository.stargazers_count,
-          forks: repository.forks_count,
-          topics: repository.topics.filter(
-            (topic) => topic !== REQUIRED_TOPIC && !GROUP_TOPIC.test(topic),
-          ),
-          pushedAt: repository.pushed_at,
-          group: groupTopic?.match(GROUP_TOPIC)?.[1] || null,
-        };
-      });
-  },
-  {
-    // Cache only the GitHub request, not the HTTP response sent to browsers.
-    maxAge: 5 * 60,
-    name: "github-personal-projects-v4",
-    getKey: (username) => username,
-    shouldBypassCache: () => Boolean(import.meta.dev),
-  },
-);
+      return {
+        id: repository.id,
+        name: repository.name,
+        fullName: repository.full_name,
+        description: repository.description,
+        url: repository.html_url,
+        homepage: repository.homepage || null,
+        language: repository.language,
+        stars: repository.stargazers_count,
+        forks: repository.forks_count,
+        topics: repository.topics.filter(
+          (topic) => topic !== REQUIRED_TOPIC && !GROUP_TOPIC.test(topic),
+        ),
+        pushedAt: repository.pushed_at,
+        group: groupTopic?.match(GROUP_TOPIC)?.[1] || null,
+      };
+    });
+};
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event);
@@ -96,8 +87,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  // The server function above owns freshness. Prevent browsers and CDNs from
-  // retaining an older empty API response independently.
+  // Always request fresh project data from the server endpoint.
   setResponseHeader(event, "Cache-Control", "private, no-store");
 
   return {

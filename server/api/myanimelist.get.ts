@@ -28,51 +28,43 @@ interface MalAnimeListResponse {
   };
 }
 
-const getMyAnimeList = defineCachedFunction(
-  async (username: string, clientId: string) => {
-    const entries: AnimeListEntry[] = [];
-    let nextUrl: string | undefined =
-      `https://api.myanimelist.net/v2/users/${encodeURIComponent(username)}/animelist`;
+const getMyAnimeList = async (username: string, clientId: string) => {
+  const entries: AnimeListEntry[] = [];
+  let nextUrl: string | undefined =
+    `https://api.myanimelist.net/v2/users/${encodeURIComponent(username)}/animelist`;
 
-    while (nextUrl) {
-      const response: MalAnimeListResponse = await $fetch(nextUrl, {
-        headers: { "X-MAL-CLIENT-ID": clientId },
-        query: nextUrl.includes("?")
-          ? undefined
-          : {
-              fields: "list_status,media_type,num_episodes",
-              limit: 1000,
-              sort: "list_updated_at",
-            },
-      });
+  while (nextUrl) {
+    const response: MalAnimeListResponse = await $fetch(nextUrl, {
+      headers: { "X-MAL-CLIENT-ID": clientId },
+      query: nextUrl.includes("?")
+        ? undefined
+        : {
+            fields: "list_status,media_type,num_episodes",
+            limit: 1000,
+            sort: "list_updated_at",
+          },
+    });
 
-      entries.push(
-        ...response.data.map(({ node, list_status }) => ({
-          id: node.id,
-          title: node.title,
-          image: node.main_picture?.large || node.main_picture?.medium || null,
-          status: list_status.status,
-          score: list_status.score,
-          watchedEpisodes: list_status.num_episodes_watched,
-          totalEpisodes: node.num_episodes || 0,
-          mediaType: node.media_type || null,
-          url: `https://myanimelist.net/anime/${node.id}`,
-          updatedAt: list_status.updated_at,
-        })),
-      );
+    entries.push(
+      ...response.data.map(({ node, list_status }) => ({
+        id: node.id,
+        title: node.title,
+        image: node.main_picture?.large || node.main_picture?.medium || null,
+        status: list_status.status,
+        score: list_status.score,
+        watchedEpisodes: list_status.num_episodes_watched,
+        totalEpisodes: node.num_episodes || 0,
+        mediaType: node.media_type || null,
+        url: `https://myanimelist.net/anime/${node.id}`,
+        updatedAt: list_status.updated_at,
+      })),
+    );
 
-      nextUrl = response.paging?.next;
-    }
+    nextUrl = response.paging?.next;
+  }
 
-    return entries;
-  },
-  {
-    maxAge: 30 * 60,
-    name: "myanimelist-anime-list-v1",
-    getKey: (username) => username,
-    shouldBypassCache: () => Boolean(import.meta.dev),
-  },
-);
+  return entries;
+};
 
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig(event);
