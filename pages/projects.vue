@@ -160,7 +160,7 @@ useSeoMeta({
               </a>
             </h3>
             <p class="project-description">
-              {{ project.description || t("projects.noDescription") }}
+              {{ project.description }}
             </p>
 
             <ul v-if="project.topics.length" class="project-topics">
