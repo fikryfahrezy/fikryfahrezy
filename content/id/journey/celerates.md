@@ -3,7 +3,7 @@ locale: id
 order: 1
 company: Celerates
 role: Pengembang Full-stack · Kontrak
-period: Mei 2022 — Jul 2022
+period: Apr 2022 — Jun 2022
 location: Indonesia · Jarak jauh
 tags:
   - Next.js

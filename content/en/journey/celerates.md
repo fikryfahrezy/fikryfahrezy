@@ -5,7 +5,7 @@ locale: en
 order: 1
 company: Celerates
 role: Full-stack Developer · Contract
-period: May 2022 — Jul 2022
+period: Apr 2022 — Jun 2022
 location: Indonesia · Remote
 tags:
   - Next.js
