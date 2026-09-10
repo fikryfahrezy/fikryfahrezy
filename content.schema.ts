@@ -68,6 +68,7 @@ export const contentSchemas = {
 
   education: z.object({
     locale,
+    order: z.number(),
     school: z.string(),
     degree: z.string(),
     period: z.string(),

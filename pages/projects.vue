@@ -135,10 +135,7 @@ useSeoMeta({
             {{ String(groupIndex + 1).padStart(2, "0") }} /
             {{ String(projectGroups.length).padStart(2, "0") }}
           </p>
-          <div>
-            <p class="meta-label">{{ t("projects.groupLabel") }}</p>
-            <h2 :id="`project-group-${group.key}`">{{ group.label }}</h2>
-          </div>
+          <h2 :id="`project-group-${group.key}`">{{ group.label }}</h2>
           <p class="project-group-count">
             {{ t("projects.repositoryCount", group.projects.length) }}
           </p>

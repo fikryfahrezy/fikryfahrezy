@@ -6,4 +6,5 @@ items:
   - Vitest
   - React Testing Library
   - Git
+  - Figma
 ---

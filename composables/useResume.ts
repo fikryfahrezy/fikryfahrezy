@@ -90,11 +90,20 @@ export function useEducation() {
     async () => {
       const localized = await queryCollection("education")
         .where("locale", "=", locale.value)
-        .first();
-      return (
-        localized ??
-        queryCollection("education").where("locale", "=", "en").first()
-      );
+        .order("order", "DESC")
+        .all();
+      if (locale.value === "en") return localized;
+
+      const localizedOrders = new Set(localized.map((entry) => entry.order));
+      const english = await queryCollection("education")
+        .where("locale", "=", "en")
+        .order("order", "DESC")
+        .all();
+      return [
+        ...localized,
+        ...english.filter((entry) => !localizedOrders.has(entry.order)),
+      ].sort((a, b) => b.order - a.order);
     },
+    { default: () => [] },
   );
 }

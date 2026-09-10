@@ -35,10 +35,10 @@ export default defineContentConfig({
       schema: contentSchemas.skills,
     }),
 
-    // Education is independent from contact details and closing copy.
+    // One file per education entry.
     education: defineCollection({
       type: "page",
-      source: "*/education.md",
+      source: "*/education/*.md",
       schema: contentSchemas.education,
     }),
   },

@@ -10,13 +10,21 @@ const { t } = useI18n();
       <h2>{{ t("sections.education.label") }}</h2>
     </header>
 
-    <article class="education-card">
-      <p class="education-period">{{ education?.period }}</p>
-      <div>
-        <h3>{{ education?.degree }}</h3>
-        <p>{{ education?.school }}</p>
-      </div>
-      <span aria-hidden="true">EDU/01</span>
-    </article>
+    <div class="education-list">
+      <article
+        v-for="(entry, i) in education"
+        :key="entry.id"
+        class="education-card"
+      >
+        <p class="education-period">{{ entry.period }}</p>
+        <div>
+          <h3>{{ entry.degree }}</h3>
+          <p>{{ entry.school }}</p>
+        </div>
+        <span aria-hidden="true">
+          EDU/{{ (i + 1).toString().padStart(2, "0") }}
+        </span>
+      </article>
+    </div>
   </section>
 </template>

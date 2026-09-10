@@ -29,7 +29,7 @@ are translated.
 | `en/now.md`, `id/now.md` | The current-role panel and its bullets |
 | `en/journey/*.md`, `id/journey/*.md` | One file per past role on the timeline |
 | `en/skills/*.md`, `id/skills/*.md` | One file per skill-group card |
-| `en/education.md`, `id/education.md` | School, degree, and study period |
+| `en/education/*.md`, `id/education/*.md` | One file per education entry |
 
 ## How a file is built
 
@@ -72,6 +72,10 @@ don't affect order.
 **Add a skill.** Add a `- Your Skill` line to the `items` list in the right
 `skills/` file, or copy a file to make a new group. `wide: true` makes a card
 span both columns.
+
+**Add an education entry.** Copy a file in both `en/education/` and
+`id/education/`, then update its school, degree, and period. Higher `order`
+numbers appear first.
 
 **Change what Google and Slack show.** Edit `seoTitle`, `seoDescription`, and
 `ogDescription` in the matching locale's `profile.md` file.

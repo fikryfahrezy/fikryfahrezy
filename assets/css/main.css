@@ -1327,6 +1327,10 @@ a {
   content: "×";
 }
 
+.education-list {
+  border-bottom: 1px solid var(--line);
+}
+
 .education-card {
   position: relative;
   display: grid;
@@ -1335,7 +1339,6 @@ a {
   align-items: start;
   padding-block: clamp(30px, 5vw, 64px);
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
 }
 
 .education-period,
