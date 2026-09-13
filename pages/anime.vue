@@ -135,10 +135,7 @@ useSeoMeta({
             {{ String(groupIndex + 1).padStart(2, "0") }} /
             {{ String(animeGroups.length).padStart(2, "0") }}
           </p>
-          <div>
-            <p class="meta-label">{{ t("anime.listStatus") }}</p>
-            <h2 :id="`anime-group-${group.key}`">{{ group.label }}</h2>
-          </div>
+          <h2 :id="`anime-group-${group.key}`">{{ group.label }}</h2>
           <p class="anime-group-count">
             {{ t("anime.titleCount", group.entries.length) }}
           </p>
