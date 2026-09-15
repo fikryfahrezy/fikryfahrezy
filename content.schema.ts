@@ -73,6 +73,21 @@ export const contentSchemas = {
     degree: z.string(),
     period: z.string(),
   }),
+
+  products: z.object({
+    locale,
+    slug: z.string(),
+    order: z.number(),
+    name: z.string(),
+    summary: z.string(),
+    category: z.string(),
+    status: z.string(),
+    url: z.string().url(),
+    sourceUrl: z.string().url().optional(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    technologies: z.array(z.string()),
+  }),
 };
 
 export type ContentCollectionName = keyof typeof contentSchemas;

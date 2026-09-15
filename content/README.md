@@ -30,6 +30,7 @@ are translated.
 | `en/journey/*.md`, `id/journey/*.md` | One file per past role on the timeline |
 | `en/skills/*.md`, `id/skills/*.md` | One file per skill-group card |
 | `en/education/*.md`, `id/education/*.md` | One file per education entry |
+| `en/products/*.md`, `id/products/*.md` | Featured projects shown above the GitHub archive |
 
 ## How a file is built
 
@@ -76,6 +77,12 @@ span both columns.
 **Add an education entry.** Copy a file in both `en/education/` and
 `id/education/`, then update its school, degree, and period. Higher `order`
 numbers appear first.
+
+**Add a featured project.** Copy a file in both `en/products/` and
+`id/products/`, then update its name, summary, category, status, destination
+URL, and technologies. Lower `order` numbers appear first. `sourceUrl` is
+optional and should only be added when the source code is public. `image` and
+`imageAlt` are optional; place preview files in `public/images/projects/`.
 
 **Change what Google and Slack show.** Edit `seoTitle`, `seoDescription`, and
 `ogDescription` in the matching locale's `profile.md` file.

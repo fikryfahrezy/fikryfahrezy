@@ -41,5 +41,13 @@ export default defineContentConfig({
       source: "*/education/*.md",
       schema: contentSchemas.education,
     }),
+
+    // Featured projects remain independent from the GitHub repository archive
+    // so private and non-repository work can be included.
+    products: defineCollection({
+      type: "page",
+      source: "*/products/*.md",
+      schema: contentSchemas.products,
+    }),
   },
 });

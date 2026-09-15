@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { useFeaturedProducts } from "~/composables/useResume";
 import type { Project } from "~/types/project";
 
 const { t } = useI18n();
 
+const { data: featuredProducts } = await useFeaturedProducts();
 const { data: projectListResponse, error, status } = await useProjects();
 
 const projects = computed(() => projectListResponse.value.entries);
@@ -67,19 +69,98 @@ useSeoMeta({
       </div>
       <div class="project-page-summary">
         <p>{{ t("projects.description") }}</p>
-        <p>
-          <a
-            v-if="githubProfileUrl"
-            :href="githubProfileUrl"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {{ t("projects.source") }} <span aria-hidden="true">↗</span>
-          </a>
-          <span v-else>{{ t("projects.source") }}</span>
-        </p>
+        <p>{{ t("projects.curatedSource") }}</p>
       </div>
     </section>
+
+    <section
+      v-if="featuredProducts.length"
+      class="featured-products"
+      aria-labelledby="featured-products-title"
+    >
+      <header class="featured-products-heading">
+        <h2 id="featured-products-title">
+          {{ t("projects.featuredTitle") }}
+        </h2>
+        <p>
+          {{ t("projects.featuredCount", featuredProducts.length) }}
+        </p>
+      </header>
+
+      <div class="featured-product-grid">
+        <article
+          v-for="(product, productIndex) in featuredProducts"
+          :key="product.slug"
+          class="featured-product-card"
+        >
+          <div class="featured-product-topline">
+            <p class="meta-label">
+              {{ String(productIndex + 1).padStart(2, "0") }} /
+              {{ String(featuredProducts.length).padStart(2, "0") }}
+            </p>
+            <p>{{ product.status }}</p>
+          </div>
+
+          <div v-if="product.image" class="featured-project-preview">
+            <NuxtImg
+              :src="product.image"
+              :alt="product.imageAlt || ''"
+              width="1440"
+              height="900"
+              sizes="100vw md:50vw"
+              format="webp"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="featured-product-body">
+            <p class="featured-product-category">{{ product.category }}</p>
+            <h3>
+              <a :href="product.url" target="_blank" rel="noreferrer">
+                {{ product.name }}
+              </a>
+            </h3>
+            <p class="featured-product-summary">{{ product.summary }}</p>
+          </div>
+
+          <ul
+            v-if="product.technologies.length"
+            class="project-topics"
+            :aria-label="t('projects.technologies')"
+          >
+            <li v-for="technology in product.technologies" :key="technology">
+              {{ technology }}
+            </li>
+          </ul>
+
+          <footer class="featured-product-footer">
+            <a :href="product.url" target="_blank" rel="noreferrer">
+              {{ t("projects.openProject") }} <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              v-if="product.sourceUrl"
+              :href="product.sourceUrl"
+              target="_blank"
+              rel="noreferrer"
+            >
+              {{ t("projects.sourceCode") }} <span aria-hidden="true">↗</span>
+            </a>
+          </footer>
+        </article>
+      </div>
+    </section>
+
+    <header class="repository-archive-heading">
+      <h2>{{ t("projects.archiveTitle") }}</h2>
+      <a
+        v-if="githubProfileUrl"
+        :href="githubProfileUrl"
+        target="_blank"
+        rel="noreferrer"
+      >
+        {{ t("projects.source") }} <span aria-hidden="true">↗</span>
+      </a>
+    </header>
 
     <section
       v-if="status === 'pending' && projectGroups.length === 0"

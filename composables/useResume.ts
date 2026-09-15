@@ -107,3 +107,28 @@ export function useEducation() {
     { default: () => [] },
   );
 }
+
+export function useFeaturedProducts() {
+  const { locale } = useI18n();
+  return useAsyncData(
+    () => `featured-products:${locale.value}`,
+    async () => {
+      const localized = await queryCollection("products")
+        .where("locale", "=", locale.value)
+        .order("order", "ASC")
+        .all();
+      if (locale.value === "en") return localized;
+
+      const localizedSlugs = new Set(localized.map((entry) => entry.slug));
+      const english = await queryCollection("products")
+        .where("locale", "=", "en")
+        .order("order", "ASC")
+        .all();
+      return [
+        ...localized,
+        ...english.filter((entry) => !localizedSlugs.has(entry.slug)),
+      ].sort((a, b) => a.order - b.order);
+    },
+    { default: () => [] },
+  );
+}
