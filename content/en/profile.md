@@ -12,7 +12,6 @@ backgroundTimezone: REMOTE / UTC+07
 yearsExperience: 3+
 
 email: fahrezyfikry@gmail.com
-website: https://fahrezy.work
 github: https://github.com/fikryfahrezy
 linkedin: https://linkedin.com/in/fikryfahrezy
 

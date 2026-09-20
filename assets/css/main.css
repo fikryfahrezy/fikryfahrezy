@@ -20,6 +20,13 @@
   --display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
   --body: "Outfit", "Helvetica Neue", Arial, sans-serif;
   --mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  --showcase-heading-page: clamp(3.25rem, 5.4vw, 5.1rem);
+  --showcase-heading-feature: clamp(2.6rem, 4.6vw, 4.25rem);
+  --showcase-heading-section: clamp(2.25rem, 4vw, 3.75rem);
+  --showcase-heading-subsection: clamp(2.25rem, 3.6vw, 3.4rem);
+  --showcase-heading-card-feature: clamp(1.85rem, 2.8vw, 2.75rem);
+  --showcase-heading-card: clamp(1.5rem, 2.4vw, 2.6rem);
+  --showcase-heading-project-card: clamp(1.5rem, 2vw, 2.15rem);
   --page: min(1240px, calc(100vw - 40px));
   --header-height: 72px;
   color-scheme: dark;
@@ -445,7 +452,7 @@ a {
 .music-page-title h1 {
   margin: 14px 0 0;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 5vw, 4.6rem);
+  font-size: var(--showcase-heading-page);
   font-weight: 600;
   letter-spacing: -0.07em;
   line-height: 0.85;
@@ -510,7 +517,7 @@ a {
 .showcase-placeholder h2 {
   margin: 24px 0 28px;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 7vw, 6.4rem);
+  font-size: var(--showcase-heading-section);
   font-weight: 500;
   letter-spacing: -0.065em;
   line-height: 0.9;
@@ -555,7 +562,7 @@ a {
 .anime-group-heading h2 {
   margin: 12px 0 0;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  font-size: var(--showcase-heading-section);
   font-weight: 500;
   letter-spacing: -0.065em;
   line-height: 0.9;
@@ -627,7 +634,7 @@ a {
 .anime-card h3 {
   margin: 28px 0;
   font-family: var(--display);
-  font-size: clamp(1.55rem, 2.7vw, 2.45rem);
+  font-size: var(--showcase-heading-card);
   font-weight: 500;
   letter-spacing: -0.045em;
   line-height: 1;
@@ -710,7 +717,7 @@ a {
   max-width: 780px;
   margin: 36px 0 18px;
   font-family: var(--display);
-  font-size: clamp(3rem, 7vw, 6.5rem);
+  font-size: var(--showcase-heading-feature);
   font-weight: 500;
   letter-spacing: -0.07em;
   line-height: 0.84;
@@ -784,7 +791,7 @@ a {
 .music-chart header h2 {
   margin: 12px 0 0;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  font-size: var(--showcase-heading-section);
   font-weight: 500;
   letter-spacing: -0.065em;
   line-height: 0.9;
@@ -965,7 +972,7 @@ a {
 .repository-archive-heading h2 {
   margin: 12px 0 0;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  font-size: var(--showcase-heading-feature);
   font-weight: 500;
   letter-spacing: -0.065em;
   line-height: 0.9;
@@ -1056,7 +1063,7 @@ a {
 .featured-product-body h3 {
   margin: 12px 0 18px;
   font-family: var(--display);
-  font-size: clamp(2.6rem, 4.4vw, 4.6rem);
+  font-size: var(--showcase-heading-card-feature);
   font-weight: 500;
   letter-spacing: -0.07em;
   line-height: 0.88;
@@ -1115,7 +1122,7 @@ a {
 .project-group-heading h2 {
   margin: 12px 0 0;
   font-family: var(--display);
-  font-size: clamp(2.8rem, 6vw, 5.6rem);
+  font-size: var(--showcase-heading-subsection);
   font-weight: 500;
   letter-spacing: -0.065em;
   line-height: 0.9;
@@ -1165,7 +1172,7 @@ a {
 .project-card h3 {
   margin: 42px 0 20px;
   font-family: var(--display);
-  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-size: var(--showcase-heading-project-card);
   font-weight: 500;
   letter-spacing: -0.055em;
   line-height: 0.95;
@@ -1500,7 +1507,7 @@ a {
   max-width: 800px;
   margin: 0;
   font-family: var(--display);
-  font-size: clamp(2rem, 5vw, 4.8rem);
+  font-size: clamp(1.75rem, 4vw, 3.8rem);
   font-weight: 500;
   letter-spacing: -0.055em;
   line-height: 1;
@@ -1888,7 +1895,7 @@ a {
   .project-page-title h1,
   .anime-page-title h1,
   .music-page-title h1 {
-    font-size: clamp(2.8rem, 13vw, 4rem);
+    font-size: clamp(3rem, 13vw, 4.25rem);
   }
 
   .project-page-summary,
@@ -1941,7 +1948,7 @@ a {
   }
 
   .featured-product-body h3 {
-    font-size: clamp(2.4rem, 11vw, 3.2rem);
+    font-size: var(--showcase-heading-card-feature);
   }
 
   .project-group-heading {

@@ -16,9 +16,6 @@ const { t } = useI18n();
       </div>
 
       <div class="contact-secondary">
-        <a :href="profile?.website" target="_blank" rel="noreferrer">
-          fahrezy.work ↗
-        </a>
         <a :href="profile?.github" target="_blank" rel="noreferrer">GitHub ↗</a>
         <a :href="profile?.linkedin" target="_blank" rel="noreferrer">
           LinkedIn ↗

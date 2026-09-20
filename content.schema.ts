@@ -21,7 +21,6 @@ export const contentSchemas = {
     backgroundTimezone: z.string(),
     yearsExperience: z.string(),
     email: z.string(),
-    website: z.string(),
     github: z.string(),
     linkedin: z.string(),
     seoTitle: z.string(),
