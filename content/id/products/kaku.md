@@ -1,14 +1,15 @@
 ---
 locale: id
-slug: kanjiwritr
+slug: kaku
 order: 20
-name: Kanjiwritr
+name: Kaku
 summary: Tulis bahasa Jepang di satu perangkat dan kirim teks yang dikenali ke browser yang terhubung.
 category: Alat belajar
 status: Aktif
-url: https://kanjiwritr.fahrezy.work/
-image: /images/projects/kanjiwritr.png
-imageAlt: Halaman utama Kanjiwritr dan pratinjau penulisan bahasa Jepang antarperangkat
+url: https://kaku.fahrezy.work/
+sourceUrl: https://github.com/fikryfahrezy/kaku
+image: /images/projects/kaku.png
+imageAlt: Halaman utama Kaku dan pratinjau penulisan bahasa Jepang antarperangkat
 technologies:
   - Aplikasi web
   - Belajar bahasa Jepang
