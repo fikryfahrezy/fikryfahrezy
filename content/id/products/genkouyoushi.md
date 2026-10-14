@@ -7,6 +7,7 @@ summary: Buat lembar genkō yōshi yang siap dicetak untuk latihan menulis bahas
 category: Alat belajar
 status: Aktif
 url: https://genkouyoushi.fahrezy.work/
+sourceUrl: https://github.com/fikryfahrezy/GenkouYoushi
 image: /images/projects/genkouyoushi.png
 imageAlt: Halaman utama Genkouyoushi dan pratinjau ruang latihan menulis bahasa Jepang
 technologies:
