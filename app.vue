@@ -1,22 +1,24 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, onMounted, ref } from "vue";
+import { Locale } from "~/types/locale";
+import { ThemePreference } from "~/types/theme";
 
-type ThemePreference = "light" | "dark" | "system";
-
-const themeOrder: ThemePreference[] = ["light", "dark", "system"];
+const themeOrder = Object.values(ThemePreference);
 
 const { locale, setLocale, t } = useI18n();
 const route = useRoute();
 const localePath = useLocalePath();
 const switchLocalePath = useSwitchLocalePath();
-const alternateLocale = computed(() => (locale.value === "en" ? "id" : "en"));
+const alternateLocale = computed(() =>
+  locale.value === Locale.English ? Locale.Indonesian : Locale.English,
+);
 const alternateLocalePath = computed(() =>
   // URL fragments are never sent to the server. Excluding the current hash
   // keeps this SSR-rendered href identical during client hydration.
   switchLocalePath(alternateLocale.value).replace(/#.*/, ""),
 );
 const savedTheme = useCookie<ThemePreference>("portfolio-theme", {
-  default: () => "dark",
+  default: () => ThemePreference.Dark,
   sameSite: "lax",
 });
 const themePreference = ref<ThemePreference>(savedTheme.value);
@@ -25,8 +27,9 @@ const useFallbackScan = ref(false);
 
 const isLightTheme = computed(
   () =>
-    themePreference.value === "light" ||
-    (themePreference.value === "system" && systemPrefersLight.value),
+    themePreference.value === ThemePreference.Light ||
+    (themePreference.value === ThemePreference.System &&
+      systemPrefersLight.value),
 );
 const nextTheme = computed(
   () =>
@@ -37,9 +40,9 @@ const nextTheme = computed(
 const themeLabel = computed(() =>
   t(
     `theme.${
-      nextTheme.value === "light"
+      nextTheme.value === ThemePreference.Light
         ? "switchToLight"
-        : nextTheme.value === "dark"
+        : nextTheme.value === ThemePreference.Dark
           ? "switchToDark"
           : "switchToSystem"
     }`,
@@ -100,7 +103,7 @@ let systemThemeQuery: MediaQueryList | undefined;
 
 function handleSystemThemeChange(event: MediaQueryListEvent) {
   systemPrefersLight.value = event.matches;
-  if (themePreference.value === "system") applyTheme();
+  if (themePreference.value === ThemePreference.System) applyTheme();
 }
 
 onMounted(() => {
@@ -110,9 +113,9 @@ onMounted(() => {
 
   const storedTheme = localStorage.getItem("portfolio-theme");
   if (
-    storedTheme === "light" ||
-    storedTheme === "dark" ||
-    storedTheme === "system"
+    storedTheme === ThemePreference.Light ||
+    storedTheme === ThemePreference.Dark ||
+    storedTheme === ThemePreference.System
   ) {
     themePreference.value = storedTheme;
     savedTheme.value = storedTheme;
@@ -147,8 +150,7 @@ useHead({
     {
       key: "theme-preference",
       tagPosition: "head",
-      innerHTML:
-        'try { const stored = localStorage.getItem("portfolio-theme"); const cookie = document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/)?.[1]; const theme = stored || cookie || "dark"; const isLight = theme === "light" || (theme === "system" && window.matchMedia("(prefers-color-scheme: light)").matches); document.documentElement.classList.toggle("theme-light", isLight); } catch {}',
+      innerHTML: `try { const stored = localStorage.getItem("portfolio-theme"); const cookie = document.cookie.match(/(?:^|; )portfolio-theme=([^;]*)/)?.[1]; const theme = stored || cookie || ${JSON.stringify(ThemePreference.Dark)}; const isLight = theme === ${JSON.stringify(ThemePreference.Light)} || (theme === ${JSON.stringify(ThemePreference.System)} && window.matchMedia("(prefers-color-scheme: light)").matches); document.documentElement.classList.toggle("theme-light", isLight); } catch {}`,
     },
     {
       key: "umami-analytics",

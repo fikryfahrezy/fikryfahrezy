@@ -1,4 +1,5 @@
 import { type ContentCollectionName, contentSchemas } from "./content.schema";
+import { Locale } from "./types/locale";
 
 // Files that failed validation during this run. Nuxt Content catches whatever
 // the afterParse hook throws and downgrades it to a warning, so the throw alone
@@ -81,12 +82,17 @@ export default defineNuxtConfig({
     // Keep English at the canonical root URL while making translated pages
     // shareable at a stable, locale-prefixed URL (for example, `/id`).
     strategy: "prefix_except_default",
-    defaultLocale: "en",
+    defaultLocale: Locale.English,
     langDir: "locales",
     locales: [
-      { code: "en", language: "en-US", file: "en.json", name: "English" },
       {
-        code: "id",
+        code: Locale.English,
+        language: "en-US",
+        file: "en.json",
+        name: "English",
+      },
+      {
+        code: Locale.Indonesian,
         language: "id-ID",
         file: "id.json",
         name: "Bahasa Indonesia",

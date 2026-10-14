@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { useAnimeList } from "~/composables/useAnimeList";
-import type { AnimeListEntry, AnimeListStatus } from "~/types/anime";
+import {
+  type AnimeListEntry,
+  type AnimeListStatus,
+  animeListStatuses,
+} from "~/types/anime";
 
 const { t } = useI18n();
 
@@ -8,14 +12,6 @@ const { data: animeListResponse, error, status } = await useAnimeList();
 
 const animeList = computed(() => animeListResponse.value.entries);
 const profileUrl = computed(() => animeListResponse.value.profileUrl);
-
-const statusOrder: AnimeListStatus[] = [
-  "watching",
-  "completed",
-  "on_hold",
-  "dropped",
-  "plan_to_watch",
-];
 
 const animeGroups = computed(() => {
   const grouped = new Map<AnimeListStatus, AnimeListEntry[]>();
@@ -26,7 +22,7 @@ const animeGroups = computed(() => {
     grouped.set(anime.status, group);
   }
 
-  return statusOrder
+  return animeListStatuses
     .filter((key) => grouped.has(key))
     .map((key) => ({
       key,

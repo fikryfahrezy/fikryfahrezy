@@ -1,3 +1,5 @@
+import { Locale } from "~/types/locale";
+
 // One wrapper per content collection. Each owns a stable useAsyncData key, so
 // the duplicated section components in the infinite-scroll track (rendered
 // twice — once real, once inert) share a single query instead of doubling it.
@@ -12,7 +14,7 @@ export function useProfile() {
         .first();
       return (
         localized ??
-        queryCollection("profile").where("locale", "=", "en").first()
+        queryCollection("profile").where("locale", "=", Locale.English).first()
       );
     },
   );
@@ -27,7 +29,8 @@ export function useNow() {
         .where("locale", "=", locale.value)
         .first();
       return (
-        localized ?? queryCollection("now").where("locale", "=", "en").first()
+        localized ??
+        queryCollection("now").where("locale", "=", Locale.English).first()
       );
     },
   );
@@ -42,11 +45,11 @@ export function useJourney() {
         .where("locale", "=", locale.value)
         .order("order", "DESC")
         .all();
-      if (locale.value === "en") return localized;
+      if (locale.value === Locale.English) return localized;
 
       const localizedOrders = new Set(localized.map((entry) => entry.order));
       const english = await queryCollection("journey")
-        .where("locale", "=", "en")
+        .where("locale", "=", Locale.English)
         .order("order", "DESC")
         .all();
       return [
@@ -67,11 +70,11 @@ export function useSkills() {
         .where("locale", "=", locale.value)
         .order("order", "ASC")
         .all();
-      if (locale.value === "en") return localized;
+      if (locale.value === Locale.English) return localized;
 
       const localizedOrders = new Set(localized.map((entry) => entry.order));
       const english = await queryCollection("skills")
-        .where("locale", "=", "en")
+        .where("locale", "=", Locale.English)
         .order("order", "ASC")
         .all();
       return [
@@ -92,11 +95,11 @@ export function useEducation() {
         .where("locale", "=", locale.value)
         .order("order", "DESC")
         .all();
-      if (locale.value === "en") return localized;
+      if (locale.value === Locale.English) return localized;
 
       const localizedOrders = new Set(localized.map((entry) => entry.order));
       const english = await queryCollection("education")
-        .where("locale", "=", "en")
+        .where("locale", "=", Locale.English)
         .order("order", "DESC")
         .all();
       return [
@@ -117,11 +120,11 @@ export function useFeaturedProducts() {
         .where("locale", "=", locale.value)
         .order("order", "ASC")
         .all();
-      if (locale.value === "en") return localized;
+      if (locale.value === Locale.English) return localized;
 
       const localizedSlugs = new Set(localized.map((entry) => entry.slug));
       const english = await queryCollection("products")
-        .where("locale", "=", "en")
+        .where("locale", "=", Locale.English)
         .order("order", "ASC")
         .all();
       return [

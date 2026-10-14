@@ -1,9 +1,12 @@
-export type AnimeListStatus =
-  | "watching"
-  | "completed"
-  | "on_hold"
-  | "dropped"
-  | "plan_to_watch";
+export enum AnimeListStatus {
+  Watching = "watching",
+  Completed = "completed",
+  OnHold = "on_hold",
+  Dropped = "dropped",
+  PlanToWatch = "plan_to_watch",
+}
+
+export const animeListStatuses = Object.values(AnimeListStatus);
 
 export interface AnimeListEntry {
   id: number;

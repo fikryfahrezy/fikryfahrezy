@@ -1,4 +1,5 @@
 import { z } from "@nuxt/content";
+import { Locale } from "./types/locale";
 
 // Shape of everything in content/. Used twice:
 //   1. content.config.ts — so generated types match the files.
@@ -8,7 +9,7 @@ import { z } from "@nuxt/content";
 // page renders with a blank hole. The check in nuxt.config.ts is what turns
 // that into a loud error instead.
 
-const locale = z.enum(["en", "id"]);
+const locale = z.nativeEnum(Locale);
 
 export const contentSchemas = {
   profile: z.object({
