@@ -1,10 +1,12 @@
 ---
-locale: en
+locale: "en"
 order: 3
-group: Backend & Data
+group: "Backend & Data"
 items:
-  - Node.js
-  - Hono
-  - PostgreSQL
-  - MySQL
+  - "Node.js"
+  - "NestJS"
+  - "Go"
+  - "PostgreSQL"
+  - "MySQL"
+  - "REST APIs"
 ---

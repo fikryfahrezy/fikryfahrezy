@@ -1,24 +1,18 @@
 ---
-locale: id
-nameLead: Fikry Fahrezy
-nameTrail: Ramadhan
-role: Pengembang Perangkat Lunak
-location: Kuningan, Indonesia
-backgroundCoordinate: 06°58′S / 108°28′E
-backgroundTimezone: JARAK JAUH / UTC+07
-yearsExperience: 3+
-email: fahrezyfikry@gmail.com
-github: https://github.com/fikryfahrezy
-linkedin: https://linkedin.com/in/fikryfahrezy
-seoTitle: Fikry Fahrezy Ramadhan — Pengembang Perangkat Lunak
-seoDescription: >
-  Situs pribadi Fikry Fahrezy Ramadhan — pengembang full-stack yang bekerja
-  dengan React, Vue, Go, dan lainnya.
-ogDescription: >
-  Pengembang full-stack yang menjelajah frontend yang terasa hidup dan backend
-  yang tetap andal.
+locale: "id"
+nameLead: "Fikry Fahrezy"
+nameTrail: "Ramadhan"
+role: "Pengembang Full-stack"
+location: "Kuningan, Indonesia"
+backgroundCoordinate: "06°58′S / 108°28′E"
+backgroundTimezone: "JARAK JAUH / UTC+07"
+yearsExperience: "4+"
+email: "fahrezyfikry@gmail.com"
+github: "https://github.com/fikryfahrezy"
+linkedin: "https://linkedin.com/in/fikryfahrezy"
+seoTitle: "Fikry Fahrezy Ramadhan — Pengembang Full-stack"
+seoDescription: "Pengembang full-stack dengan pengalaman 4+ tahun menggunakan React, TypeScript, Go, dan Node.js. Berbasis di Indonesia, bekerja jarak jauh dengan tim internasional."
+ogDescription: "Membangun aplikasi web produksi dengan React, TypeScript, Go, dan Node.js. Pengalaman 4+ tahun bekerja jarak jauh dengan tim di Taiwan, Amerika Serikat, dan Indonesia."
 ---
 
-Pengembang full-stack yang menjelajah frontend yang terasa hidup dan backend
-yang tetap andal — tiga tahun lebih orbit kerja jarak jauh dengan React, Vue, Go,
-dan kawan-kawannya.
+Pengembang full-stack dengan pengalaman **4+ tahun** membangun aplikasi web produksi, terutama dengan **React** dan **TypeScript**, serta pengalaman backend menggunakan **Go** dan **Node.js**. Saya menggunakan alat berbantuan AI dalam pengembangan sehari-hari dan telah bekerja jarak jauh dengan tim di **Taiwan**, **Amerika Serikat**, dan **Indonesia**.

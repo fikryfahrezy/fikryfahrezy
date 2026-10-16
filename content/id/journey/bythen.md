@@ -1,16 +1,18 @@
 ---
-locale: id
+locale: "id"
 order: 3
-company: bythen.ai
-role: Pengembang Full-stack · Kontrak
-period: Mar 2025 — Mei 2025
-location: Indonesia · Jarak jauh
+company: "bythen.ai"
+role: "Pengembang Full-stack · Kontrak"
+period: "Mar 2025 — Mei 2025"
+location: "Amerika Serikat · Jarak jauh"
 tags:
-  - NestJS
-  - MySQL
-  - OpenAI
-  - RAG
+  - "TypeScript"
+  - "NestJS"
+  - "MySQL"
+  - "OpenAI"
+  - "Grok"
+  - "RAG"
 ---
 
-- Mengembangkan situs prototipe menggunakan **TypeScript**, **Node.js (NestJS)**, dan **MySQL**, yang digunakan manajer proyek untuk menentukan apakah fitur tersebut akan diimplementasikan pada produk.
-- Mengintegrasikan API OpenAI dan Grok ke playground LLM untuk alur kerja RAG yang disesuaikan dengan produk.
+- Membangun prototipe playground percakapan LLM menggunakan **TypeScript**, **NestJS**, dan **MySQL**, yang digunakan manajer proyek untuk mengevaluasi penambahan fitur tersebut ke produk.
+- Mengintegrasikan API **OpenAI** dan **Grok** ke playground untuk membangun alur kerja **RAG** yang disesuaikan dengan produk.

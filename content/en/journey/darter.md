@@ -1,19 +1,17 @@
 ---
-locale: en
+locale: "en"
 order: 4
-company: Darter.ai
-role: Full-stack Developer · Freelance
-period: Jun 2025 — Dec 2025
-location: United States · Remote
+company: "Darter.ai"
+role: "Full-stack Developer · Freelance"
+period: "Jun 2025 — Dec 2025"
+location: "United States · Remote"
 tags:
-  - React Native
-  - Angular
-  - Go
-  - Node.js
+  - "React Native"
+  - "i18n"
+  - "Go"
+  - "Echo"
 ---
 
-- Collaborated with multinational team members.
-- Developed features for the driver app using **React Native**.
-- Developed features for the transportation management system web application using **Angular**, **TypeScript**, and **Tailwind CSS**.
-- Developed features across multiple RESTful API services using **PHP**, **Node.js**, and **Go**.
-- Migrated most APIs from PHP (ORM-based) to Go with raw **SQL** queries, improving performance and maintainability.
+- Developed **React Native** driver app features covering assigned trips through passenger drop-off, plus driver document management.
+- Introduced internationalization (**i18n**) in the driver app to support additional languages.
+- Initialized two **Go** services using **Echo**: a documentation management service used by the driver app and dashboard, and a service providing new dashboard APIs.

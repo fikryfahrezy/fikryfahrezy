@@ -1,13 +1,15 @@
 ---
-locale: en
+locale: "en"
 order: 2
-group: Frontend
+group: "Frontend"
 items:
-  - React.js
-  - Next.js
-  - Vue.js
-  - Tailwind CSS
-  - TanStack Query
-  - Zustand
-  - SwiftUI
+  - "React"
+  - "Next.js"
+  - "Vue.js"
+  - "Nuxt"
+  - "SolidJS"
+  - "React Native"
+  - "Tailwind CSS"
+  - "Ant Design"
+  - "TanStack Query"
 ---

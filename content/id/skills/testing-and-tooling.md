@@ -1,10 +1,13 @@
 ---
-locale: id
+locale: "id"
 order: 4
-group: Pengujian & Perkakas
+group: "Pengujian & Perkakas"
 items:
-  - Vitest
-  - React Testing Library
-  - Git
-  - Figma
+  - "Vitest"
+  - "Jest"
+  - "React Testing Library"
+  - "SonarQube"
+  - "Git"
+  - "GitHub Actions"
+  - "Docker"
 ---

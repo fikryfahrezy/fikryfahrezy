@@ -2,8 +2,8 @@
 locale: id
 slug: genkouyoushi
 order: 10
-name: Genkouyoushi
-summary: Buat lembar genkō yōshi yang siap dicetak untuk latihan menulis bahasa Jepang.
+name: GenkouYoushi
+summary: "PWA latihan menulis di kertas naskah Jepang, didukung API Kanji buatan sendiri yang menghasilkan diagram urutan goresan."
 category: Alat belajar
 status: Aktif
 url: https://genkouyoushi.fahrezy.work/
@@ -11,6 +11,7 @@ sourceUrl: https://github.com/fikryfahrezy/GenkouYoushi
 image: /images/projects/genkouyoushi.png
 imageAlt: Halaman utama Genkouyoushi dan pratinjau ruang latihan menulis bahasa Jepang
 technologies:
-  - Aplikasi web
-  - Belajar bahasa Jepang
+  - SolidJS
+  - TypeScript
+  - PWA
 ---

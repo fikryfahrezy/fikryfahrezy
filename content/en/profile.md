@@ -1,35 +1,18 @@
 ---
-locale: en
-# The big hero headline is split in two: the first part is plain white,
-# the second part gets the cyan-to-gold gradient.
-nameLead: Fikry Fahrezy
-nameTrail: Ramadhan
-
-role: Software Developer
-location: Kuningan, Indonesia
-backgroundCoordinate: 06°58′S / 108°28′E
-backgroundTimezone: REMOTE / UTC+07
-yearsExperience: 3+
-
-email: fahrezyfikry@gmail.com
-github: https://github.com/fikryfahrezy
-linkedin: https://linkedin.com/in/fikryfahrezy
-
-# Shown in the browser tab and as the headline in Google / social cards.
-seoTitle: Fikry Fahrezy Ramadhan — Software Developer
-
-# The blurb under the title in Google results. Aim for 150–160 characters.
-seoDescription: >
-  Personal site of Fikry Fahrezy Ramadhan — a full-stack developer working
-  across React, Vue, Go, and more. An endless scroll through three plus years of
-  remote orbits.
-
-# The shorter blurb used when the link is pasted into Slack, WhatsApp, X, etc.
-ogDescription: >
-  Full-stack developer drifting between frontends that feel alive and backends
-  that hold steady.
+locale: "en"
+nameLead: "Fikry Fahrezy"
+nameTrail: "Ramadhan"
+role: "Full-stack Developer"
+location: "Kuningan, Indonesia"
+backgroundCoordinate: "06°58′S / 108°28′E"
+backgroundTimezone: "REMOTE / UTC+07"
+yearsExperience: "4+"
+email: "fahrezyfikry@gmail.com"
+github: "https://github.com/fikryfahrezy"
+linkedin: "https://linkedin.com/in/fikryfahrezy"
+seoTitle: "Fikry Fahrezy Ramadhan — Full-stack Developer"
+seoDescription: "Full-stack developer with 4+ years of experience in React, TypeScript, Go, and Node.js. Based in Indonesia, working remotely with international teams."
+ogDescription: "Building production web applications with React, TypeScript, Go, and Node.js. 4+ years of remote work with teams in Taiwan, the United States, and Indonesia."
 ---
 
-Full-stack developer drifting between frontends that feel alive and backends
-that hold steady — three plus years of remote orbits across React, Vue, Go, and
-friends.
+Full-stack developer with **4+ years** of experience building production web applications, mainly with **React** and **TypeScript**, with backend experience in **Go** and **Node.js**. I use AI-assisted tools in daily development and have worked remotely with teams in **Taiwan**, the **United States**, and **Indonesia**.

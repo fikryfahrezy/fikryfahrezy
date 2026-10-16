@@ -1,16 +1,18 @@
 ---
-locale: en
+locale: "en"
 order: 3
-company: bythen.ai
-role: Full-stack Developer · Contract
-period: Mar 2025 — May 2025
-location: Indonesia · Remote
+company: "bythen.ai"
+role: "Full-stack Developer · Contract"
+period: "Mar 2025 — May 2025"
+location: "United States · Remote"
 tags:
-  - NestJS
-  - MySQL
-  - OpenAI
-  - RAG
+  - "TypeScript"
+  - "NestJS"
+  - "MySQL"
+  - "OpenAI"
+  - "Grok"
+  - "RAG"
 ---
 
-- Developed a prototype website using **TypeScript**, **Node.js (NestJS)**, and **MySQL**, which the project manager used to decide whether to implement the feature for the product.
-- Integrated OpenAI and Grok APIs into an LLM playground for product-tailored RAG workflows.
+- Built an LLM chat playground prototype using **TypeScript**, **NestJS**, and **MySQL**, which the project manager used to evaluate adding the feature to the product.
+- Integrated **OpenAI** and **Grok** APIs into the playground for building product-specific **RAG** workflows.

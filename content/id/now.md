@@ -1,19 +1,23 @@
 ---
-locale: id
-company: Taiwan Mobile
-role: Pengembang Perangkat Lunak · Kontrak
-period: Mar 2026 — Sekarang
-location: Taiwan · Jarak jauh
+locale: "id"
+company: "Taiwan Mobile"
+role: "Pengembang Perangkat Lunak · Kontrak"
+period: "Mar 2026 — Sekarang"
+location: "Taiwan · Jarak jauh"
 tags:
-  - .NET
-  - React
-  - TypeScript
-  - Vue
-  - Spring Boot
-  - Tailwind CSS
+  - "React"
+  - "TypeScript"
+  - "Tailwind CSS"
+  - "Spring Boot"
+  - "MyBatis"
+  - "Quartz"
+  - ".NET"
+  - "PostgreSQL"
 ---
 
-- Mengembangkan alat migrasi basis data berbasis CLI untuk migrasi dua arah **PostgreSQL-ke-MSSQL** menggunakan **.NET**.
-- Berkontribusi menulis ulang aplikasi web inti dari arsitektur **Java** full-stack lawas ke stack modern menggunakan **React**, **TypeScript**, **Tailwind CSS**, dan **Spring Boot**.
-- Mengembangkan aplikasi web operasional internal menggunakan **Vue** dan **Spring Boot**.
-- Memanfaatkan alat pengembangan berbantuan AI, termasuk **GitHub Copilot** dan **Claude Code**, untuk mempercepat implementasi, pembuatan prototipe, dan debugging.
+- Berkontribusi memodernisasi portal aplikasi internal dengan mengganti layar **JSP** lawas menggunakan **React**, **TypeScript**, dan **Tailwind CSS**, serta mengimplementasikan fitur backend dengan **Spring Boot** dan **MyBatis**.
+- Mengembangkan fitur backend untuk aplikasi data operasional internal menggunakan **Spring Boot** dan **MyBatis**.
+- Mengimplementasikan pemicu pekerjaan latar belakang saat pengguna mendaftar atau masuk ke aplikasi internal yang terhubung, menggunakan **Spring Boot** dan **Quartz**.
+- Mengembangkan fitur pengaturan untuk sistem manajemen proyek internal menggunakan **Spring Boot** dan **MyBatis**.
+- Membangun alat CLI **.NET** untuk memigrasikan basis data dashboard manajemen FreePBX dari **Microsoft SQL Server** ke **PostgreSQL**, mencakup migrasi skema dan data, perbedaan tipe data, relasi, serta validasi.
+- Menggunakan **GitHub Copilot** dan **Claude Code** di seluruh proyek, dari penulisan kode hingga debugging.

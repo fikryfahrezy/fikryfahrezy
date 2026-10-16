@@ -1,14 +1,12 @@
 ---
-locale: id
+locale: "id"
 order: 1
-group: Bahasa Pemrograman
-wide: true
+group: "Bahasa Pemrograman"
 items:
-  - TypeScript
-  - JavaScript
-  - Go
-  - SQL
-  - Swift
-  - Python
-  - Java
+  - "TypeScript"
+  - "JavaScript"
+  - "Go"
+  - "SQL"
+  - "Java"
+wide: true
 ---

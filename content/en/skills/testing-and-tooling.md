@@ -1,10 +1,13 @@
 ---
-locale: en
+locale: "en"
 order: 4
-group: Testing & Tooling
+group: "Testing & Tooling"
 items:
-  - Vitest
-  - React Testing Library
-  - Git
-  - Figma
+  - "Vitest"
+  - "Jest"
+  - "React Testing Library"
+  - "SonarQube"
+  - "Git"
+  - "GitHub Actions"
+  - "Docker"
 ---
