@@ -11,5 +11,3 @@ tags:
   - Next.js
   - Tailwind CSS
 ---
-
-- Built FIFGROUP's marketing questionnaire frontend using **React.js**, **TypeScript**, **Next.js**, and **Tailwind CSS**.

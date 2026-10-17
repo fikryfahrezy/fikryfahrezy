@@ -11,7 +11,3 @@ tags:
   - "Go"
   - "Echo"
 ---
-
-- Mengembangkan fitur aplikasi pengemudi dengan **React Native**, dari menerima perjalanan yang ditugaskan hingga menurunkan penumpang, serta pengelolaan dokumen pengemudi.
-- Memperkenalkan internasionalisasi (**i18n**) pada aplikasi pengemudi untuk mendukung bahasa tambahan.
-- Menginisialisasi dua layanan **Go** menggunakan **Echo**: layanan pengelolaan dokumen untuk aplikasi pengemudi dan dashboard, serta layanan yang menyediakan API baru untuk dashboard.

@@ -21,7 +21,7 @@ export default defineContentConfig({
       schema: contentSchemas.now,
     }),
 
-    // One file per past role. Body = the summary paragraph.
+    // One file per past role. Frontmatter only; no work descriptions.
     journey: defineCollection({
       type: "page",
       source: "*/journey/*.md",

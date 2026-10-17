@@ -15,7 +15,3 @@ tags:
   - "Docker"
   - "Caddy"
 ---
-
-- Built internal applications for inspector records, task assignments, and master data using **Next.js**, **TypeScript**, **Tailwind CSS**, **Hono**, and **PostgreSQL**.
-- Designed REST APIs and documented API contracts and database entity relationships in RFCs.
-- Set up **GitHub Actions** CI/CD workflows and managed deployments using **Docker** and **Caddy** on a VPS.

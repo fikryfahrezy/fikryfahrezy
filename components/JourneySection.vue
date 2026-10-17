@@ -18,25 +18,24 @@ const pastJourney = computed(() =>
       <h2>{{ t("sections.journey.label") }}</h2>
     </header>
 
-    <div class="journey-list">
-      <article v-for="(stop, i) in pastJourney" :key="stop.id" class="journey-row">
-        <p class="journey-number">{{ (i + 1).toString().padStart(2, "0") }}</p>
-        <div class="journey-identity">
+    <ol class="journey-list" role="list">
+      <li v-for="(stop, i) in pastJourney" :key="stop.id" class="journey-row">
+        <div class="journey-date">
+          <span class="journey-number">{{ (i + 1).toString().padStart(2, "0") }}</span>
           <p class="meta-label">{{ stop.period }}</p>
-          <h3>{{ stop.company }}</h3>
-          <p>{{ stop.role }}</p>
-          <p>{{ stop.location }}</p>
         </div>
-        <div class="journey-detail">
-          <ContentRenderer :value="stop" class="prose-points" />
-          <p v-if="stop.clients" class="client-list">
+        <div class="journey-identity">
+          <h3>{{ stop.company }}</h3>
+          <p class="journey-role">{{ stop.role }}</p>
+          <p v-if="stop.clients?.length" class="client-list">
             {{ stop.clients.join(" / ") }}
           </p>
           <ul class="tag-list" :aria-label="t('skills.technologies')">
             <li v-for="tag in stop.tags" :key="tag">{{ tag }}</li>
           </ul>
         </div>
-      </article>
-    </div>
+        <p class="journey-location">{{ stop.location }}</p>
+      </li>
+    </ol>
   </section>
 </template>

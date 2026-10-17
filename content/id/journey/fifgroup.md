@@ -11,5 +11,3 @@ tags:
   - Next.js
   - Tailwind CSS
 ---
-
-- Membangun frontend kuesioner pemasaran FIFGROUP menggunakan **React.js**, **TypeScript**, **Next.js**, dan **Tailwind CSS**.

@@ -34,7 +34,7 @@ are translated.
 
 ## How a file is built
 
-Every file has two parts:
+Files contain frontmatter fields and, where used, a Markdown body:
 
 ```md
 ---
@@ -51,6 +51,7 @@ You can use **bold** and [links](https://example.com) here.
 ```
 
 - Keep both `---` lines.
+- Journey entries use only the frontmatter; do not add work descriptions below it.
 - Don't rename a field. `company:` works, `compnay:` fails the build.
 - Indent with **spaces**, never tabs.
 - Long text can wrap onto the next line if you indent it, like the
