@@ -2,6 +2,10 @@
   "name": "fikryfahrezy",
   "private": true,
   "type": "module",
+  "packageManager": "bun@1.4.4",
+  "engines": {
+    "bun": "1.4.4"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -32,6 +36,5 @@
     "lint-staged": "16.1.2",
     "unocss": "66.3.1",
     "vue-tsc": "2.2.10"
-  },
-  "packageManager": "bun@1.4.3"
+  }
 }
