@@ -3,7 +3,7 @@ locale: id
 slug: kaku
 order: 20
 name: Kaku
-summary: Tulis bahasa Jepang di satu perangkat dan kirim teks yang dikenali ke browser yang terhubung.
+summary: "Tulis bahasa Jepang di satu perangkat, kenali tulisan secara lokal, dan kirim teksnya ke kolom aktif di browser Chromium atau Firefox yang terhubung melalui relay yang bisa di-host sendiri."
 category: Alat belajar
 status: Aktif
 url: https://kaku.fahrezy.work/
@@ -11,6 +11,9 @@ sourceUrl: https://github.com/fikryfahrezy/kaku
 image: /images/projects/kaku.png
 imageAlt: Halaman utama Kaku dan pratinjau penulisan bahasa Jepang antarperangkat
 technologies:
-  - Aplikasi web
-  - Belajar bahasa Jepang
+  - SolidJS
+  - TypeScript
+  - Bun
+  - WebSocket
+  - Ekstensi browser
 ---

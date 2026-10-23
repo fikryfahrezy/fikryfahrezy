@@ -3,7 +3,7 @@ locale: id
 slug: genkouyoushi
 order: 10
 name: GenkouYoushi
-summary: "PWA latihan menulis di kertas naskah Jepang, didukung API Kanji buatan sendiri yang menghasilkan diagram urutan goresan."
+summary: "PWA latihan menulis di kertas naskah Jepang dengan panduan menjiplak, pengenalan kanji dari foto langsung di browser, dan ekspor PDF, didukung API Kanji buatan sendiri untuk diagram urutan goresan."
 category: Alat belajar
 status: Aktif
 url: https://genkouyoushi.fahrezy.work/
@@ -13,5 +13,7 @@ imageAlt: Halaman utama Genkouyoushi dan pratinjau ruang latihan menulis bahasa 
 technologies:
   - SolidJS
   - TypeScript
+  - ONNX Runtime Web
+  - FastAPI
   - PWA
 ---
