@@ -5,23 +5,28 @@ const { t } = useI18n();
 
 <template>
   <section id="now" class="section-wrap section-block" tabindex="-1">
-    <header class="section-heading">
-      <p class="section-kicker">02 / {{ t("sections.now.eyebrow") }}</p>
-      <h2>{{ t("sections.now.label") }}</h2>
-    </header>
+    <SectionHeading
+      index="02"
+      :kicker="t('sections.now.eyebrow')"
+      :title="t('sections.now.label')"
+      glyph="現在"
+    />
 
-    <article class="now-card">
+    <article v-reveal v-tilt="{ max: 2 }" class="now-card">
       <ParticleBackground />
       <div class="now-card-head">
         <div>
-          <p class="meta-label">{{ t("now.currentPosition") }}</p>
+          <p class="panel-label">
+            <span class="now-pulse" aria-hidden="true" />
+            {{ t("now.currentPosition") }}
+          </p>
           <h3>{{ now?.company }}</h3>
+          <p class="now-role">{{ now?.role }} / {{ now?.location }}</p>
         </div>
         <p class="now-period">{{ now?.period }}</p>
       </div>
-      <p class="now-role">{{ now?.role }} / {{ now?.location }}</p>
       <ContentRenderer v-if="now" :value="now" class="prose-points now-copy" />
-      <ul class="tag-list tag-list-dark" :aria-label="t('skills.technologies')">
+      <ul class="tag-list tag-list-inverse" :aria-label="t('skills.technologies')">
         <li v-for="tag in now?.tags" :key="tag">{{ tag }}</li>
       </ul>
     </article>

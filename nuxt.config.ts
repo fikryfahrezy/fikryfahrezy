@@ -114,9 +114,35 @@ export default defineNuxtConfig({
   },
   css: ["@unocss/reset/tailwind.css", "~/assets/css/main.css"],
   fonts: {
+    // The stylesheet reaches these through CSS variables, which @nuxt/fonts
+    // cannot trace, so register every family globally.
     families: [
-      { name: "Space Grotesk", provider: "google", weights: [500, 600, 700] },
-      { name: "Outfit", provider: "google", weights: [300, 400, 500, 600] },
+      {
+        name: "Bricolage Grotesque",
+        provider: "google",
+        weights: [400, 600, 800],
+        global: true,
+      },
+      {
+        name: "Inter",
+        provider: "google",
+        weights: [400, 500, 600],
+        global: true,
+      },
+      {
+        name: "JetBrains Mono",
+        provider: "google",
+        weights: [500, 700],
+        global: true,
+      },
+      // Only the handful of decorative kanji/kana glyphs are ever requested;
+      // the unicode-range slices keep the download tiny.
+      {
+        name: "Zen Kaku Gothic New",
+        provider: "google",
+        weights: [700],
+        global: true,
+      },
     ],
   },
 });

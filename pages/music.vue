@@ -65,17 +65,13 @@ useSeoMeta({
 
 <template>
   <div class="showcase-page section-wrap">
-    <section class="music-page-header">
-      <p class="music-page-index" aria-hidden="true">04</p>
-      <div class="music-page-title">
-        <p class="section-kicker">{{ t("music.eyebrow") }}</p>
-        <h1>
-          <span>{{ t("music.titleLead") }}</span>
-          <span>{{ t("music.titleTrail") }}</span>
-        </h1>
-      </div>
-      <div class="music-page-summary">
-        <p>{{ t("music.description") }}</p>
+    <PageHeader
+      index="04"
+      :kicker="t('music.eyebrow')"
+      :title="`${t('music.titleLead')} ${t('music.titleTrail')}`"
+      glyph="音楽"
+    >
+      <p>{{ t("music.description") }}</p>
         <p>
           <a
             v-if="musicResponse.profileUrl"
@@ -87,8 +83,7 @@ useSeoMeta({
           </a>
           <span v-else>{{ t("music.source") }}</span>
         </p>
-      </div>
-    </section>
+    </PageHeader>
 
     <section
       v-if="status === 'pending' && !hasMusic"
@@ -133,7 +128,13 @@ useSeoMeta({
     </section>
 
     <div v-else class="music-dashboard">
-      <section v-if="featuredTrack" class="music-now" aria-live="polite">
+      <section
+        v-if="featuredTrack"
+        v-tilt="{ max: 2 }"
+        class="music-now"
+        :class="{ 'is-playing': currentTrack }"
+        aria-live="polite"
+      >
         <div class="music-now-copy">
           <p class="meta-label">
             <span aria-hidden="true">{{ currentTrack ? "●" : "↙" }}</span>
@@ -175,7 +176,12 @@ useSeoMeta({
       </section>
 
       <section class="music-stats" :aria-label="t('music.listeningStats')">
-        <article v-for="(stat, index) in stats" :key="stat.label">
+        <article
+          v-for="(stat, index) in stats"
+          :key="stat.label"
+          v-reveal="index * 80"
+          v-tilt
+        >
           <p class="music-stat-index" aria-hidden="true">
             {{ String(index + 1).padStart(2, "0") }}
           </p>
@@ -188,7 +194,7 @@ useSeoMeta({
         v-if="musicResponse.topTracks.length || musicResponse.topArtists.length"
         class="music-charts"
       >
-        <div class="music-chart">
+        <div v-reveal class="music-chart">
           <header>
             <p class="meta-label">{{ t("music.overall") }}</p>
             <h2>{{ t("music.topTracks") }}</h2>
@@ -214,7 +220,7 @@ useSeoMeta({
           </ol>
         </div>
 
-        <div class="music-chart">
+        <div v-reveal="100" class="music-chart">
           <header>
             <p class="meta-label">{{ t("music.overall") }}</p>
             <h2>{{ t("music.topArtists") }}</h2>
@@ -241,7 +247,7 @@ useSeoMeta({
       </section>
 
       <section v-if="recentTracks.length" class="music-section">
-        <header class="music-section-heading">
+        <header v-reveal class="music-section-heading">
           <p class="music-section-index" aria-hidden="true">01</p>
           <div>
             <p class="meta-label">{{ t("music.latestSignal") }}</p>

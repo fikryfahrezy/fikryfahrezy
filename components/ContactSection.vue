@@ -5,23 +5,27 @@ const { t } = useI18n();
 
 <template>
   <section id="contact" class="contact-section section-wrap section-block">
-    <header class="section-heading contact-heading">
-      <p class="section-kicker">06 / {{ t("sections.contact.eyebrow") }}</p>
-      <h2>{{ t("contact.title") }}</h2>
-    </header>
+    <SectionHeading
+      index="06"
+      :kicker="t('sections.contact.eyebrow')"
+      :title="t('contact.title')"
+      glyph="交信"
+    />
 
-    <div class="contact-grid">
-      <div class="contact-primary">
-        <a class="contact-email" :href="`mailto:${profile?.email}`">{{ profile?.email }}&nbsp;↗</a>
-      </div>
-
+    <div v-reveal class="contact-panel">
+      <p class="contact-prompt">{{ t("contact.prompt") }}</p>
+      <a class="contact-email" :href="`mailto:${profile?.email}`">
+        <span>{{ profile?.email }}</span>
+        <span class="contact-email-arrow" aria-hidden="true">↗</span>
+      </a>
       <div class="contact-secondary">
-        <a :href="profile?.github" target="_blank" rel="noreferrer">GitHub ↗</a>
-        <a :href="profile?.linkedin" target="_blank" rel="noreferrer">
-          LinkedIn ↗
+        <a v-magnetic class="button button-ghost" :href="profile?.github" target="_blank" rel="noreferrer">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+        <a v-magnetic class="button button-ghost" :href="profile?.linkedin" target="_blank" rel="noreferrer">
+          LinkedIn <span aria-hidden="true">↗</span>
         </a>
       </div>
-
     </div>
   </section>
 </template>

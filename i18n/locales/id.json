@@ -34,7 +34,8 @@
   },
   "contact": {
     "education": "Pendidikan",
-    "title": "Kontak"
+    "title": "Kontak",
+    "prompt": "Punya proyek, lowongan, atau sekadar ingin menyapa? Kirim sinyal."
   },
   "hero": {
     "startConversation": "Email",
@@ -42,7 +43,11 @@
     "quickFacts": "Fakta singkat",
     "years": "Tahun membangun produk",
     "remote": "Terbiasa bekerja jarak jauh",
-    "based": "Berbasis di Indonesia"
+    "based": "Berbasis di Indonesia",
+    "localTime": "Waktu lokal",
+    "about": "Transmisi",
+    "starfall": "Panggil hujan meteor",
+    "starfallHint": "Klik segelnya ✦ buat permohonan"
   },
   "now": {
     "currentPosition": "Posisi saat ini"

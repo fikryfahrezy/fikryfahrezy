@@ -5,19 +5,26 @@ const { t } = useI18n();
 
 <template>
   <section id="skills" class="section-wrap section-block">
-    <header class="section-heading">
-      <p class="section-kicker">04 / {{ t("sections.skills.eyebrow") }}</p>
-      <h2>{{ t("sections.skills.label") }}</h2>
-    </header>
+    <SectionHeading
+      index="04"
+      :kicker="t('sections.skills.eyebrow')"
+      :title="t('sections.skills.label')"
+      glyph="星図"
+    />
 
     <div class="skills-grid">
       <article
         v-for="(group, i) in skills"
         :key="group.id"
+        v-reveal="i * 80"
+        v-tilt
         class="skill-group"
         :class="group.wide ? 'skill-group-wide' : ''"
       >
-        <p class="skill-number">S/{{ (i + 1).toString().padStart(2, "0") }}</p>
+        <div class="skill-group-head">
+          <p class="skill-number">S/{{ (i + 1).toString().padStart(2, "0") }}</p>
+          <p class="skill-count">{{ group.items.length }} ✦</p>
+        </div>
         <h3>{{ group.group }}</h3>
         <ul>
           <li v-for="item in group.items" :key="item">{{ item }}</li>

@@ -34,7 +34,8 @@
   },
   "contact": {
     "education": "Education",
-    "title": "Contact"
+    "title": "Contact",
+    "prompt": "Have a project, a role, or just want to say hi? Send a signal."
   },
   "hero": {
     "startConversation": "Email",
@@ -42,7 +43,11 @@
     "quickFacts": "Quick facts",
     "years": "Years building products",
     "remote": "Remote by default",
-    "based": "Based in Indonesia"
+    "based": "Based in Indonesia",
+    "localTime": "Local time",
+    "about": "Transmission",
+    "starfall": "Call a meteor shower",
+    "starfallHint": "Click the seal ✦ make a wish"
   },
   "now": {
     "currentPosition": "Current position"

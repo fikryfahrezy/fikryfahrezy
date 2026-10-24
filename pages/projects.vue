@@ -61,24 +61,22 @@ useSeoMeta({
 
 <template>
   <div class="showcase-page section-wrap">
-    <section class="project-page-header">
-      <p class="project-page-index" aria-hidden="true">02</p>
-      <div class="project-page-title">
-        <p class="section-kicker">{{ t("projects.eyebrow") }}</p>
-        <h1>{{ t("projects.title") }}</h1>
-      </div>
-      <div class="project-page-summary">
-        <p>{{ t("projects.description") }}</p>
-        <p>{{ t("projects.curatedSource") }}</p>
-      </div>
-    </section>
+    <PageHeader
+      index="02"
+      :kicker="t('projects.eyebrow')"
+      :title="t('projects.title')"
+      glyph="作品"
+    >
+      <p>{{ t("projects.description") }}</p>
+      <p>{{ t("projects.curatedSource") }}</p>
+    </PageHeader>
 
     <section
       v-if="featuredProducts.length"
       class="featured-products"
       aria-labelledby="featured-products-title"
     >
-      <header class="featured-products-heading">
+      <header v-reveal class="featured-products-heading">
         <h2 id="featured-products-title">
           {{ t("projects.featuredTitle") }}
         </h2>
@@ -91,6 +89,8 @@ useSeoMeta({
         <article
           v-for="(product, productIndex) in featuredProducts"
           :key="product.slug"
+          v-reveal="productIndex * 80"
+          v-tilt="{ max: 3 }"
           class="featured-product-card"
         >
           <div class="featured-product-topline">
@@ -150,7 +150,7 @@ useSeoMeta({
       </div>
     </section>
 
-    <header class="repository-archive-heading">
+    <header v-reveal class="repository-archive-heading">
       <h2>{{ t("projects.archiveTitle") }}</h2>
       <a
         v-if="githubProfileUrl"
@@ -211,7 +211,7 @@ useSeoMeta({
         class="project-group"
         :aria-labelledby="`project-group-${group.key}`"
       >
-        <header class="project-group-heading">
+        <header v-reveal class="project-group-heading">
           <p class="project-group-index" aria-hidden="true">
             {{ String(groupIndex + 1).padStart(2, "0") }} /
             {{ String(projectGroups.length).padStart(2, "0") }}
@@ -224,8 +224,10 @@ useSeoMeta({
 
         <div class="project-grid">
           <article
-            v-for="project in group.projects"
+            v-for="(project, projectIndex) in group.projects"
             :key="project.id"
+            v-reveal="(projectIndex % 3) * 70"
+            v-tilt
             class="project-card"
           >
             <div class="project-card-topline">

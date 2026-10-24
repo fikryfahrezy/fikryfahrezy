@@ -5,25 +5,30 @@ const { t } = useI18n();
 
 <template>
   <section id="education" class="education-section section-wrap section-block">
-    <header class="section-heading">
-      <p class="section-kicker">05 / {{ t("sections.education.eyebrow") }}</p>
-      <h2>{{ t("sections.education.label") }}</h2>
-    </header>
+    <SectionHeading
+      index="05"
+      :kicker="t('sections.education.eyebrow')"
+      :title="t('sections.education.label')"
+      glyph="基礎"
+    />
 
     <div class="education-list">
       <article
         v-for="(entry, i) in education"
         :key="entry.id"
+        v-reveal="i * 80"
+        v-tilt="{ max: 4 }"
         class="education-card"
       >
-        <p class="education-period">{{ entry.period }}</p>
-        <div>
+        <div class="education-stub" aria-hidden="true">
+          <span>EDU</span>
+          <strong>{{ (i + 1).toString().padStart(2, "0") }}</strong>
+        </div>
+        <div class="education-body">
+          <p class="meta-label">{{ entry.period }}</p>
           <h3>{{ entry.degree }}</h3>
           <p>{{ entry.school }}</p>
         </div>
-        <span aria-hidden="true">
-          EDU/{{ (i + 1).toString().padStart(2, "0") }}
-        </span>
       </article>
     </div>
   </section>

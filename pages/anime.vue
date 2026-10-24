@@ -52,17 +52,13 @@ useSeoMeta({
 
 <template>
   <div class="showcase-page section-wrap">
-    <section class="anime-page-header">
-      <p class="anime-page-index" aria-hidden="true">03</p>
-      <div class="anime-page-title">
-        <p class="section-kicker">{{ t("anime.eyebrow") }}</p>
-        <h1>
-          <span>{{ t("anime.titleLead") }}</span>
-          <span>{{ t("anime.titleTrail") }}</span>
-        </h1>
-      </div>
-      <div class="anime-page-summary">
-        <p>{{ t("anime.description") }}</p>
+    <PageHeader
+      index="03"
+      :kicker="t('anime.eyebrow')"
+      :title="`${t('anime.titleLead')} ${t('anime.titleTrail')}`"
+      glyph="アニメ"
+    >
+      <p>{{ t("anime.description") }}</p>
         <p>
           <a
             v-if="profileUrl"
@@ -74,8 +70,7 @@ useSeoMeta({
           </a>
           <span v-else>{{ t("anime.source") }}</span>
         </p>
-      </div>
-    </section>
+    </PageHeader>
 
     <section
       v-if="status === 'pending' && animeGroups.length === 0"
@@ -126,7 +121,7 @@ useSeoMeta({
         class="anime-group"
         :aria-labelledby="`anime-group-${group.key}`"
       >
-        <header class="anime-group-heading">
+        <header v-reveal class="anime-group-heading">
           <p class="anime-group-index" aria-hidden="true">
             {{ String(groupIndex + 1).padStart(2, "0") }} /
             {{ String(animeGroups.length).padStart(2, "0") }}
@@ -139,8 +134,10 @@ useSeoMeta({
 
         <div class="anime-grid">
           <article
-            v-for="anime in group.entries"
+            v-for="(anime, animeIndex) in group.entries"
             :key="anime.id"
+            v-reveal="(animeIndex % 5) * 50"
+            v-tilt
             class="anime-card"
           >
             <a

@@ -57,6 +57,19 @@ const homePath = computed(() => localePath("/"));
 const projectsPath = computed(() => localePath("/projects"));
 const animePath = computed(() => localePath("/anime"));
 const musicPath = computed(() => localePath("/music"));
+const navLinks = computed(() => [
+  { to: { path: homePath.value }, label: t("sections.me.label"), glyph: "星" },
+  { to: projectsPath.value, label: t("sections.projects.label"), glyph: "作" },
+  { to: animePath.value, label: t("sections.anime.label"), glyph: "ア" },
+  { to: musicPath.value, label: t("sections.music.label"), glyph: "音" },
+]);
+const themeIcon = computed(() =>
+  themePreference.value === ThemePreference.System
+    ? "◐"
+    : isLightTheme.value
+      ? "☀"
+      : "☾",
+);
 
 async function switchLocale() {
   await setLocale(alternateLocale.value);
@@ -143,7 +156,7 @@ useHead({
   meta: [
     {
       name: "theme-color",
-      content: () => (isLightTheme.value ? "#f5f5f0" : "#070707"),
+      content: () => (isLightTheme.value ? "#cddee5" : "#00081c"),
     },
   ],
   script: [
@@ -173,7 +186,7 @@ useSeoMeta({
   <div class="site-shell" :class="{ 'theme-light': isLightTheme }">
     <NuxtRouteAnnouncer />
     <NuxtLoadingIndicator
-      color="var(--ink)"
+      color="var(--comet)"
       :height="3"
       :throttle="0"
     />
@@ -185,7 +198,10 @@ useSeoMeta({
       class="theme-scan-fallback"
       aria-hidden="true"
     />
-    <GraphicBackground />
+    <StarField />
+    <div class="scroll-comet" aria-hidden="true">
+      <span />
+    </div>
 
     <header class="site-header">
       <NuxtLink
@@ -194,22 +210,15 @@ useSeoMeta({
         :aria-label="t('navigation.backToStart')"
         @click="handleBrandClick"
       >
-        FF<span>/26</span>
+        <span class="brand-star" aria-hidden="true">✦</span>
+        <span class="brand-text">FF<span>/26</span></span>
       </NuxtLink>
 
       <nav class="site-nav" :aria-label="t('navigation.sections')">
-        <NuxtLink :to="{ path: homePath }">
-          {{ t("sections.me.label") }}
+        <NuxtLink v-for="link in navLinks" :key="link.label" :to="link.to">
+          <span class="site-nav-glyph" aria-hidden="true">{{ link.glyph }}</span>
+          <ScrambleText :text="link.label" />
         </NuxtLink>
-        <NuxtLink :to="projectsPath">{{ t("sections.projects.label") }}</NuxtLink>
-        <NuxtLink :to="animePath">{{ t("sections.anime.label") }}</NuxtLink>
-        <NuxtLink :to="musicPath">{{ t("sections.music.label") }}</NuxtLink>
-      </nav>
-
-      <nav class="mobile-page-links" :aria-label="t('navigation.pages')">
-        <NuxtLink :to="projectsPath">{{ t("sections.projects.label") }}</NuxtLink>
-        <NuxtLink :to="animePath">{{ t("sections.anime.label") }}</NuxtLink>
-        <NuxtLink :to="musicPath">{{ t("sections.music.label") }}</NuxtLink>
       </nav>
 
       <div class="header-controls">
@@ -221,7 +230,7 @@ useSeoMeta({
           :data-theme="themePreference"
           @click="toggleTheme"
         >
-          <span aria-hidden="true">{{ isLightTheme ? "◐" : "◑" }}</span>
+          <span class="theme-switch-icon" aria-hidden="true">{{ themeIcon }}</span>
           <span class="theme-switch-label">{{ themeName }}</span>
         </button>
 
@@ -247,11 +256,16 @@ useSeoMeta({
     </main>
 
     <footer class="site-footer">
-      <span>© 2025–2026 FFR</span>
-      <span>{{ t("footer.built") }}</span>
-      <button type="button" @click="scrollToTop">
-        {{ t("navigation.backToStart") }} ↑
-      </button>
+      <p class="footer-wordmark" aria-hidden="true">
+        <span>Fikry</span><span class="footer-wordmark-star">✦</span><span>Fahrezy</span>
+      </p>
+      <div class="footer-meta">
+        <span>© 2025–2026 FFR</span>
+        <span>{{ t("footer.built") }}</span>
+        <button v-magnetic type="button" @click="scrollToTop">
+          {{ t("navigation.backToStart") }} ↑
+        </button>
+      </div>
     </footer>
   </div>
 </template>

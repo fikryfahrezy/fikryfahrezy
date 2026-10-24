@@ -1,6 +1,7 @@
 <template>
   <div>
     <HeroSection />
+    <TechMarquee />
     <NowSection />
     <JourneySection />
     <SkillsSection />
