@@ -1525,9 +1525,11 @@ main {
   fill: var(--cobalt);
 }
 
+/* Streak paths start at the head, so a negative offset pushes the dashes
+   away from it, out along the tail. */
 @keyframes comet-streak {
   to {
-    stroke-dashoffset: 90;
+    stroke-dashoffset: -90;
   }
 }
 

@@ -7,6 +7,28 @@ const props = defineProps<{ ring: string; label: string }>();
 const ringText = computed(() => `${props.ring} ✦ `);
 const isFalling = ref(false);
 
+// Spread the ring text with letter-spacing (which, unlike textLength, also
+// pads the trailing space) so the gap where the ring wraps matches the rest.
+const RING_CIRCUMFERENCE = 2 * Math.PI * 78;
+const ringTextEl = ref<SVGTextElement>();
+const ringSpacing = ref<string>();
+
+async function fitRing() {
+  ringSpacing.value = undefined;
+  await nextTick();
+  await document.fonts.ready;
+  const el = ringTextEl.value;
+  if (!el) return;
+  const chars = el.getNumberOfChars();
+  if (!chars) return;
+  const base = Number.parseFloat(getComputedStyle(el).letterSpacing) || 0;
+  const extra = (RING_CIRCUMFERENCE - el.getComputedTextLength()) / chars;
+  ringSpacing.value = `${base + extra}px`;
+}
+
+onMounted(fitRing);
+watch(ringText, fitRing);
+
 function callStarfall() {
   window.dispatchEvent(new CustomEvent("starfall"));
   isFalling.value = true;
@@ -34,10 +56,14 @@ function callStarfall() {
         />
       </defs>
       <g class="comet-badge-ring">
-        <text>
-          <textPath href="#comet-badge-ring" textLength="486">
-            {{ ringText }}
-          </textPath>
+        <!-- Whitespace is preserved so the trailing space after the last ✦
+             survives into the gap where the ring wraps. -->
+        <text
+          ref="ringTextEl"
+          xml:space="preserve"
+          :style="{ letterSpacing: ringSpacing }"
+        >
+          <textPath href="#comet-badge-ring">{{ ringText }}</textPath>
         </text>
       </g>
       <circle class="comet-badge-disc" cx="100" cy="100" r="58" />
