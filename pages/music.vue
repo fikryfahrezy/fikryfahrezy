@@ -15,6 +15,21 @@ const recentTracks = computed(() =>
 const featuredTrack = computed(
   () => currentTrack.value || recentTracks.value[0] || null,
 );
+// A printed record label for tracks that have no artwork.
+const labelInitials = computed(() =>
+  (featuredTrack.value?.name || "")
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => Array.from(word)[0])
+    .join("")
+    .toUpperCase(),
+);
+const labelCurveText = computed(() => {
+  if (!featuredTrack.value) return "";
+  const text = `${featuredTrack.value.name} • ${featuredTrack.value.artist} • `;
+  return text.length > 44 ? `${text.slice(0, 41).trimEnd()}… • ` : text;
+});
 const hasMusic = computed(
   () =>
     musicResponse.value.recentTracks.length > 0 ||
@@ -158,20 +173,65 @@ useSeoMeta({
           </time>
         </div>
         <a
-          class="music-now-art"
+          class="music-now-deck"
           :href="featuredTrack.url"
           target="_blank"
           rel="noreferrer"
           :aria-label="`${featuredTrack.name} — Last.fm`"
         >
-          <img
-            v-if="featuredTrack.image"
-            :src="featuredTrack.image"
-            :alt="`${featuredTrack.name} artwork`"
-            width="300"
-            height="300"
-          />
-          <span v-else aria-hidden="true">♪</span>
+          <span class="music-now-record" aria-hidden="true">
+            <span class="music-now-disc">
+              <img
+                v-if="featuredTrack.image"
+                class="music-now-label"
+                :src="featuredTrack.image"
+                alt=""
+                width="300"
+                height="300"
+              />
+              <svg
+                v-else
+                class="music-now-label is-printed"
+                viewBox="0 0 100 100"
+              >
+                <defs>
+                  <path
+                    id="music-label-curve"
+                    d="M 50 50 m -40 0 a 40 40 0 1 1 80 0 a 40 40 0 1 1 -80 0"
+                  />
+                </defs>
+                <circle cx="50" cy="50" r="50" />
+                <text class="music-label-curve">
+                  <textPath href="#music-label-curve">
+                    {{ labelCurveText }}
+                  </textPath>
+                </text>
+                <text class="music-label-initials" x="50" y="38">
+                  {{ labelInitials }}
+                </text>
+                <text class="music-label-side" x="50" y="71">SIDE A</text>
+              </svg>
+            </span>
+          </span>
+          <span class="music-now-sleeve">
+            <img
+              v-if="featuredTrack.image"
+              :src="featuredTrack.image"
+              :alt="`${featuredTrack.name} artwork`"
+              width="300"
+              height="300"
+            />
+            <span v-else aria-hidden="true">
+              <strong>{{ labelInitials }}</strong>
+              <small>{{ featuredTrack.artist }}</small>
+            </span>
+          </span>
+          <svg class="music-now-tonearm" viewBox="0 0 40 160" aria-hidden="true">
+            <line x1="20" y1="14" x2="20" y2="132" />
+            <rect class="music-tonearm-head" x="14" y="128" width="12" height="22" rx="2" />
+            <circle class="music-tonearm-base" cx="20" cy="14" r="12" />
+            <circle class="music-tonearm-pivot" cx="20" cy="14" r="4" />
+          </svg>
         </a>
       </section>
 
