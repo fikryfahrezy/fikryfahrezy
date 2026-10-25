@@ -256,9 +256,11 @@ useSeoMeta({
     </main>
 
     <footer class="site-footer">
-      <p class="footer-wordmark" aria-hidden="true">
-        <span>Fikry</span><span class="footer-wordmark-star">✦</span><span>Fahrezy</span>
-      </p>
+      <svg class="footer-wordmark" viewBox="0 0 1000 160" aria-hidden="true">
+        <text x="2" y="118" textLength="336" lengthAdjust="spacingAndGlyphs">Fikry</text>
+        <text class="footer-wordmark-star" x="376" y="94" textLength="52" lengthAdjust="spacingAndGlyphs">✦</text>
+        <text x="998" y="118" text-anchor="end" textLength="532" lengthAdjust="spacingAndGlyphs">Fahrezy</text>
+      </svg>
       <div class="footer-meta">
         <span>© 2025–2026 FFR</span>
         <span>{{ t("footer.built") }}</span>

@@ -1462,40 +1462,43 @@ main {
 }
 
 .footer-wordmark {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
+  width: 100%;
+  height: auto;
   margin-bottom: 18px;
-  color: transparent;
+  overflow: visible;
   font-family: var(--display);
-  font-size: clamp(56px, 15.5vw, 236px);
+  font-size: 150px;
   font-weight: 800;
-  letter-spacing: -0.06em;
-  line-height: 0.85;
-  -webkit-text-stroke: 1px var(--line-strong);
   user-select: none;
 }
 
-.footer-wordmark span {
+.footer-wordmark text {
+  fill: transparent;
+  stroke: var(--line-strong);
+  stroke-width: 1px;
+  vector-effect: non-scaling-stroke;
   transition:
-    color 400ms ease,
-    -webkit-text-stroke-color 400ms ease;
+    fill 400ms ease,
+    stroke 400ms ease;
 }
 
-.footer-wordmark span:not(.footer-wordmark-star):hover {
-  color: var(--cobalt);
-  -webkit-text-stroke-color: var(--cobalt);
+.footer-wordmark text:not(.footer-wordmark-star):hover {
+  fill: var(--cobalt);
+  stroke: var(--cobalt);
 }
 
-.footer-wordmark-star {
-  color: var(--comet);
-  font-size: 0.35em;
-  -webkit-text-stroke: 0;
+.footer-wordmark .footer-wordmark-star {
+  fill: var(--comet);
+  stroke: none;
+  font-size: 56px;
+  transform-box: fill-box;
+  transform-origin: center;
   animation: spin 12s linear infinite;
 }
 
-.theme-light .footer-wordmark-star {
-  color: var(--cobalt);
+.theme-light .footer-wordmark .footer-wordmark-star {
+  fill: var(--cobalt);
 }
 
 .footer-meta {
