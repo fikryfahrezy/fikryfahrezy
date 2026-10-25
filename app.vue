@@ -256,10 +256,37 @@ useSeoMeta({
     </main>
 
     <footer class="site-footer">
-      <svg class="footer-wordmark" viewBox="0 0 1000 160" aria-hidden="true">
-        <text x="2" y="118" textLength="336" lengthAdjust="spacingAndGlyphs">Fikry</text>
-        <text class="footer-wordmark-star" x="376" y="94" textLength="52" lengthAdjust="spacingAndGlyphs">✦</text>
-        <text x="998" y="118" text-anchor="end" textLength="532" lengthAdjust="spacingAndGlyphs">Fahrezy</text>
+      <svg class="footer-comet" viewBox="0 0 1000 180" aria-hidden="true">
+        <defs>
+          <linearGradient id="footer-comet-tail" x1="0" y1="0" x2="900" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" class="footer-comet-stop-fade" />
+            <stop offset="1" class="footer-comet-stop-head" />
+          </linearGradient>
+          <radialGradient id="footer-comet-glow">
+            <stop offset="0" class="footer-comet-stop-glow" />
+            <stop offset="1" class="footer-comet-stop-fade" />
+          </radialGradient>
+        </defs>
+        <path class="footer-comet-tail" d="M10 150 L880 80 L880 104 Z" />
+        <g class="footer-comet-streaks">
+          <path d="M880 92 Q520 110 60 160" />
+          <path d="M880 92 Q560 80 180 112" />
+          <path d="M880 92 Q620 128 300 172" />
+        </g>
+        <g class="footer-comet-sparks">
+          <circle cx="132" cy="46" r="2" />
+          <circle cx="358" cy="28" r="1.5" />
+          <circle cx="604" cy="160" r="2" />
+          <circle cx="742" cy="38" r="1.5" />
+          <circle cx="968" cy="150" r="2" />
+        </g>
+        <circle class="footer-comet-glow" cx="880" cy="92" r="72" />
+        <g transform="translate(880 92)">
+          <path
+            class="footer-comet-head"
+            d="M0 -40 C5 -9 9 -5 40 0 C9 5 5 9 0 40 C-5 9 -9 5 -40 0 C-9 -5 -5 -9 0 -40 Z"
+          />
+        </g>
       </svg>
       <div class="footer-meta">
         <span>© 2025–2026 FFR</span>
