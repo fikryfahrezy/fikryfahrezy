@@ -81,10 +81,12 @@ span both columns.
 numbers appear first.
 
 **Add a featured project.** Copy a file in both `en/products/` and
-`id/products/`, then update its name, summary, category, status, destination
-URL, and technologies. Lower `order` numbers appear first. `sourceUrl` is
-optional and should only be added when the source code is public. `image` and
-`imageAlt` are optional; place preview files in `public/images/projects/`.
+`id/products/`, then update its name, category, status, destination URL, and
+technologies. Write the summary below the closing `---`; it is Markdown, so
+[links](https://example.com) and **bold** work. Lower `order` numbers appear
+first. `sourceUrl` is optional and should only be added when the source code is
+public. `image` and `imageAlt` are optional; place preview files in
+`public/images/projects/`.
 
 **Add a shout-out.** Copy `en/shoutouts/milet.md` and `id/shoutouts/milet.md`,
 give the copies the same filename, and update the name, role, and URL. Write

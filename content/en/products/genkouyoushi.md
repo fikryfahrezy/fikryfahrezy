@@ -3,7 +3,6 @@ locale: en
 slug: genkouyoushi
 order: 10
 name: GenkouYoushi
-summary: "Japanese manuscript-paper practice PWA with tracing guides, in-browser kanji recognition from photos, and PDF export, backed by a self-built Kanji API for stroke-order diagrams."
 category: Learning tool
 status: Live
 url: https://genkouyoushi.fahrezy.work/
@@ -17,3 +16,5 @@ technologies:
   - FastAPI
   - PWA
 ---
+
+Japanese manuscript-paper practice PWA with tracing guides, in-browser kanji recognition from photos, and PDF export, backed by a self-built Kanji API for stroke-order diagrams.

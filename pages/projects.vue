@@ -120,7 +120,10 @@ useSeoMeta({
                 {{ product.name }}
               </a>
             </h3>
-            <p class="featured-product-summary">{{ product.summary }}</p>
+            <ContentRenderer
+              :value="product"
+              class="featured-product-summary"
+            />
           </div>
 
           <ul

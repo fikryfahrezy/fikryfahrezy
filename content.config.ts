@@ -43,7 +43,7 @@ export default defineContentConfig({
     }),
 
     // Featured projects remain independent from the GitHub repository archive
-    // so private and non-repository work can be included.
+    // so private and non-repository work can be included. Body = the summary.
     products: defineCollection({
       type: "page",
       source: "*/products/*.md",

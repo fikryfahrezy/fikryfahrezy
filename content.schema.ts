@@ -79,7 +79,6 @@ export const contentSchemas = {
     slug: z.string(),
     order: z.number(),
     name: z.string(),
-    summary: z.string(),
     category: z.string(),
     status: z.string(),
     url: z.string().url(),

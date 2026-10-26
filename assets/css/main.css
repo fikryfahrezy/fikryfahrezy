@@ -1797,7 +1797,7 @@ main {
 
 .featured-product-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(16px, 2.4vw, 32px);
 }
 
@@ -1878,8 +1878,23 @@ main {
 }
 
 .featured-product-summary {
+  display: grid;
+  gap: 10px;
   color: var(--panel-muted);
   line-height: 1.6;
+}
+
+.featured-product-summary > * {
+  margin: 0;
+}
+
+.featured-product-summary a {
+  border-bottom: 1px solid var(--accent);
+  transition: color 200ms ease;
+}
+
+.featured-product-summary a:hover {
+  color: var(--accent);
 }
 
 .project-topics {
@@ -2974,6 +2989,7 @@ main {
     grid-column: 1 / -1;
   }
 
+  .featured-product-grid,
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }

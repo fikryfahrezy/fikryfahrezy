@@ -3,7 +3,6 @@ locale: en
 slug: kaku
 order: 20
 name: Kaku
-summary: "Handwrite Japanese on one device, recognize it locally, and send the text to the focused field in a paired Chromium or Firefox browser through a self-hostable relay."
 category: Learning tool
 status: Live
 url: https://kaku.fahrezy.work/
@@ -17,3 +16,5 @@ technologies:
   - WebSocket
   - Browser extension
 ---
+
+Handwrite Japanese on one device, recognize it locally, and send the text to the focused field in a paired Chromium or Firefox browser through a self-hostable relay.

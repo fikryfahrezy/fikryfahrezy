@@ -3,7 +3,6 @@ locale: en
 slug: tsuzuru
 order: 30
 name: Tsuzuru
-summary: "Japanese writing-practice PWA with JLPT-level prompts, answer checking, and an offline journal."
 category: Learning tool
 status: Live
 url: https://tsuzuru.fahrezy.work/
@@ -17,3 +16,5 @@ technologies:
   - Bun
   - PWA
 ---
+
+Japanese writing-practice PWA with JLPT-level prompts, answer checking, and an offline journal.
