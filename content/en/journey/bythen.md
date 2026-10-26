@@ -4,7 +4,7 @@ order: 3
 company: "bythen.ai"
 role: "Full-stack Developer · Contract"
 period: "Mar 2025 — May 2025"
-location: "United States · Remote"
+location: "Indonesia · Remote"
 tags:
   - "TypeScript"
   - "NestJS"
