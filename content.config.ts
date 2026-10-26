@@ -49,5 +49,12 @@ export default defineContentConfig({
       source: "*/products/*.md",
       schema: contentSchemas.products,
     }),
+
+    // People worth a shout-out, one file each. Body = the note about them.
+    shoutouts: defineCollection({
+      type: "page",
+      source: "*/shoutouts/*.md",
+      schema: contentSchemas.shoutouts,
+    }),
   },
 });

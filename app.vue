@@ -57,11 +57,17 @@ const homePath = computed(() => localePath("/"));
 const projectsPath = computed(() => localePath("/projects"));
 const animePath = computed(() => localePath("/anime"));
 const musicPath = computed(() => localePath("/music"));
+const shoutoutsPath = computed(() => localePath("/shoutouts"));
 const navLinks = computed(() => [
   { to: { path: homePath.value }, label: t("sections.me.label"), glyph: "星" },
   { to: projectsPath.value, label: t("sections.projects.label"), glyph: "作" },
   { to: animePath.value, label: t("sections.anime.label"), glyph: "ア" },
   { to: musicPath.value, label: t("sections.music.label"), glyph: "音" },
+  {
+    to: shoutoutsPath.value,
+    label: t("sections.shoutouts.label"),
+    glyph: "敬",
+  },
 ]);
 const themeIcon = computed(() =>
   themePreference.value === ThemePreference.System

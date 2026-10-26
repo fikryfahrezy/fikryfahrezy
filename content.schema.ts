@@ -88,6 +88,19 @@ export const contentSchemas = {
     imageAlt: z.string().optional(),
     technologies: z.array(z.string()),
   }),
+
+  shoutouts: z.object({
+    locale,
+    slug: z.string(),
+    order: z.number(),
+    name: z.string(),
+    nativeName: z.string().optional(),
+    role: z.string(),
+    url: z.string().url().optional(),
+    links: z
+      .array(z.object({ label: z.string(), url: z.string().url() }))
+      .optional(),
+  }),
 };
 
 export type ContentCollectionName = keyof typeof contentSchemas;

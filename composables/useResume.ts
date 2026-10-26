@@ -135,3 +135,28 @@ export function useFeaturedProducts() {
     { default: () => [] },
   );
 }
+
+export function useShoutouts() {
+  const { locale } = useI18n();
+  return useAsyncData(
+    () => `shoutouts:${locale.value}`,
+    async () => {
+      const localized = await queryCollection("shoutouts")
+        .where("locale", "=", locale.value)
+        .order("order", "ASC")
+        .all();
+      if (locale.value === Locale.English) return localized;
+
+      const localizedSlugs = new Set(localized.map((entry) => entry.slug));
+      const english = await queryCollection("shoutouts")
+        .where("locale", "=", Locale.English)
+        .order("order", "ASC")
+        .all();
+      return [
+        ...localized,
+        ...english.filter((entry) => !localizedSlugs.has(entry.slug)),
+      ].sort((a, b) => a.order - b.order);
+    },
+    { default: () => [] },
+  );
+}

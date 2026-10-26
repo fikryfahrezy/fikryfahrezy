@@ -31,6 +31,7 @@ are translated.
 | `en/skills/*.md`, `id/skills/*.md` | One file per skill-group card |
 | `en/education/*.md`, `id/education/*.md` | One file per education entry |
 | `en/products/*.md`, `id/products/*.md` | Featured projects shown above the GitHub archive |
+| `en/shoutouts/*.md`, `id/shoutouts/*.md` | One file per person on the shout-outs page |
 
 ## How a file is built
 
@@ -84,6 +85,14 @@ numbers appear first.
 URL, and technologies. Lower `order` numbers appear first. `sourceUrl` is
 optional and should only be added when the source code is public. `image` and
 `imageAlt` are optional; place preview files in `public/images/projects/`.
+
+**Add a shout-out.** Copy `en/shoutouts/milet.md` and `id/shoutouts/milet.md`,
+give the copies the same filename, and update the name, role, and URL. Write
+your note below the closing `---`. It is Markdown, so paragraphs, **bold**,
+[links](https://example.com), and lists all work. Lower `order` numbers appear
+first. Only `name` and `role` are required: `nativeName` (shown vertically
+beside the number), `url`, and `links` can be left out, for example for a
+friend with no website.
 
 **Change what Google and Slack show.** Edit `seoTitle`, `seoDescription`, and
 `ogDescription` in the matching locale's `profile.md` file.

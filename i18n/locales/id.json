@@ -30,7 +30,8 @@
     "contact": { "label": "Kontak", "eyebrow": "Kirim sinyal" },
     "projects": { "label": "Proyek" },
     "anime": { "label": "Anime" },
-    "music": { "label": "Musik" }
+    "music": { "label": "Musik" },
+    "shoutouts": { "label": "Kudos" }
   },
   "contact": {
     "education": "Pendidikan",
@@ -139,6 +140,16 @@
     "topTracks": "Lagu teratas",
     "topArtists": "Musisi teratas",
     "playCount": "{count} kali diputar"
+  },
+  "shoutouts": {
+    "seoTitle": "Apresiasi — Fikry Fahrezy",
+    "eyebrow": "Orang-orang yang saya kagumi",
+    "title": "Apresiasi",
+    "description": "Dinding kecil untuk orang-orang yang saya hormati, dari seniman dan kreator hingga teman.",
+    "count": "{count} orang | {count} orang",
+    "website": "Situs web",
+    "emptyLabel": "Belum ada apresiasi",
+    "emptyTitle": "Dindingnya masih kosong."
   },
   "resume": {
     "workExperience": "Pengalaman Kerja",

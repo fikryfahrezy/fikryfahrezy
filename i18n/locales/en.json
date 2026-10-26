@@ -30,7 +30,8 @@
     "contact": { "label": "Contact", "eyebrow": "Send a signal" },
     "projects": { "label": "Projects" },
     "anime": { "label": "Anime" },
-    "music": { "label": "Music" }
+    "music": { "label": "Music" },
+    "shoutouts": { "label": "Kudos" }
   },
   "contact": {
     "education": "Education",
@@ -139,6 +140,16 @@
     "topTracks": "Top tracks",
     "topArtists": "Top artists",
     "playCount": "{count} play | {count} plays"
+  },
+  "shoutouts": {
+    "seoTitle": "Shout-outs — Fikry Fahrezy",
+    "eyebrow": "People I look up to",
+    "title": "Shout-outs",
+    "description": "A small wall for the people I respect, from artists and creators to friends.",
+    "count": "{count} person | {count} people",
+    "website": "Website",
+    "emptyLabel": "No shout-outs yet",
+    "emptyTitle": "The wall is still blank."
   },
   "resume": {
     "workExperience": "Work Experience",
