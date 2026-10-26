@@ -85,13 +85,12 @@ useSeoMeta({
         </p>
       </header>
 
-      <div class="featured-product-grid">
-        <article
+      <ol class="featured-product-list">
+        <li
           v-for="(product, productIndex) in featuredProducts"
           :key="product.slug"
           v-reveal="productIndex * 80"
-          v-tilt="{ max: 3 }"
-          class="featured-product-card"
+          class="featured-product-item"
         >
           <div class="featured-product-topline">
             <p class="meta-label">
@@ -124,33 +123,35 @@ useSeoMeta({
               :value="product"
               class="featured-product-summary"
             />
-          </div>
 
-          <ul
-            v-if="product.technologies.length"
-            class="project-topics"
-            :aria-label="t('projects.technologies')"
-          >
-            <li v-for="technology in product.technologies" :key="technology">
-              {{ technology }}
-            </li>
-          </ul>
-
-          <footer class="featured-product-footer">
-            <a :href="product.url" target="_blank" rel="noreferrer">
-              {{ t("projects.openProject") }} <span aria-hidden="true">↗</span>
-            </a>
-            <a
-              v-if="product.sourceUrl"
-              :href="product.sourceUrl"
-              target="_blank"
-              rel="noreferrer"
+            <ul
+              v-if="product.technologies.length"
+              class="project-topics"
+              :aria-label="t('projects.technologies')"
             >
-              {{ t("projects.sourceCode") }} <span aria-hidden="true">↗</span>
-            </a>
-          </footer>
-        </article>
-      </div>
+              <li v-for="technology in product.technologies" :key="technology">
+                {{ technology }}
+              </li>
+            </ul>
+
+            <footer class="featured-product-footer">
+              <a :href="product.url" target="_blank" rel="noreferrer">
+                {{ t("projects.openProject") }}
+                <span aria-hidden="true">↗</span>
+              </a>
+              <a
+                v-if="product.sourceUrl"
+                :href="product.sourceUrl"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {{ t("projects.sourceCode") }}
+                <span aria-hidden="true">↗</span>
+              </a>
+            </footer>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <header v-reveal class="repository-archive-heading">
@@ -280,6 +281,7 @@ useSeoMeta({
 }
 
 .featured-products {
+  gap: 0;
   margin-bottom: clamp(64px, 8vw, 110px);
 }
 
@@ -293,10 +295,6 @@ useSeoMeta({
   gap: 12px 24px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line-strong);
-}
-
-.featured-products-heading {
-  margin-bottom: -40px;
 }
 
 .featured-products-heading h2,
@@ -357,31 +355,25 @@ useSeoMeta({
   margin-right: auto;
 }
 
-.featured-product-grid {
+.featured-product-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.featured-product-item {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(16px, 2.4vw, 32px);
-}
-
-.featured-product-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: clamp(18px, 2vw, 26px);
-  overflow: hidden;
-  background: var(--cobalt);
-  color: var(--on-cobalt);
-  box-shadow: var(--shadow);
-}
-
-.featured-product-card:nth-child(3n + 2) {
-  translate: 0 48px;
+  grid-template-columns: 88px minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(16px, 2.4vw, 36px);
+  padding-block: clamp(24px, 3vw, 40px);
+  border-bottom: 1px solid var(--line-strong);
 }
 
 .featured-product-topline {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  justify-items: start;
+  gap: 10px;
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
@@ -390,7 +382,12 @@ useSeoMeta({
 }
 
 .featured-product-topline .meta-label {
-  color: var(--panel-muted);
+  color: var(--muted);
+  transition: color 200ms ease;
+}
+
+.featured-product-item:hover .featured-product-topline .meta-label {
+  color: var(--accent);
 }
 
 .featured-product-topline > p:last-child {
@@ -402,6 +399,7 @@ useSeoMeta({
 .featured-project-preview {
   overflow: hidden;
   aspect-ratio: 16 / 10;
+  border: 1px solid var(--line-strong);
   background: var(--abyss);
 }
 
@@ -413,17 +411,17 @@ useSeoMeta({
   transition: transform 900ms var(--ease-out);
 }
 
-.featured-product-card:hover .featured-project-preview img {
+.featured-product-item:hover .featured-project-preview img {
   transform: scale(1.05);
 }
 
 .featured-product-body {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .featured-product-category {
-  color: var(--comet);
+  color: var(--accent);
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
@@ -433,16 +431,24 @@ useSeoMeta({
 
 .featured-product-body h3 {
   font-family: var(--display);
-  font-size: clamp(34px, 3.8vw, 56px);
+  font-size: clamp(30px, 3.2vw, 46px);
   font-weight: 800;
   letter-spacing: -0.05em;
   line-height: 0.95;
 }
 
+.featured-product-body h3 a {
+  transition: color 200ms ease;
+}
+
+.featured-product-body h3 a:hover {
+  color: var(--accent);
+}
+
 .featured-product-summary {
   display: grid;
   gap: 10px;
-  color: var(--panel-muted);
+  color: var(--muted);
   line-height: 1.6;
 }
 
@@ -457,6 +463,10 @@ useSeoMeta({
 
 .featured-product-summary :deep(a:hover) {
   color: var(--accent);
+}
+
+.featured-product-body .project-topics {
+  margin-top: 4px;
 }
 
 .project-topics {
@@ -476,21 +486,16 @@ useSeoMeta({
   font-size: 11px;
 }
 
-.featured-product-card .project-topics li {
-  border-color: var(--panel-line);
-  color: var(--on-cobalt);
-}
-
 .featured-product-footer {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: auto;
+  margin-top: 8px;
 }
 
 .featured-product-footer a {
   padding: 10px 14px;
-  border: 1px solid var(--panel-line);
+  border: 1px solid var(--line-strong);
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 700;
@@ -503,9 +508,9 @@ useSeoMeta({
 
 .featured-product-footer a:first-child,
 .featured-product-footer a:hover {
-  border-color: var(--comet);
-  background: var(--comet);
-  color: var(--on-comet);
+  border-color: var(--cobalt);
+  background: var(--cobalt);
+  color: var(--on-cobalt);
 }
 
 .project-grid {
@@ -601,24 +606,28 @@ useSeoMeta({
 }
 
 @media (max-width: 1080px) {
-  .featured-product-grid,
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-product-item {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featured-product-topline {
+    display: flex;
+    grid-column: 1 / -1;
+    align-items: center;
   }
 }
 
 @media (max-width: 800px) {
-  .featured-product-grid,
   .project-grid {
     grid-template-columns: 1fr;
   }
 
-  .featured-product-card:nth-child(n) {
-    translate: none;
-  }
-
-  .featured-products-heading {
-    margin-bottom: 0;
+  .featured-product-item {
+    grid-template-columns: 1fr;
   }
 }
 </style>
