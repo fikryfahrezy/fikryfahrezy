@@ -78,3 +78,99 @@ function callStarfall() {
     </svg>
   </button>
 </template>
+
+<style scoped>
+.comet-badge {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(190px, 18vw, 250px);
+  aspect-ratio: 1;
+  align-self: center;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.comet-badge svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.comet-badge-ring {
+  transform-origin: 100px 100px;
+  animation: spin 22s linear infinite;
+}
+
+.comet-badge-ring text {
+  fill: currentColor;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.comet-badge-disc {
+  fill: var(--cobalt);
+  transition: transform 500ms var(--ease-spring);
+  transform-origin: 100px 100px;
+}
+
+.comet-badge-crown {
+  fill: var(--on-cobalt);
+  transform-origin: 100px 110px;
+  transition: transform 500ms var(--ease-spring);
+}
+
+.comet-badge-star {
+  fill: var(--comet);
+  transform-origin: 100px 64px;
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
+.comet-badge:hover .comet-badge-ring {
+  animation-duration: 5s;
+}
+
+.comet-badge:hover .comet-badge-disc {
+  transform: scale(1.08);
+}
+
+.comet-badge:hover .comet-badge-crown {
+  transform: translateY(-4px) rotate(-6deg);
+}
+
+.comet-badge.is-falling .comet-badge-star {
+  animation: star-launch 1.2s var(--ease-out);
+}
+
+.comet-badge:active .comet-badge-disc {
+  transform: scale(0.94);
+}
+
+@keyframes star-launch {
+  0% {
+    transform: none;
+  }
+
+  40% {
+    transform: translateY(-60px) scale(1.6) rotate(180deg);
+    opacity: 0;
+  }
+
+  41% {
+    transform: translateY(30px) scale(0.4);
+    opacity: 0;
+  }
+
+  100% {
+    transform: none;
+    opacity: 1;
+  }
+}
+</style>

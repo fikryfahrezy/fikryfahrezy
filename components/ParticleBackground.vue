@@ -39,3 +39,50 @@ const particles = Array.from({ length: 32 }, (_, index) => {
     />
   </div>
 </template>
+
+<style scoped>
+.particle-field {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  mask-image: linear-gradient(120deg, transparent 20%, black 70%);
+}
+
+.particle {
+  position: absolute;
+  top: var(--particle-y);
+  left: var(--particle-x);
+  width: var(--particle-size);
+  height: var(--particle-size);
+  border-radius: 50%;
+  background: var(--comet);
+  box-shadow: 0 0 8px rgb(245 255 20 / 60%);
+  opacity: var(--particle-opacity);
+  animation: particle-drift var(--particle-duration) ease-in-out
+    var(--particle-delay) infinite alternate;
+  will-change: transform;
+}
+
+.particle:nth-child(3n) {
+  background: var(--on-cobalt);
+  box-shadow: 0 0 8px rgb(255 255 255 / 60%);
+}
+
+@keyframes particle-drift {
+  from {
+    transform: translate(
+      calc(var(--particle-dx) * -0.5),
+      calc(var(--particle-dy) * -0.5)
+    );
+  }
+
+  to {
+    transform: translate(
+      calc(var(--particle-dx) * 0.5),
+      calc(var(--particle-dy) * 0.5)
+    );
+  }
+}
+</style>

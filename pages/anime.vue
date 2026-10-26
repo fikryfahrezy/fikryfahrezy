@@ -179,3 +179,161 @@ useSeoMeta({
     </div>
   </div>
 </template>
+
+<style scoped>
+.anime-groups {
+  display: grid;
+  gap: clamp(64px, 8vw, 110px);
+}
+
+.anime-group-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.anime-group-heading h2 {
+  margin-right: auto;
+  font-family: var(--display);
+  font-size: clamp(34px, 4.6vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+.anime-group-count {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.anime-group-index {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.anime-card h3 {
+  font-family: var(--display);
+  font-size: clamp(22px, 2vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+
+/* Stretch the title link over the whole card. */
+.anime-card h3 a::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+}
+
+.anime-group-heading {
+  margin-bottom: 28px;
+}
+
+.anime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: clamp(12px, 1.6vw, 20px);
+}
+
+.anime-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  background: var(--paper-raised);
+}
+
+.anime-cover {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 225 / 318;
+  overflow: hidden;
+  background: var(--cobalt);
+  color: var(--on-cobalt);
+  font-family: var(--mono);
+}
+
+.anime-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 900ms var(--ease-out),
+    filter 400ms ease;
+}
+
+/* A cobalt duotone that lifts on hover. */
+.anime-cover::after {
+  position: absolute;
+  inset: 0;
+  background: var(--cobalt);
+  content: "";
+  mix-blend-mode: color;
+  opacity: 0.55;
+  transition: opacity 400ms ease;
+}
+
+.anime-card:hover .anime-cover::after {
+  opacity: 0;
+}
+
+.anime-card:hover .anime-cover img {
+  transform: scale(1.06);
+}
+
+.anime-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 16px 16px;
+}
+
+.anime-card-topline {
+  display: flex;
+  justify-content: space-between;
+  color: var(--accent);
+}
+
+.anime-card-topline .meta-label {
+  font-size: 10px;
+}
+
+.anime-card h3 {
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+.anime-card-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10.5px;
+}
+
+@media (max-width: 800px) {
+  .anime-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+</style>

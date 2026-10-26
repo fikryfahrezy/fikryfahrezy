@@ -56,3 +56,10 @@ onBeforeUnmount(() => {
     <span class="scramble-display" aria-hidden="true">{{ display }}</span>
   </span>
 </template>
+
+<style scoped>
+.scramble-display {
+  display: inline-block;
+  min-width: 1ch;
+}
+</style>
